@@ -19,12 +19,10 @@ public class Main {
 
     public static Optional<SecondaryIndex> readGZIPPEDfile() throws IOException{
         try{
-            SecondaryIndex index = SecondaryIndex.instantiate(true, true, true, "/home/justinmucke/git/2021ss-thesis-justin/SecondaryIndicies/secondaryIndex-0.ser.gz", true);
-            System.out.println(index.getStoredImprints().toString());
-            System.out.println(index.getStoredImprints());
+            SecondaryIndex index = SecondaryIndex.readFromJson("/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies/secondaryIndex-0.json");
            return Optional.of(index);
         }
-        catch (IOException e) {
+        catch (Exception e) {
             e.printStackTrace();
             System.out.println("FAILED TO READ INDEX");
             return Optional.empty();
@@ -35,8 +33,8 @@ public class Main {
 
     public static void main(String[] args)  {
         try{
-            SecondaryIndex index = readGZIPPEDfile().orElseThrow(() -> new IOException("Failes Secondary Index read"));
-            System.out.println(index.getStoredImprints().toString());
+            SecondaryIndex index = readGZIPPEDfile().orElseThrow(() -> new IOException("Failed Secondary Index read"));
+            System.out.println(index.toString());
 
 
         } catch(IOException e){

@@ -28,4 +28,9 @@ public class Imprint implements Serializable {
                 ", _schemaElementID=" + _schemaElementID +
                 '}';
     }
+
+    public String toJson(){
+        return "{ \n\"_id\" :" + _id + ",\n \"_timestamp \" : "+ _timestamp +",\n \" _payload\" : \"" + _payload + "\",\n \"_schemaElementID\" : " + _schemaElementID + "\n }\n" ;
+    }
 }
+
