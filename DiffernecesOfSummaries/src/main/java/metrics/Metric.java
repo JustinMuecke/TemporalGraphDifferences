@@ -1,15 +1,12 @@
 package metrics;
 
-import com.orientechnologies.orient.core.db.ODatabaseSession;
-import results.AvgLinksResult;
-import results.MetricTypes;
+import org.jgrapht.Graph;
 import results.Result;
+
+import java.util.HashMap;
 
 public interface Metric {
 
-    Graph graph;
-    Result result = null;
-
-    long calculateMetric(ODatabaseSession database);
+    Result<Long> compute(Graph<Integer,Integer> graph, HashMap<Integer, Integer[]> secondaryIndex, String name);
 
 }
