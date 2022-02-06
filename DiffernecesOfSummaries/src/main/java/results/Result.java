@@ -16,7 +16,7 @@ public abstract class Result<T> {
 
     @Override
     public String toString() {
-        return "Metric "+ metric + ":\n" +
+        return "metrics.Metric "+ metric + ":\n" +
                 "First database: " + database1 + ", " +
                 "Second database: " + database2 + ", " +
                 "Difference:" + difference + "\n";
