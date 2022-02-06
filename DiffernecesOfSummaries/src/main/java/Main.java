@@ -34,9 +34,14 @@ public class Main {
 
         List<ODatabaseSession> sessionList;
         try {
-            sessionList = getDatabaseSession("justin-imp-test");
+            sessionList = DBConnector.getDatabaseSessions("justin-test").orElseThrow(() -> new DBConnectionFailedException("List of Sessions Empty"));
+            List<Integer> vertices = Queries.getVertices(sessionList.get(0)).orElseThrow(() -> new DBConnectionFailedException("Couldnt get Vertices"));
+            System.out.println(vertices.toString());
         } catch (DBConnectionFailedException e) {
             e.printStackTrace();
         }
+
+
+
     }
 }

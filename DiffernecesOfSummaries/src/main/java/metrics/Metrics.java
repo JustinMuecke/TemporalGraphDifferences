@@ -1,3 +1,5 @@
+package metrics;
+
 import com.orientechnologies.orient.core.db.ODatabaseSession;
 import network.Queries;
 import results.AvgLinksResult;
