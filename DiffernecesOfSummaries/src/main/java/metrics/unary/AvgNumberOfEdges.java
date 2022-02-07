@@ -1,14 +1,16 @@
 package metrics.unary;
 
+import datamodel.ExtGraph;
 import metrics.Metric;
-import org.jgrapht.Graph;
+import results.AvgNumberOfEdgesResult;
+import results.MetricTypes;
 import results.Result;
-
-import java.util.HashMap;
 
 public class AvgNumberOfEdges implements Metric {
     @Override
-    public Result<Long> compute(Graph<Integer, Integer> graph, HashMap<Integer, Integer[]> secondaryIndex, String name) {
-        return null;
+    public Result compute(ExtGraph graph) {
+        int numberOfEdges = graph.getGraph().edgeSet().size();
+        float avg = numberOfEdges / graph.getResults().get(MetricTypes.NUMBER_OF_EQC);
+        return new AvgNumberOfEdgesResult(graph.getName(), avg);
     }
 }

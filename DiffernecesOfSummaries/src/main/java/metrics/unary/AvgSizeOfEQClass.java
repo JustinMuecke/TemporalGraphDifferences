@@ -1,21 +1,20 @@
 package metrics.unary;
 
+import datamodel.ExtGraph;
 import metrics.Metric;
-import org.jgrapht.Graph;
 import results.AvgSizeOfEQClassResult;
-
-import java.util.HashMap;
+import results.MetricTypes;
 
 public class AvgSizeOfEQClass implements Metric {
 
 
     @Override
-    public AvgSizeOfEQClassResult compute(Graph<Integer, Integer> graph, HashMap<Integer, Integer[]> secondaryIndex, String name) {
+    public AvgSizeOfEQClassResult compute(ExtGraph graph) {
         int sum = 0;
-        for(Integer[] collected : secondaryIndex.values()){
+        for(Integer[] collected : graph.getSecondaryIndex().values()){
             sum += collected.length;
         }
-        float avg = (float) sum / graph.vertexSet().size();
-        return new AvgSizeOfEQClassResult(name, avg);
+        float avg = (float) sum / graph.getResults().get(MetricTypes.NUMBER_OF_EQC);
+        return new AvgSizeOfEQClassResult(graph.getName(), avg);
     }
 }

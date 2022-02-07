@@ -1,14 +1,22 @@
 package metrics.unary;
 
+import datamodel.ExtGraph;
 import metrics.Metric;
-import org.jgrapht.Graph;
 import results.Result;
-
-import java.util.HashMap;
+import results.TMHResult;
 
 public class TMH implements Metric {
     @Override
-    public Result<Long> compute(Graph<Integer, Integer> graph, HashMap<Integer, Integer[]> secondaryIndex, String name) {
-        return null;
+    public Result compute(ExtGraph graph) {
+        float sum = 0;
+        float sumsquared = 0;
+        for(Integer v : graph.getGraph().vertexSet()){
+            int degree = graph.getGraph().degreeOf(v);
+            sum += degree;
+            sumsquared += degree * degree;
+        }
+        System.out.println(sum);
+        System.out.println(sumsquared);
+        return new TMHResult(graph.getName(), sumsquared/sum);
     }
 }

@@ -1,15 +1,14 @@
 package metrics.unary;
 
+import datamodel.ExtGraph;
 import metrics.Metric;
-import org.jgrapht.Graph;
+import results.NumberOfEQCResult;
 import results.Result;
-
-import java.util.HashMap;
 
 public class NumberOfEQClasses implements Metric{
 
     @Override
-    public Result<Long> compute(Graph<Integer, Integer> graph, HashMap<Integer, Integer[]> secondaryIndex, String name) {
-        return null;
+    public Result compute(ExtGraph graph) {
+        return new NumberOfEQCResult(graph.getName(), graph.getGraph().vertexSet().size());
     }
 }

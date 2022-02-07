@@ -1,22 +1,21 @@
 import com.orientechnologies.orient.core.db.ODatabaseSession;
-
 import com.orientechnologies.orient.core.exception.ODatabaseException;
+import datamodel.Edge;
+import datamodel.ExtGraph;
 import metrics.Metric;
 import metrics.unary.*;
 import network.DBConnectionFailedException;
 import network.DBConnector;
-
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-
 import network.FileWriter;
 import network.Queries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jgrapht.Graph;
-import org.jgrapht.graph.Multigraph;
-import results.Result;
+import org.jgrapht.graph.DirectedMultigraph;
+import results.MetricTypes;
+
+import java.util.HashMap;
+import java.util.List;
 
 
 public class Main {
@@ -30,34 +29,32 @@ public class Main {
     private static HashMap<String, ExtGraph> createGraphs(List<ODatabaseSession> sessionList){
         HashMap<String, ExtGraph> graphMap = new HashMap<>();
         for(ODatabaseSession session : sessionList) {
-            Graph<Integer, Integer> graph = new Multigraph<>(Integer.class);
+            Graph<Integer, Edge> graph = new DirectedMultigraph<>(Edge.class);
             List<Integer> vertexList = Queries.getVertices(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
             for(Integer v : vertexList)
                 graph.addVertex(v);
-
-            graphMap.put(session.getName(), new ExtGraph(session.getName(), graph, "Indicies/" + session.getName() + "json"));
+            List<Edge> edgeList = Queries.getEdges(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Edges"));
+            for(Edge e : edgeList) {
+                graph.addEdge(e.getIn(), e.getOut(), e);
+            }
+            graphMap.put(session.getName(), new ExtGraph(session.getName(), graph, "Indicies/" + session.getName() + ".json"));
         }
         return graphMap;
     }
 
-    private static List<Metric> createMetricList(){
-        List<Metric> metricList = new LinkedList<>();
-        metricList.add(new TMH());
-        metricList.add(new NumberOfEQClasses());
-        metricList.add(new Comp());
-        metricList.add(new AvgSizeOfEQClass());
-        metricList.add(new AvgNumberOfEdges());
-        return metricList;
-
+    private static Metric[] createMetricList(){
+        return new Metric[]{new NumberOfEQClasses(), new AvgSizeOfEQClass(), new AvgNumberOfEdges(), new Comp(), new TMH()};
     }
 
     public static void main(String[] args)  {
 
+
+
         List<ODatabaseSession> sessionList;
         HashMap<String, ExtGraph> graphMap = null;
-        List<Metric> metricList = createMetricList();
+        Metric[] metricList = createMetricList();
         try {
-            sessionList = getDatabaseSession("justin-imp-test");
+            sessionList = getDatabaseSession("justin-test");
             graphMap = createGraphs(sessionList);
 
 
@@ -72,8 +69,8 @@ public class Main {
             g.computeMetrics(metricList);
         }
         for(ExtGraph g : graphMap.values()){
-            for(Result<Long> r : g.getResults()){
-                FileWriter.writeToFile(r);
+            for(MetricTypes r : g.getResults().keySet()){
+                FileWriter.writeToFile(g.getName(), r, g.getResults().get(r));
 
             }
         }

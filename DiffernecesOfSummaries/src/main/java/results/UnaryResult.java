@@ -1,8 +1,8 @@
 package results;
 
-public abstract class UnaryResult<T> extends Result{
+public abstract class UnaryResult extends Result{
 
-    private String database;
+    private final String database;
 
     public UnaryResult(MetricTypes metric, String database, float difference) {
         super(metric, difference);

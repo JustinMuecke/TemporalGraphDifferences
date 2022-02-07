@@ -15,4 +15,12 @@ public abstract class Result {
         return "metrics.Metric "+ metric + ":\n" +
                 "Difference:" + difference + "\n";
     }
+
+    public MetricTypes getMetric() {
+        return metric;
+    }
+
+    public float getDifference() {
+        return difference;
+    }
 }
