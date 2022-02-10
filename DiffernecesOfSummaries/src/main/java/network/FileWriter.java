@@ -60,7 +60,6 @@ public class FileWriter {
 
 
     private static String createUnaryCSVString(HashMap<MetricTypes, Float> results, String name){
-        String csv = " ";
         StringBuilder sb = new StringBuilder();
         sb.append(name).append(",")
                 .append(results.get(MetricTypes.NUMBER_OF_EQC))
@@ -73,13 +72,12 @@ public class FileWriter {
                 .append(",")
                 .append(results.get(MetricTypes.COMP))
                 .append("\n");
-        csv = sb.toString();
+        String csv = sb.toString();
         csv = csv.replace("Null", "0");
         return csv;
     }
 
     private static String createUnaryCompTimeString(HashMap<MetricTypes, Long> compTimes, String name){
-        String csv = "";
         StringBuilder sb = new StringBuilder();
         sb.append(name).append(",")
                 .append(compTimes.get(MetricTypes.GRPAH_CREATION))
@@ -94,7 +92,7 @@ public class FileWriter {
                 .append(",")
                 .append(compTimes.get(MetricTypes.COMP))
                 .append("\n");
-        csv = sb.toString();
+        String csv = sb.toString();
         csv = csv.replace("Null", "0");
         return csv;
     };
