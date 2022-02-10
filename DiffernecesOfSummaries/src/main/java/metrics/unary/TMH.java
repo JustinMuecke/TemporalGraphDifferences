@@ -15,8 +15,6 @@ public class TMH implements Metric {
             sum += degree;
             sumsquared += degree * degree;
         }
-        System.out.println(sum);
-        System.out.println(sumsquared);
         return new TMHResult(graph.getName(), sumsquared/sum);
     }
 }

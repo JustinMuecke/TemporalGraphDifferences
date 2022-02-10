@@ -12,9 +12,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jgrapht.Graph;
 import org.jgrapht.graph.DirectedMultigraph;
-import results.MetricTypes;
 
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.List;
 
 
@@ -26,20 +25,20 @@ public class Main {
         return DBConnector.getDatabaseSessions(dbName).orElseThrow(() -> new DBConnectionFailedException("List of Sessions Empty"));
     }
 
-    private static HashMap<String, ExtGraph> createGraphs(List<ODatabaseSession> sessionList){
-        HashMap<String, ExtGraph> graphMap = new HashMap<>();
-        for(ODatabaseSession session : sessionList) {
+    private static ExtGraph[] createGraphs(List<ODatabaseSession> sessionList){
+        ExtGraph[] extGraphs = new ExtGraph[sessionList.size()];
+        for(int i = 0; i < extGraphs.length; i++) {
             Graph<Integer, Edge> graph = new DirectedMultigraph<>(Edge.class);
-            List<Integer> vertexList = Queries.getVertices(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
+            List<Integer> vertexList = Queries.getVertices(sessionList.get(i)).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
             for(Integer v : vertexList)
                 graph.addVertex(v);
-            List<Edge> edgeList = Queries.getEdges(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Edges"));
+            List<Edge> edgeList = Queries.getEdges(sessionList.get(i)).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Edges"));
             for(Edge e : edgeList) {
                 graph.addEdge(e.getIn(), e.getOut(), e);
             }
-            graphMap.put(session.getName(), new ExtGraph(session.getName(), graph, "Indicies/" + session.getName() + ".json"));
+             extGraphs[i] = new ExtGraph(sessionList.get(i).getName(), graph, "Indicies/" + sessionList.get(i).getName() + ".json");
         }
-        return graphMap;
+        return extGraphs;
     }
 
     private static Metric[] createMetricList(){
@@ -51,28 +50,28 @@ public class Main {
 
 
         List<ODatabaseSession> sessionList;
-        HashMap<String, ExtGraph> graphMap = null;
+        ExtGraph[] graphList = null;
         Metric[] metricList = createMetricList();
         try {
             sessionList = getDatabaseSession("justin-test");
-            graphMap = createGraphs(sessionList);
-
-
+            graphList = createGraphs(sessionList);
         } catch (DBConnectionFailedException e) {
             e.printStackTrace();
         }
-        if(graphMap == null){
+        if(graphList == null){
             logger.error("Couldn't load Graphs");
             return;
         }
-        for(ExtGraph g : graphMap.values()){
-            g.computeMetrics(metricList);
+        for (ExtGraph extGraph : graphList) {
+            extGraph.computeMetrics(metricList);
         }
-        for(ExtGraph g : graphMap.values()){
-            for(MetricTypes r : g.getResults().keySet()){
-                FileWriter.writeToFile(g.getName(), r, g.getResults().get(r));
-
+        try {
+            FileWriter.initializeUnaryCSVFile();
+            for (ExtGraph g : graphList) {
+                FileWriter.writeToUnaryFile(g.getResults(), g.getName());
             }
+        } catch( IOException e){
+            logger.error("Couldnt write to File");
         }
 
 
