@@ -110,7 +110,8 @@ public class SecondaryIndex implements Serializable {
         GZIPOutputStream gis = new GZIPOutputStream(new FileOutputStream(indexFile+ ".ser.gz"));
         ObjectOutputStream out = new ObjectOutputStream(gis);
         // Method for serialization of object
-        FileOutputStream fout = new FileOutputStream(indexFile +".json");
+
+        FileOutputStream fout = new FileOutputStream("/media/nvmen1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies" +indexFile +".json");
         DataOutputStream dout = new DataOutputStream(fout);
         dout.writeUTF(this.toJson());
         out.writeObject(this);
