@@ -16,16 +16,8 @@ public class Edge {
         return in;
     }
 
-    public void setIn(Integer in) {
-        this.in = in;
-    }
-
     public Integer getOut() {
         return out;
-    }
-
-    public void setOut(Integer out) {
-        this.out = out;
     }
 
     @Override
