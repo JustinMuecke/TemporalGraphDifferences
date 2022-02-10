@@ -42,9 +42,12 @@ public class Main {
             extGraph.computeUnaryMetrics(unaryMetricList);
         }
         try {
-            FileWriter.initializeUnaryCSVFile();
+            FileWriter.initializeUnaryCSVFile("Results/unaryResults.csv", false);
+            FileWriter.initializeUnaryCSVFile("Results/unaryCompTimes.csv", true);
             for (ExtGraph g : graphList) {
                 FileWriter.writeToUnaryFile(g.getResults(), g.getName());
+                FileWriter.writeToUnaryCompTimeFile(g.getCompTimes(), g.getName());
+
             }
         } catch( IOException e){
             logger.error("Couldnt write to File");

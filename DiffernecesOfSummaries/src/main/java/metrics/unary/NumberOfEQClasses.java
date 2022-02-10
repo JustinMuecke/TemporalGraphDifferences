@@ -9,6 +9,9 @@ public class NumberOfEQClasses implements Metric{
 
     @Override
     public Result compute(ExtGraph graph) {
-        return new NumberOfEQCResult(graph.getName(), graph.getSecondaryIndex().keySet().size());
+        long start = System.currentTimeMillis();
+        float size = graph.getSecondaryIndex().keySet().size();
+        long compTime = System.currentTimeMillis() - start;
+        return new NumberOfEQCResult(graph.getName(), size, compTime);
     }
 }

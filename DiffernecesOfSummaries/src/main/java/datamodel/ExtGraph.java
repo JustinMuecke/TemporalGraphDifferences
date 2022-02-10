@@ -23,6 +23,7 @@ public class ExtGraph {
     private final Graph<Integer, Edge> graph;
     private HashMap<Integer, Integer[]> secondaryIndex;
     private final HashMap<MetricTypes, Float> results;
+    private final HashMap<MetricTypes, Long> compTimes;
 
     public ExtGraph(String name, Graph<Integer, Edge> graph, String path2secondaryIndex) {
         this.name = name;
@@ -34,8 +35,8 @@ public class ExtGraph {
         catch(NullPointerException e){
             logger.warn("Failed to read secondaryIndex");
         }
-        results = new HashMap<>(
-        );
+        results = new HashMap<>();
+        compTimes = new HashMap<>();
 
     }
 
@@ -55,10 +56,13 @@ public class ExtGraph {
         return secondaryIndex;
     }
 
-
+    public HashMap<MetricTypes, Long> getCompTimes() {
+        return compTimes;
+    }
 
     public static ExtGraph[] createGraphs(List<ODatabaseSession> sessionList){
         ExtGraph[] extGraphs = new ExtGraph[sessionList.size()];
+        long start = System.currentTimeMillis();
         for(int i = 0; i < extGraphs.length; i++) {
             Graph<Integer, Edge> graph = new DirectedMultigraph<>(Edge.class);
             List<Integer> vertexList = Queries.getVertices(sessionList.get(i)).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
@@ -69,6 +73,7 @@ public class ExtGraph {
                 graph.addEdge(e.getIn(), e.getOut(), e);
             }
             extGraphs[i] = new ExtGraph(sessionList.get(i).getName(), graph, "Indicies/" + sessionList.get(i).getName() + ".json");
+            extGraphs[i].getCompTimes().put(MetricTypes.GRPAH_CREATION, System.currentTimeMillis() - start);
         }
         return extGraphs;
     }
@@ -78,6 +83,7 @@ public class ExtGraph {
             Result result = metric.compute(this);
             if (result != null) {
                 results.put(result.getMetric(), result.getDifference());
+                compTimes.put(result.getMetric(), result.getCompTime());
             }
         }
     }
