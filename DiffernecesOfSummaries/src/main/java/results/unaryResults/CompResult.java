@@ -1,6 +1,9 @@
-package results;
+package results.unaryResults;
 
-public class CompResult extends UnaryResult{
+import results.MetricTypes;
+import results.UnaryResult;
+
+public class CompResult extends UnaryResult {
     public CompResult(String database, float difference, long compTime) {
 
         super(MetricTypes.COMP, database, difference, compTime);

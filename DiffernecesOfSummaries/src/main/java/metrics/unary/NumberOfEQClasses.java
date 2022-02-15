@@ -1,11 +1,11 @@
 package metrics.unary;
 
 import datamodel.ExtGraph;
-import metrics.Metric;
-import results.NumberOfEQCResult;
+import metrics.UnaryMetric;
+import results.unaryResults.NumberOfEQCResult;
 import results.Result;
 
-public class NumberOfEQClasses implements Metric{
+public class NumberOfEQClasses implements UnaryMetric {
 
     @Override
     public Result compute(ExtGraph graph) {

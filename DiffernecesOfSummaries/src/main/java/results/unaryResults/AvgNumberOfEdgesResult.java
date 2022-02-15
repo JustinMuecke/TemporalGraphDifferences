@@ -1,6 +1,9 @@
-package results;
+package results.unaryResults;
 
-public class AvgNumberOfEdgesResult extends UnaryResult{
+import results.MetricTypes;
+import results.UnaryResult;
+
+public class AvgNumberOfEdgesResult extends UnaryResult {
     public AvgNumberOfEdgesResult(String database, float difference, long compTime) {
         super(MetricTypes.AVG_NUMBERS_OF_EDGES, database, difference, compTime);
     }

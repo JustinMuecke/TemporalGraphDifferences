@@ -2,15 +2,15 @@ package metrics.unary;
 
 import datamodel.Edge;
 import datamodel.ExtGraph;
-import metrics.Metric;
+import metrics.UnaryMetric;
 import org.jgrapht.alg.connectivity.ConnectivityInspector;
-import results.CompResult;
+import results.unaryResults.CompResult;
 import results.Result;
 
 import java.util.List;
 import java.util.Set;
 
-public class Comp implements Metric {
+public class Comp implements UnaryMetric {
     @Override
     public Result compute(ExtGraph graph) {
         long start = System.currentTimeMillis();

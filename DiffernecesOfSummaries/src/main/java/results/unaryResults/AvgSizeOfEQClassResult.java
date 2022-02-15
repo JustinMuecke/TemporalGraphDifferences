@@ -1,4 +1,7 @@
-package results;
+package results.unaryResults;
+
+import results.MetricTypes;
+import results.UnaryResult;
 
 public class AvgSizeOfEQClassResult extends UnaryResult {
     public AvgSizeOfEQClassResult(String database1, Float difference, long compTime) {
