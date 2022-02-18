@@ -1,0 +1,4 @@
+Name,               Name 2nd,           JaccardVertex,          JaccardEdge,            GED,        KLD
+till-test-1,        till-test-0,        1.0,                    1.0,                    8.0,        0.058891512
+till-test-2,        till-test-1,        1.0,                    1.0,                    8.0,        0.056633037
+till-test-3,        till-test-2,        0.0,                    1.0,                    19.0,       2.0

@@ -119,10 +119,10 @@ public class FileWriter {
     }
 
     private static String createBinaryCSVString(HashMap<MetricTypes, Float> results, String name){
-        String referenceDBName = name.substring(0, name.length()-1) + String.valueOf(Integer.parseInt(String.valueOf(name.charAt(name.length()-1)))-1);
+        String referenceDBName = name.substring(0, name.length()-1) + (Integer.parseInt(String.valueOf(name.charAt(name.length() - 1))) - 1);
         StringBuilder sb = new StringBuilder();
-        sb.append(name).append(",")
-                .append(referenceDBName).append(",")
+        sb.append(referenceDBName).append(",")
+                .append(name).append(",")
                 .append(results.get(MetricTypes.JACCARD_VERTEX)).append(",")
                 .append(results.get(MetricTypes.JARCCARD_EDGE)).append(",")
                 .append(results.get(MetricTypes.GED)).append(",")
