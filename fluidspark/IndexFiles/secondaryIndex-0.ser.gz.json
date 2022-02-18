@@ -1,0 +1,22 @@
+Õ{"SecondaryIndex" : {
+"storedImprints" : {
+"-2002205862" : { 
+"_id" :-2002205862,
+ "_timestamp " : 1643727726825,
+ " _payload" : "[http://zbw.eu]",
+ "_schemaElementID" : -906685405
+ }
+,"-1122452666" : { 
+"_id" :-1122452666,
+ "_timestamp " : 1643727726840,
+ " _payload" : "[http://zbw.eu]",
+ "_schemaElementID" : 525623488
+ }
+
+},
+"indexFile" : "IndexFiles/secondaryIndex-0.ser.gz",
+" trackAllChanges ": false,
+" trackMandatory ": false,
+" trackExecutionTime ": false
+}
+}

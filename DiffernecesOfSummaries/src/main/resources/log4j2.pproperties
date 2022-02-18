@@ -1,0 +1,11 @@
+appenders = console
+appender.console.type = Console
+appender.console.name = STDOUT
+appender.console.layout.type = PatternLayout
+log4j.appender.CONSOLE.layout=com.jcabi.log.MulticolorLayout
+appender.console.layout.pattern = %d{MM-dd HH:mm:ss} [%4.4t] %highlight{%-5level @}%-3L %style{%highlight{[}}{Bright}%c{1}%style{%highlight{]}}{Bright} - %msg%n
+
+
+rootLogger.level = debug
+rootLogger.appenderRefs = stdout
+rootLogger.appenderRef.stdout.ref = STDOUT

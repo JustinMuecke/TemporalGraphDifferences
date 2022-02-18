@@ -1,61 +1,57 @@
 import com.orientechnologies.orient.core.db.ODatabaseSession;
-
-import database.SecondaryIndex;
+import datamodel.ExtGraph;
+import metrics.Metric;
+import metrics.unary.*;
 import network.DBConnectionFailedException;
 import network.DBConnector;
+import network.FileWriter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
-import java.util.zip.GZIPInputStream;
-import database.Imprint;
 
 
 public class Main {
 
+    private static final Logger logger = LogManager.getLogger(Main.class);
 
-    public static Optional<SecondaryIndex> readGZIPPEDfile() throws IOException{
-        try{
-            SecondaryIndex index = SecondaryIndex.instantiate(true, true, true, "/home/justinmucke/git/2021ss-thesis-justin/SecondaryIndicies/secondaryIndex-0.ser.gz", true);
-            System.out.println(index.getStoredImprints().toString());
-            System.out.println(index.getStoredImprints());
-           return Optional.of(index);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("FAILED TO READ INDEX");
-            return Optional.empty();
-        }
-        
+    private static List<ODatabaseSession> getDatabaseSession(String dbName) throws DBConnectionFailedException{
+        return DBConnector.getDatabaseSessions(dbName).orElseThrow(() -> new DBConnectionFailedException("List of Sessions Empty"));
     }
 
+    private static Metric[] createUnaryMetricList(){
+        return new Metric[]{new NumberOfEQClasses(), new AvgSizeOfEQClass(), new AvgNumberOfEdges(), new Comp(), new TMH()};
+    }
 
     public static void main(String[] args)  {
-        try{
-            SecondaryIndex index = readGZIPPEDfile().orElseThrow(() -> new IOException("Failes Secondary Index read"));
-            System.out.println(index.getStoredImprints().toString());
-
-
-        } catch(IOException e){
-            e.printStackTrace();
-            System.out.println("FAILED TO READ INDEX");
-
-        }
-        /*
         List<ODatabaseSession> sessionList;
+        ExtGraph[] graphList = null;
+        Metric[] unaryMetricList = createUnaryMetricList();
         try {
-            sessionList = DBConnector.getDatabaseSessions("justin-imp-test").orElseThrow(() -> new DBConnectionFailedException("List of Sessions Empty"));
-            System.out.println(Metrics.changeInAverageLinks(sessionList.get(0), sessionList.get(1)));
-            System.out.println(Metrics.changeInNumberOfNOdes(sessionList.get(0), sessionList.get(1)));
-            System.out.println(Metrics.changeInNumberOfEdges(sessionList.get(0), sessionList.get(1)));
+            sessionList = getDatabaseSession("justin-test");
+            graphList = ExtGraph.createGraphs(sessionList);
         } catch (DBConnectionFailedException e) {
             e.printStackTrace();
         }
-        */
+        if(graphList == null){
+            logger.error("Couldn't load Graphs");
+            return;
+        }
+        for (ExtGraph extGraph : graphList) {
+            extGraph.computeUnaryMetrics(unaryMetricList);
+        }
+        try {
+            FileWriter.initializeUnaryCSVFile("Results/unaryResults.csv", false);
+            FileWriter.initializeUnaryCSVFile("Results/unaryCompTimes.csv", true);
+            for (ExtGraph g : graphList) {
+                FileWriter.writeToUnaryFile(g.getResults(), g.getName());
+                FileWriter.writeToUnaryCompTimeFile(g.getCompTimes(), g.getName());
 
+            }
+        } catch( IOException e){
+            logger.error("Couldnt write to File");
+        }
 
     }
 }

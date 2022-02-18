@@ -1,24 +1,32 @@
 package results;
 
-public abstract class Result<T> {
+public abstract class Result {
 
     private final MetricTypes metric;
-    private final String database1;
-    private final String database2;
-    private final T difference;
+    private final float difference;
+    private final long compTime;
 
-    public Result(MetricTypes metric, String database1, String database2, T difference) {
+    public Result(MetricTypes metric, float difference, long compTime) {
         this.metric = metric;
-        this.database1 = database1;
-        this.database2 = database2;
         this.difference = difference;
+        this.compTime = compTime;
     }
 
     @Override
     public String toString() {
-        return "Metric "+ metric + ":\n" +
-                "First database: " + database1 + ", " +
-                "Second database: " + database2 + ", " +
+        return "metrics.Metric "+ metric + ":\n" +
                 "Difference:" + difference + "\n";
+    }
+
+    public MetricTypes getMetric() {
+        return metric;
+    }
+
+    public float getDifference() {
+        return difference;
+    }
+
+    public long getCompTime() {
+        return compTime;
     }
 }
