@@ -693,7 +693,7 @@ public class SecondaryIndex implements Serializable {
     public String toJson(){
         StringBuilder sb = new StringBuilder();
         sb.append("{\"schemaElementToImprint\" : {\n");
-        schemaElementToImprint.forEach((k, v) -> sb.append("\"" + k.toString() +"\" : " + v.toString()+ ","));
+        schemaElementToImprint.forEach((k, v) -> sb.append("\"").append(k.toString()).append("\" : ").append(v.size()).append(","));
         sb.deleteCharAt(sb.toString().length()-1);
         sb.append("}\n}");
         return sb.toString();
