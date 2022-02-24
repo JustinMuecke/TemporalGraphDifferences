@@ -335,8 +335,8 @@ class ConfigPipeline(config: MyConfig, skipSnapshots: Int = 0, endEarly: Int = I
           if (trackPrimaryChanges || trackSecondaryChanges)
             updateResult.mergeAll(Result.getInstance())
           
-          println("Current Iteration: " + iteration)
-          println("Last Iteration: " + lastIteration)
+ 
+
           val deleteIterator = OrientConnector.getInstance(database+"-"+iteration, trackPrimaryChanges, trackUpdateTimes, maxCoresInt).
             getSecondaryIndex.getSchemaElementsToBeRemoved().iterator()
           val schemaIDsToBeDeleted = new java.util.HashSet[Integer]()
@@ -363,8 +363,8 @@ class ConfigPipeline(config: MyConfig, skipSnapshots: Int = 0, endEarly: Int = I
           logger.info("Stopping spark")
           sc.stop()
           logger.info("Spark stopped")
-          logger.info( OrientConnector.getInstance(database+"-"+iteration, trackPrimaryChanges, trackUpdateTimes, maxCoresInt).
-            getSecondaryIndex.getStoredImprints().toString())
+        //  logger.info( OrientConnector.getInstance(database+"-"+iteration, trackPrimaryChanges, trackUpdateTimes, maxCoresInt).
+       //     getSecondaryIndex.getStoredImprints().toString())
           val secondaryBytes = OrientConnector.getInstance(database+"-"+iteration, trackPrimaryChanges, trackUpdateTimes, maxCoresInt).
             getSecondaryIndex.persist()
           logger.info("Secondary index persisted")

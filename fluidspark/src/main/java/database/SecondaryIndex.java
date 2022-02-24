@@ -41,7 +41,7 @@ public class SecondaryIndex implements Serializable {
     private SecondaryIndex(boolean trackAllChanges, boolean trackMandatory, boolean trackExecutionTimes, String indexFile) {
         schemaElementToImprint = new HashMap<>();
         storedImprints = new HashMap<>();
-        this.indexFile = "IndexFiles/"+indexFile;
+        this.indexFile = indexFile;
         this.trackAllChanges = trackAllChanges;
         this.trackMandatory = trackMandatory;
         this.trackExecutionTimes = trackExecutionTimes;
@@ -107,19 +107,18 @@ public class SecondaryIndex implements Serializable {
 
     public long persist() throws IOException {
         //Saving of object in a file
-        GZIPOutputStream gis = new GZIPOutputStream(new FileOutputStream(indexFile+ ".ser.gz"));
+        GZIPOutputStream gis = new GZIPOutputStream(new FileOutputStream("IndexFiles/" + indexFile+ ".ser.gz"));
         ObjectOutputStream out = new ObjectOutputStream(gis);
         // Method for serialization of object
 
-        FileOutputStream fout = new FileOutputStream("/media/nvmen1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies" +indexFile +".json");
-        DataOutputStream dout = new DataOutputStream(fout);
-        dout.writeUTF(this.toJson());
+//        FileOutputStream fout = new FileOutputStream("/media/nvme7n1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies/" +indexFile +".json");
+//        DataOutputStream dout = new DataOutputStream(fout);
+//        dout.writeUTF(this.toJson());
         out.writeObject(this);
-        System.out.println(this.toString());
         out.close();
         gis.close();
-        dout.close();
-        fout.close();
+//        dout.close();
+//        fout.close();
 
         
         //logger.info(this.getClass().getSimpleName() + " has been serialized.");
@@ -687,7 +686,7 @@ public class SecondaryIndex implements Serializable {
     public String toJson(){
         StringBuilder sb = new StringBuilder();
         sb.append("{\"schemaElementToImprint\" : {\n");
-        schemaElementToImprint.forEach((k, v) -> sb.append("\"" + k.toString() +"\" : " + v.toString()+ ","));
+        schemaElementToImprint.forEach((k, v) -> sb.append("\"" + k.toString() +"\" : " + v.size() + ","));
         sb.deleteCharAt(sb.toString().length()-1);
         sb.append("}\n}");
         return sb.toString();
