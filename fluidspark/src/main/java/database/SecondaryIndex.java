@@ -117,9 +117,9 @@ public class SecondaryIndex implements Serializable {
         gis.close();
 
 
-        RandomAccessFile stream = new RandomAccessFile("/media/nvmen1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies" + dbname +".json", "rw");
+        RandomAccessFile stream = new RandomAccessFile("/media/nvme7n1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies/" + dbname +".json", "rw");
         FileChannel channel = stream.getChannel();
-        String value = "Hello";
+        String value = this.toJson();
         byte[] strBytes = value.getBytes();
         ByteBuffer buffer = ByteBuffer.allocate(strBytes.length);
         buffer.put(strBytes);
