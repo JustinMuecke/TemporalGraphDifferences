@@ -1,11 +1,11 @@
 package metrics.unary;
 
 import datamodel.ExtGraph;
-import metrics.Metric;
-import results.AvgSizeOfEQClassResult;
+import metrics.UnaryMetric;
+import results.unaryResults.AvgSizeOfEQClassResult;
 import results.MetricTypes;
 
-public class AvgSizeOfEQClass implements Metric {
+public class AvgSizeOfEQClass implements UnaryMetric {
 
 
     @Override
@@ -16,7 +16,7 @@ public class AvgSizeOfEQClass implements Metric {
             sum += collected.length;
         }
         long compTime = System.currentTimeMillis() - start;
-        float avg = (float) sum / graph.getResults().get(MetricTypes.NUMBER_OF_EQC);
+        float avg = (float) sum / graph.getUnaryResults().get(MetricTypes.NUMBER_OF_EQC);
         return new AvgSizeOfEQClassResult(graph.getName(), avg, compTime);
     }
 }
