@@ -5,6 +5,8 @@ import metrics.BinaryMetric;
 import results.Result;
 import results.binaryResults.GEDResult;
 
+import java.util.stream.Collectors;
+
 public class GED implements BinaryMetric {
     @Override
     public Result compute(ExtGraph graph1, ExtGraph graph2) {
@@ -19,7 +21,7 @@ public class GED implements BinaryMetric {
                 diff += 1 + graph1.getGraph().outgoingEdgesOf(vertex).size() + graph1.getGraph().incomingEdgesOf(vertex).size();
             }
         }
-        for (Integer vertex : graph2.getGraph().vertexSet().stream().filter(vertex -> !graph1.getGraph().vertexSet().contains(vertex)).toList()){
+        for (Integer vertex : graph2.getGraph().vertexSet().stream().filter(vertex -> !graph1.getGraph().vertexSet().contains(vertex)).collect(Collectors.toList())){
             diff += 1 + graph2.getGraph().outgoingEdgesOf(vertex).size() + graph2.getGraph().incomingEdgesOf(vertex).size();
         }
         long compTime = System.currentTimeMillis() - start;

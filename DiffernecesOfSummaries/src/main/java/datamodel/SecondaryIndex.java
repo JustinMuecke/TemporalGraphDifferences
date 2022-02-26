@@ -16,9 +16,9 @@ public class SecondaryIndex implements Serializable {
     private static final boolean TRACK_PAYLOAD_DETAILS = true;
     private final static Gson gson = new Gson();
 
-    private final HashMap<Integer, Integer[]> schemaElementToImprint;
+    private final HashMap<Integer, Integer> schemaElementToImprint;
 
-    public SecondaryIndex(HashMap<Integer, Integer[]> schemaElementToImprint){
+    public SecondaryIndex(HashMap<Integer, Integer> schemaElementToImprint){
         this.schemaElementToImprint = schemaElementToImprint;
     }
 
@@ -44,10 +44,11 @@ public class SecondaryIndex implements Serializable {
 
     }
 
-    public HashMap<Integer, Integer[]> getSchemaElementToImprint() {
+    public HashMap<Integer, Integer> getSchemaElementToImprint() {
         return schemaElementToImprint;
     }
 
+    /*
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -62,6 +63,7 @@ public class SecondaryIndex implements Serializable {
                 return sb.toString();
 
     }
+    */
 
 }
     

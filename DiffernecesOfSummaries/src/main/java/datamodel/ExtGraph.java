@@ -22,7 +22,7 @@ public class ExtGraph {
 
     private final String name;
     private final Graph<Integer, Edge> graph;
-    private HashMap<Integer, Integer[]> secondaryIndex;
+    private HashMap<Integer, Integer> secondaryIndex;
     private final HashMap<MetricTypes, Float> unaryResults;
     private final HashMap<MetricTypes, Long> unaryCompTimes;
     private final HashMap<MetricTypes, Float> binaryResults;
@@ -57,7 +57,7 @@ public class ExtGraph {
         return graph;
     }
 
-    public HashMap<Integer, Integer[]> getSecondaryIndex() {
+    public HashMap<Integer, Integer> getSecondaryIndex() {
         return secondaryIndex;
     }
 

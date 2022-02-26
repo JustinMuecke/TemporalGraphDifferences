@@ -38,7 +38,7 @@ public class Main {
         ExtGraph[] graphList = null;
         UnaryMetric[] unaryMetricList = createUnaryMetricList();
         try {
-            sessionList = getDatabaseSession("till-test");
+            sessionList = getDatabaseSession("AC-2019");
             graphList = ExtGraph.createGraphs(sessionList);
         } catch (DBConnectionFailedException e) {
             e.printStackTrace();

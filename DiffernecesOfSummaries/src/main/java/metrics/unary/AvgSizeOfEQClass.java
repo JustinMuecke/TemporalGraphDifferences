@@ -12,8 +12,8 @@ public class AvgSizeOfEQClass implements UnaryMetric {
     public AvgSizeOfEQClassResult compute(ExtGraph graph) {
         long start = System.currentTimeMillis();
         int sum = 0;
-        for(Integer[] collected : graph.getSecondaryIndex().values()){
-            sum += collected.length;
+        for(Integer collected : graph.getSecondaryIndex().values()){
+            sum += collected;
         }
         long compTime = System.currentTimeMillis() - start;
         float avg = (float) sum / graph.getUnaryResults().get(MetricTypes.NUMBER_OF_EQC);

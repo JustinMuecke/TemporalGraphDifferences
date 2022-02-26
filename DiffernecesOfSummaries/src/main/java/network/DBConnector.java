@@ -19,7 +19,7 @@ public class DBConnector {
         List<ODatabaseSession> sessionList = new LinkedList<>();
         OrientDB databaseServer = new OrientDB(URL, serverUser, serverPassword, OrientDBConfig.defaultConfig());
 
-        for(int i = 0; i < databaseServer.list().size(); i++){
+        for(int i = 0; i < 5; i++){
             sessionList.add(getSingleSession(databaseServer, database+"-"+i));
         }
 

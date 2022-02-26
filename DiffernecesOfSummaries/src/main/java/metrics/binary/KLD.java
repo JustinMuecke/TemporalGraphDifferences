@@ -6,6 +6,7 @@ import results.Result;
 import results.binaryResults.KLDResult;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class KLD implements BinaryMetric {
 
@@ -14,10 +15,7 @@ public class KLD implements BinaryMetric {
         long compStart = System.currentTimeMillis();
         float klu = 0;
         //Compute KL of all EQC which are in both timesteps.
-        List<Integer> klueqs = graph1.getSecondaryIndex().keySet().stream().filter(eqc -> graph2.getSecondaryIndex().containsKey(eqc)).toList();
-        List<Integer> deletioneqcs = graph1.getSecondaryIndex().keySet().stream().filter(eqc -> !graph2.getSecondaryIndex().containsKey(eqc)).toList();
-        List<Integer> additioneqcs = graph2.getSecondaryIndex().keySet().stream().filter(eqc -> !graph1.getSecondaryIndex().containsKey(eqc)).toList();
-        for(Integer eqc : graph1.getSecondaryIndex().keySet().stream().filter(eqc -> graph2.getSecondaryIndex().containsKey(eqc)).toList()) {
+        for(Integer eqc : graph1.getSecondaryIndex().keySet().stream().filter(eqc -> graph2.getSecondaryIndex().containsKey(eqc)).collect(Collectors.toList())) {
             float probTimeT1 =  computeProbabilityOfContainment(graph1, eqc);
             float probTimeT2 =  computeProbabilityOfContainment(graph2, eqc);
             klu += probTimeT1 * Math.log(probTimeT1/probTimeT2);
@@ -26,12 +24,12 @@ public class KLD implements BinaryMetric {
         // Add Correction Terms
         float correctionDelete = 0;
 
-        for(Integer eqc : graph1.getSecondaryIndex().keySet().stream().filter(eqc -> !graph2.getSecondaryIndex().containsKey(eqc)).toList()) {
+        for(Integer eqc : graph1.getSecondaryIndex().keySet().stream().filter(eqc -> !graph2.getSecondaryIndex().containsKey(eqc)).collect(Collectors.toList())) {
             float probAtT = computeProbabilityOfContainment(graph1, eqc);
             correctionDelete -= probAtT * logDual(probAtT);
         }
         float correctionAdd = 0;
-        for(Integer eqc : graph2.getSecondaryIndex().keySet().stream().filter(eqc -> !graph1.getSecondaryIndex().containsKey(eqc)).toList()) {
+        for(Integer eqc : graph2.getSecondaryIndex().keySet().stream().filter(eqc -> !graph1.getSecondaryIndex().containsKey(eqc)).collect(Collectors.toList())) {
             float probAtT = computeProbabilityOfContainment(graph2, eqc);
             correctionDelete -= probAtT * logDual(probAtT);
         }
