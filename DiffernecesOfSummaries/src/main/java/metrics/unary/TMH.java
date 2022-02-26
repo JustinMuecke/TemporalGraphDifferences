@@ -1,11 +1,11 @@
 package metrics.unary;
 
 import datamodel.ExtGraph;
-import metrics.UnaryMetric;
+import metrics.Metric;
 import results.Result;
-import results.unaryResults.TMHResult;
+import results.TMHResult;
 
-public class TMH implements UnaryMetric {
+public class TMH implements Metric {
     @Override
     public Result compute(ExtGraph graph) {
         long start = System.currentTimeMillis();

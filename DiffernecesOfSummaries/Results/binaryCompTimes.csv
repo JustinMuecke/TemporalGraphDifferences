@@ -1,4 +1,0 @@
-Name,               Name 2nd,            JaccardVertex,     JaccardEdge,    GED,    KLD
-till-test-1,        till-test-0,        1,                  2,              1,      3
-till-test-2,        till-test-1,        0,                  0,              0,      0
-till-test-3,        till-test-2,        0,                  0,              0,      0

@@ -6,9 +6,5 @@ public enum MetricTypes {
     AVG_NUMBERS_OF_EDGES,
     NUMBER_OF_EQC,
     TMH,
-    COMP,
-    JACCARD_VERTEX,
-    JARCCARD_EDGE,
-    GED,
-    KLD
+    COMP
 }
