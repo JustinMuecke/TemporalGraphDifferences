@@ -41,8 +41,8 @@ public class KLD implements BinaryMetric {
     }
 
     private float computeProbabilityOfContainment(ExtGraph graph, Integer eqc){
-            float sizeAtT = graph.getSecondaryIndex().get(eqc).length;
-            float combinedSizeAtT = graph.getSecondaryIndex().values().stream().map(array -> array.length).reduce(0, Integer::sum);
+            float sizeAtT = graph.getSecondaryIndex().get(eqc);
+            float combinedSizeAtT = graph.getSecondaryIndex().values().stream().reduce(0, Integer::sum);
             return sizeAtT/combinedSizeAtT;
     }
 
