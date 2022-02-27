@@ -27,7 +27,6 @@ public class SecondaryIndex implements Serializable {
             File f = new File(filePath);
             byte[] bytes = Files.readAllBytes(f.toPath());
             String jsonString= new String(bytes, StandardCharsets.UTF_8);
-            System.out.println(jsonString);
             return gson.fromJson(jsonString, SecondaryIndex.class);
         }
         catch(IOException e){

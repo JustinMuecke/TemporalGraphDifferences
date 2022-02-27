@@ -29,7 +29,9 @@ public class ExtGraph {
     private final HashMap<MetricTypes, Long> binaryCompTimes;
 
     public ExtGraph(String name, Graph<Integer, Edge> graph, String path2secondaryIndex) {
-        this.name = name;
+       System.out.println("------ CREATING GRAPH ------");
+	 this.name = name;
+	System.out.println(graph.edgeSet());
         this.graph = graph;
         try {
             logger.info("PATH TO SECONDADRY: " + path2secondaryIndex);
@@ -88,7 +90,7 @@ public class ExtGraph {
             System.out.println("Indicies/" + sessionList.get(i).getName() + ".json");
             extGraphs[i] = new ExtGraph(sessionList.get(i).getName(), graph, "Indicies/" + sessionList.get(i).getName() + ".json");
             extGraphs[i].getUnaryCompTimes().put(MetricTypes.GRPAH_CREATION, System.currentTimeMillis() - start);
-            System.out.println(extGraphs[i].getSecondaryIndex().toString());
+            System.out.println(extGraphs[i].getGraph().toString());
         }
         return extGraphs;
     }
