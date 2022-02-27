@@ -29,16 +29,13 @@ public class ExtGraph {
     private final HashMap<MetricTypes, Long> binaryCompTimes;
 
     public ExtGraph(String name, Graph<Integer, Edge> graph, String path2secondaryIndex) {
-       System.out.println("------ CREATING GRAPH ------");
-	 this.name = name;
-	System.out.println(graph.edgeSet());
+    	 this.name = name;
         this.graph = graph;
         try {
-            logger.info("PATH TO SECONDADRY: " + path2secondaryIndex);
             this.secondaryIndex = SecondaryIndex.readFromJson(path2secondaryIndex).getSchemaElementToImprint();
         }
         catch(NullPointerException e){
-            logger.warn("Failed to read secondaryIndex");
+            logger.error("Couldnt read SecondaryIndex for " + name);
         }
         unaryResults = new HashMap<>();
         unaryCompTimes = new HashMap<>();
@@ -87,10 +84,8 @@ public class ExtGraph {
             for(Edge e : edgeList) {
                 graph.addEdge(e.getIn(), e.getOut(), e);
             }
-            System.out.println("Indicies/" + sessionList.get(i).getName() + ".json");
             extGraphs[i] = new ExtGraph(sessionList.get(i).getName(), graph, "/media/nvme7n1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies/" + sessionList.get(i).getName() + ".json");
             extGraphs[i].getUnaryCompTimes().put(MetricTypes.GRPAH_CREATION, System.currentTimeMillis() - start);
-            System.out.println(extGraphs[i].getGraph().toString());
         }
         return extGraphs;
     }
@@ -106,6 +101,9 @@ public class ExtGraph {
     }
 
     public void computeBinaryMetrics(BinaryMetric[] metrics, ExtGraph referenceGraph){
+        logger.info("Computing BinaryMetric between " + this.getName() + " and " + referenceGraph.getName());
+        logger.info("Edge Size of Graph1: " + this.getGraph().edgeSet());
+        logger.info("Edge Size of Graph2: " + this.getGraph().edgeSet());
         for(BinaryMetric metric : metrics){
             Result result = metric.compute(referenceGraph, this);
             if(result != null){
