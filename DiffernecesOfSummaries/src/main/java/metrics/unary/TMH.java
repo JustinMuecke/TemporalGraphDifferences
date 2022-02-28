@@ -27,6 +27,7 @@ public class TMH implements UnaryMetric {
                 System.out.println("Possible Overflow");
             }
         }
+        System.out.println("[Unary] TMH Values: " + sum + " ; " + sumsquared);
         long compTime = System.currentTimeMillis() - start;
         return new TMHResult(graph.getName(), sumsquared/sum, compTime);
     }

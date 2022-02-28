@@ -36,11 +36,12 @@ public class Main {
     }
 
     public static void main(String[] args)  {
+        String dbName = "AC-2019";
         List<ODatabaseSession> sessionList;
         ExtGraph[] graphList = null;
         UnaryMetric[] unaryMetricList = createUnaryMetricList();
         try {
-            sessionList = getDatabaseSession("AC-2019");
+            sessionList = getDatabaseSession(dbName);
             graphList = ExtGraph.createGraphs(sessionList);
         } catch (DBConnectionFailedException e) {
             e.printStackTrace();
@@ -56,11 +57,11 @@ public class Main {
         }
 
         try {
-            FileWriter.initializeCSVFile("Results/unaryResults.csv", false, false);
-            FileWriter.initializeCSVFile("Results/unaryCompTimes.csv", true, false);
+            FileWriter.initializeCSVFile("Results/"+dbName+"unaryResults.csv", false, false);
+            FileWriter.initializeCSVFile("Results/"+dbName+"unaryCompTimes.csv", true, false);
             for (ExtGraph g : graphList) {
-                FileWriter.writeResultToFile(g.getUnaryResults(), g.getName(), "Results/unaryResults.csv", false);
-                FileWriter.writeCompTimeToFile(g.getUnaryCompTimes(), g.getName(), "Results/unaryCompTimes.csv", false);
+                FileWriter.writeResultToFile(g.getUnaryResults(), g.getName(), "Results/"+dbName+"unaryResults.csv", false);
+                FileWriter.writeCompTimeToFile(g.getUnaryCompTimes(), g.getName(), "Results/"+dbName+"unaryCompTimes.csv", false);
             }
         } catch( IOException e){
             logger.error("Couldnt write to File");
