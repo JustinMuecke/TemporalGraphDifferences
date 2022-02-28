@@ -50,8 +50,9 @@ public class Main {
             return;
         }
         // Compute Unary Metrics
-        for (ExtGraph extGraph : graphList) {
-            extGraph.computeUnaryMetrics(unaryMetricList);
+        for(int i = 0; i < graphList.length; i++){
+            System.out.println("[Binary] Calculating Timestep: " + i);
+            graphList[i].computeUnaryMetrics(unaryMetricList);
         }
 
         try {
@@ -66,15 +67,12 @@ public class Main {
         }
 
         //Compute Binary Metrics
-        System.out.println("BEFORE BINARY");
-        for (ExtGraph g : graphList){
-            System.out.println(g.getGraph().edgeSet().size());
-        }
         BinaryMetric[] binaryMetrics = createBinaryMetricList();
         if(graphList.length <=1){
             return;
         }
         for(int i = 1; i < graphList.length; i++){
+            System.out.println("[Binary] Calculating Timestep: " + i);
             graphList[i].computeBinaryMetrics(binaryMetrics, graphList[i-1]);
         }
         try{
