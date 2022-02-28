@@ -4,7 +4,6 @@ import com.orientechnologies.orient.core.db.ODatabaseSession;
 import datamodel.ExtGraph;
 import metrics.BinaryMetric;
 import metrics.UnaryMetric;
-import metrics.binary.EdgeJaccard;
 import metrics.binary.GED;
 import metrics.binary.KLD;
 import metrics.binary.VertexJaccard;
@@ -66,7 +65,10 @@ public class Main {
         }
 
         //Compute Binary Metrics
-
+        System.out.println("BEFORE BINARY");
+        for (ExtGraph g : graphList){
+            System.out.println(g.getGraph().edgeSet().size());
+        }
         BinaryMetric[] binaryMetrics = createBinaryMetricList();
         if(graphList.length <=1){
             return;
