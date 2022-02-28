@@ -4,6 +4,7 @@ import com.orientechnologies.orient.core.db.ODatabaseSession;
 import datamodel.ExtGraph;
 import metrics.BinaryMetric;
 import metrics.UnaryMetric;
+import metrics.binary.EdgeJaccard;
 import metrics.binary.GED;
 import metrics.binary.KLD;
 import metrics.binary.VertexJaccard;
@@ -31,7 +32,7 @@ public class Main {
     }
 
     private static BinaryMetric[] createBinaryMetricList(){
-        return new BinaryMetric[]{new VertexJaccard(), new GED(), new KLD()};
+        return new BinaryMetric[]{new EdgeJaccard(), new VertexJaccard(), new GED(), new KLD()};
     }
 
     public static void main(String[] args)  {
