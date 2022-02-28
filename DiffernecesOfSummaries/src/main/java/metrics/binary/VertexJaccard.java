@@ -13,6 +13,6 @@ public class VertexJaccard implements BinaryMetric {
         long numberOfEQCInUnion = (long) graph1.getSecondaryIndex().keySet().size() + graph2.getSecondaryIndex().keySet().stream().filter(key -> !graph1.getSecondaryIndex().containsKey(key)).count();
         long diff = numberOfEQCInSection/numberOfEQCInUnion;
         long compTime = System.currentTimeMillis() - start;
-        return new JaccardVertexResult(diff, compTime, graph1.getName(), graph2.getName());
+        return new JaccardVertexResult(1 - diff, compTime, graph1.getName(), graph2.getName());
     }
 }

@@ -14,6 +14,7 @@ import results.Result;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 
 public class ExtGraph {
@@ -32,10 +33,11 @@ public class ExtGraph {
     	 this.name = name;
         this.graph = graph;
         try {
-            this.secondaryIndex = SecondaryIndex.readFromJson(path2secondaryIndex).getSchemaElementToImprint();
+            this.secondaryIndex = Objects.requireNonNull(SecondaryIndex.readFromJson(path2secondaryIndex)).getSchemaElementToImprint();
         }
         catch(NullPointerException e){
             logger.error("Couldnt read SecondaryIndex for " + name);
+            System.out.println("Couldnt read SecondaryIndex for " + name);
         }
         unaryResults = new HashMap<>();
         unaryCompTimes = new HashMap<>();
