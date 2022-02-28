@@ -84,7 +84,7 @@ public class ExtGraph {
             for(Edge e : edgeList) {
                 graph.addEdge(e.getIn(), e.getOut(), e);
             }
-            extGraphs[i] = new ExtGraph(sessionList.get(i).getName(), graph, "/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies/" + sessionList.get(i).getName() + ".json");
+            extGraphs[i] = new ExtGraph(sessionList.get(i).getName(), graph, "/media/nvme7n1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies/" + sessionList.get(i).getName() + ".json");
             extGraphs[i].getUnaryCompTimes().put(MetricTypes.GRPAH_CREATION, System.currentTimeMillis() - start);
         }
         return extGraphs;
