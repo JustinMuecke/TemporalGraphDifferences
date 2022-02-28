@@ -1,0 +1,86 @@
+Exception in thread "DisconnectableInputStream source reader" org.gradle.api.UncheckedIOException: java.io.IOException: Bad file descriptor
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:61)
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:127)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.io.IOException: Bad file descriptor
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+	at java.base/java.io.FileInputStream.read(FileInputStream.java:279)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:290)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:351)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:98)
+	... 1 more
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :run
+Warning: Nashorn engine is planned to be removed from a future JDK release
+Feb 28, 2022 10:20:50 AM com.orientechnologies.common.log.OLogManager log
+INFO: Detected limit of amount of simultaneously open files is 1048576,  limit of open files for disk cache will be set to 523776
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at metrics.binary.EdgeJaccard.compute(EdgeJaccard.java:14)
+	at datamodel.ExtGraph.computeBinaryMetrics(ExtGraph.java:108)
+	at exec.Main.main(Main.java:75)
+
+> Task :run FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':run'.
+> Process 'command '/usr/lib/jvm/java-11-openjdk-amd64/bin/java'' finished with non-zero exit value 1
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 2s
+3 actionable tasks: 1 executed, 2 up-to-date
+Exception in thread "DisconnectableInputStream source reader" org.gradle.api.UncheckedIOException: java.io.IOException: Bad file descriptor
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:61)
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:127)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.io.IOException: Bad file descriptor
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+	at java.base/java.io.FileInputStream.read(FileInputStream.java:279)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:290)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:351)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:98)
+	... 1 more
+> Task :compileJava
+> Task :processResources UP-TO-DATE
+> Task :classes
+
+> Task :run
+Warning: Nashorn engine is planned to be removed from a future JDK release
+Feb 28, 2022 10:24:22 AM com.orientechnologies.common.log.OLogManager log
+INFO: Detected limit of amount of simultaneously open files is 1048576,  limit of open files for disk cache will be set to 523776
+
+BUILD SUCCESSFUL in 12s
+3 actionable tasks: 2 executed, 1 up-to-date
+Exception in thread "DisconnectableInputStream source reader" org.gradle.api.UncheckedIOException: java.io.IOException: Bad file descriptor
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:61)
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:127)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.io.IOException: Bad file descriptor
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+	at java.base/java.io.FileInputStream.read(FileInputStream.java:279)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:290)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:351)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:98)
+	... 1 more
+> Task :compileJava
+> Task :processResources UP-TO-DATE
+> Task :classes
+
+> Task :run
+Warning: Nashorn engine is planned to be removed from a future JDK release
+Feb 28, 2022 10:26:40 AM com.orientechnologies.common.log.OLogManager log
+INFO: Detected limit of amount of simultaneously open files is 1048576,  limit of open files for disk cache will be set to 523776
+
+BUILD SUCCESSFUL in 3m 17s
+3 actionable tasks: 2 executed, 1 up-to-date
