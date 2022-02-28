@@ -103,10 +103,10 @@ public class ExtGraph {
     }
 
     public void computeBinaryMetrics(BinaryMetric[] metrics, ExtGraph referenceGraph){
-        logger.info("Computing BinaryMetric between " + this.getName() + " and " + referenceGraph.getName());
-        logger.info("Edge Size of Graph1: " + this.getGraph().edgeSet());
-        logger.info("Edge Size of Graph2: " + this.getGraph().edgeSet());
         for(BinaryMetric metric : metrics){
+            System.out.println("----- PRE JACC -----");
+            System.out.println(this.getGraph().edgeSet());
+            System.out.println(referenceGraph.getGraph().edgeSet());
             Result result = metric.compute(referenceGraph, this);
             if(result != null){
                 binaryResults.put(result.getMetric(), result.getDifference());
