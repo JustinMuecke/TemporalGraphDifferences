@@ -12,9 +12,14 @@ public class EdgeJaccard implements BinaryMetric {
          long start = System.currentTimeMillis();
          if(graph1.getGraph().edgeSet().size() == 0 || graph2.getGraph().edgeSet().size() == 0)
              return null;
+         System.out.println("TESTING EDGE SET");
          for(Edge e : graph1.getGraph().edgeSet()){
+             System.out.print(e.toString() + "->");
              if(graph2.getGraph().edgeSet().contains(e)){
-                 System.out.println(e.toString());
+                 System.out.print("./ \n");
+             }
+             else{
+                 System.out.print("x \n");
              }
          }
          float numberOfEdgesInSection = graph1.getGraph().edgeSet().stream().filter(edge -> graph2.getGraph().edgeSet().contains(edge)).count();
