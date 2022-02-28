@@ -9,7 +9,9 @@ import results.binaryResults.JaccardEdgeResult;
 public class EdgeJaccard implements BinaryMetric {
     @Override
     public Result compute(ExtGraph graph1, ExtGraph graph2) {
-         long start = System.currentTimeMillis();
+        System.out.println("[Binary] Calculating " + this.getClass());
+
+        long start = System.currentTimeMillis();
          if(graph1.getGraph().edgeSet().size() == 0 || graph2.getGraph().edgeSet().size() == 0)
              return null;
          float numberOfEdgesInSection = 0;

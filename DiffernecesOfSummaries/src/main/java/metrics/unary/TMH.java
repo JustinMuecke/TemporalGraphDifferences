@@ -8,6 +8,7 @@ import results.unaryResults.TMHResult;
 public class TMH implements UnaryMetric {
     @Override
     public Result compute(ExtGraph graph) {
+        System.out.println("[Unary] Calculating TMH");
         long start = System.currentTimeMillis();
         float sum = 0;
         float sumsquared = 0;
@@ -18,7 +19,13 @@ public class TMH implements UnaryMetric {
                 continue;
             }
             sum += degree;
+            if(sum < 0){
+                System.out.println("Possible Overflow");
+            }
             sumsquared += degree * degree;
+            if(sum < 0){
+                System.out.println("Possible Overflow");
+            }
         }
         long compTime = System.currentTimeMillis() - start;
         return new TMHResult(graph.getName(), sumsquared/sum, compTime);

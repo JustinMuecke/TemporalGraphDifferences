@@ -9,6 +9,8 @@ import results.Result;
 public class AvgNumberOfEdges implements UnaryMetric {
     @Override
     public Result compute(ExtGraph graph) {
+        System.out.println("[Unary] Calculating " + this.getClass());
+
         long startTime = System.currentTimeMillis();
         int numberOfEdges = graph.getGraph().edgeSet().size();
         System.out.println("EDGE SET IN AVG EDGE: " + graph.getGraph().edgeSet().size());

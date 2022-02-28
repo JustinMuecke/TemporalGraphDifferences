@@ -14,6 +14,8 @@ import java.util.Set;
 public class EMD implements BinaryMetric {
     @Override
     public Result compute(ExtGraph graph1, ExtGraph graph2) {
+        System.out.println("[Binary] Calculating " + this.getClass());
+
 
         //Compute all components
         ConnectivityInspector<Integer, Edge> connectivityInspector = new ConnectivityInspector<>(graph2.getGraph());

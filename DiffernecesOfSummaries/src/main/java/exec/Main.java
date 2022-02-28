@@ -51,7 +51,7 @@ public class Main {
         }
         // Compute Unary Metrics
         for(int i = 0; i < graphList.length; i++){
-            System.out.println("[Binary] Calculating Timestep: " + i);
+            System.out.println("[Unary] Calculating Timestep: " + i);
             graphList[i].computeUnaryMetrics(unaryMetricList);
         }
 

@@ -5,13 +5,14 @@ import metrics.BinaryMetric;
 import results.Result;
 import results.binaryResults.KLDResult;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class KLD implements BinaryMetric {
 
     @Override
     public Result compute(ExtGraph graph1, ExtGraph graph2) {
+        System.out.println("[Binary] Calculating " + this.getClass());
+
         long compStart = System.currentTimeMillis();
         float klu = 0;
         //Compute KL of all EQC which are in both timesteps.

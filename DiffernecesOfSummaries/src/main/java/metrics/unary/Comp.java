@@ -13,6 +13,8 @@ import java.util.Set;
 public class Comp implements UnaryMetric {
     @Override
     public Result compute(ExtGraph graph) {
+        System.out.println("[Unary] Calculating " + this.getClass());
+
         long start = System.currentTimeMillis();
         ConnectivityInspector<Integer, Edge> connectivityInspector = new ConnectivityInspector<>(graph.getGraph());
         List<Set<Integer>> connectedSets = connectivityInspector.connectedSets();

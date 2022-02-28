@@ -8,8 +8,11 @@ import results.binaryResults.JaccardVertexResult;
 import java.util.Objects;
 
 public class VertexJaccard implements BinaryMetric {
+
     @Override
     public Result compute(ExtGraph graph1, ExtGraph graph2) {
+        System.out.println("[Binary] Calculating " + this.getClass());
+
         long start = System.currentTimeMillis();
         float inSection = 0;
         float inUnion = graph2.getGraph().edgeSet().size();

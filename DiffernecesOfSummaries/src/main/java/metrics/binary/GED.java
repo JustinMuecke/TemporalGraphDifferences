@@ -6,8 +6,11 @@ import results.Result;
 import results.binaryResults.GEDResult;
 
 public class GED implements BinaryMetric {
+
     @Override
     public Result compute(ExtGraph graph1, ExtGraph graph2) {
+        System.out.println("[Binary] Calculating " + this.getClass());
+
         long start = System.currentTimeMillis();
         long diff = 0;
 
