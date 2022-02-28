@@ -4,6 +4,7 @@ import com.orientechnologies.orient.core.db.ODatabaseSession;
 import datamodel.ExtGraph;
 import metrics.BinaryMetric;
 import metrics.UnaryMetric;
+import metrics.binary.EdgeJaccard;
 import metrics.binary.GED;
 import metrics.binary.KLD;
 import metrics.binary.VertexJaccard;
