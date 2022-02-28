@@ -40,7 +40,7 @@ public class Main {
         ExtGraph[] graphList = null;
         UnaryMetric[] unaryMetricList = createUnaryMetricList();
         try {
-            sessionList = getDatabaseSession("AC-2019");
+            sessionList = getDatabaseSession("till-test");
             graphList = ExtGraph.createGraphs(sessionList);
         } catch (DBConnectionFailedException e) {
             e.printStackTrace();
