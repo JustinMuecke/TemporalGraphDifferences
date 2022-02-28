@@ -32,7 +32,7 @@ public class Main {
     }
 
     private static BinaryMetric[] createBinaryMetricList(){
-        return new BinaryMetric[]{new EdgeJaccard(), new VertexJaccard(), new GED(), new KLD()};
+        return new BinaryMetric[]{new VertexJaccard(), new GED(), new KLD()};
     }
 
     public static void main(String[] args)  {
