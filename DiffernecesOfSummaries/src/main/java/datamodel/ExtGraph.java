@@ -104,9 +104,6 @@ public class ExtGraph {
 
     public void computeBinaryMetrics(BinaryMetric[] metrics, ExtGraph referenceGraph){
         for(BinaryMetric metric : metrics){
-            System.out.println("----- PRE JACC -----");
-            System.out.println(this.getGraph().edgeSet());
-            System.out.println(referenceGraph.getGraph().edgeSet());
             Result result = metric.compute(referenceGraph, this);
             if(result != null){
                 binaryResults.put(result.getMetric(), result.getDifference());
