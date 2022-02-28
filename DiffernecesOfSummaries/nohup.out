@@ -132,3 +132,400 @@ INFO: Detected limit of amount of simultaneously open files is 1048576,  limit o
 
 BUILD SUCCESSFUL in 3m 21s
 3 actionable tasks: 1 executed, 2 up-to-date
+Exception in thread "DisconnectableInputStream source reader" org.gradle.api.UncheckedIOException: java.io.IOException: Bad file descriptor
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:61)
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:127)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.io.IOException: Bad file descriptor
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+	at java.base/java.io.FileInputStream.read(FileInputStream.java:279)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:290)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:351)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:98)
+	... 1 more
+
+> Task :compileJava FAILED
+/media/nvme7n1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/src/main/java/exec/Main.java:34: error: cannot find symbol
+        return new BinaryMetric[]{new EdgeJaccard(), new VertexJaccard(), new GED(), new KLD()};
+                                      ^
+  symbol:   class EdgeJaccard
+  location: class Main
+1 error
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 530ms
+1 actionable task: 1 executed
+Exception in thread "DisconnectableInputStream source reader" org.gradle.api.UncheckedIOException: java.io.IOException: Bad file descriptor
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:61)
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:127)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.io.IOException: Bad file descriptor
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+	at java.base/java.io.FileInputStream.read(FileInputStream.java:279)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:290)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:351)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:98)
+	... 1 more
+> Task :compileJava
+> Task :processResources UP-TO-DATE
+> Task :classes
+
+> Task :run
+Warning: Nashorn engine is planned to be removed from a future JDK release
+Feb 28, 2022 12:37:53 PM com.orientechnologies.common.log.OLogManager log
+INFO: Detected limit of amount of simultaneously open files is 1048576,  limit of open files for disk cache will be set to 523776
+EDGE SET IN AVG EDGE: 0
+EDGE SET IN AVG EDGE: 0
+EDGE SET IN AVG EDGE: 0
+EDGE SET IN AVG EDGE: 96115
+EDGE SET IN AVG EDGE: 86820
+EDGE SET IN AVG EDGE: 72128
+EDGE SET IN AVG EDGE: 71034
+EDGE SET IN AVG EDGE: 81009
+EDGE SET IN AVG EDGE: 73049
+EDGE SET IN AVG EDGE: 67168
+EDGE SET IN AVG EDGE: 73003
+EDGE SET IN AVG EDGE: 73536
+EDGE SET IN AVG EDGE: 74063
+EDGE SET IN AVG EDGE: 74137
+EDGE SET IN AVG EDGE: 70492
+EDGE SET IN AVG EDGE: 70367
+EDGE SET IN AVG EDGE: 68402
+EDGE SET IN AVG EDGE: 71004
+EDGE SET IN AVG EDGE: 66304
+EDGE SET IN AVG EDGE: 84960
+EDGE SET IN AVG EDGE: 84621
+EDGE SET IN AVG EDGE: 87035
+EDGE SET IN AVG EDGE: 80269
+EDGE SET IN AVG EDGE: 75592
+EDGE SET IN AVG EDGE: 98219
+EDGE SET IN AVG EDGE: 79224
+EDGE SET IN AVG EDGE: 89156
+EDGE SET IN AVG EDGE: 80466
+EDGE SET IN AVG EDGE: 86190
+EDGE SET IN AVG EDGE: 84621
+EDGE SET IN AVG EDGE: 82167
+EDGE SET IN AVG EDGE: 78697
+EDGE SET IN AVG EDGE: 80821
+EDGE SET IN AVG EDGE: 79652
+EDGE SET IN AVG EDGE: 82260
+EDGE SET IN AVG EDGE: 86170
+EDGE SET IN AVG EDGE: 85517
+EDGE SET IN AVG EDGE: 78767
+EDGE SET IN AVG EDGE: 85401
+EDGE SET IN AVG EDGE: 79596
+EDGE SET IN AVG EDGE: 80166
+EDGE SET IN AVG EDGE: 82438
+EDGE SET IN AVG EDGE: 82502
+EDGE SET IN AVG EDGE: 83378
+EDGE SET IN AVG EDGE: 95258
+EDGE SET IN AVG EDGE: 86097
+EDGE SET IN AVG EDGE: 91908
+EDGE SET IN AVG EDGE: 87851
+EDGE SET IN AVG EDGE: 92831
+EDGE SET IN AVG EDGE: 90031
+BEFORE BINARY
+0
+0
+0
+96115
+86820
+72128
+71034
+81009
+73049
+67168
+73003
+73536
+74063
+74137
+70492
+70367
+68402
+71004
+66304
+84960
+84621
+87035
+80269
+75592
+98219
+79224
+89156
+80466
+86190
+84621
+82167
+78697
+80821
+79652
+82260
+86170
+85517
+78767
+85401
+79596
+80166
+82438
+82502
+83378
+95258
+86097
+91908
+87851
+92831
+90031
+----- PRE JACC -----
+[]
+[]
+EDGE JACCARD EDGE SET SIZES: 
+0
+0
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at metrics.binary.EdgeJaccard.compute(EdgeJaccard.java:17)
+	at datamodel.ExtGraph.computeBinaryMetrics(ExtGraph.java:110)
+	at exec.Main.main(Main.java:78)
+
+> Task :run FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':run'.
+> Process 'command '/usr/lib/jvm/java-11-openjdk-amd64/bin/java'' finished with non-zero exit value 1
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 45s
+3 actionable tasks: 2 executed, 1 up-to-date
+Exception in thread "DisconnectableInputStream source reader" org.gradle.api.UncheckedIOException: java.io.IOException: Bad file descriptor
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:61)
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:127)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.io.IOException: Bad file descriptor
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+	at java.base/java.io.FileInputStream.read(FileInputStream.java:279)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:290)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:351)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:98)
+	... 1 more
+> Task :compileJava
+> Task :processResources UP-TO-DATE
+> Task :classes
+
+> Task :run
+Warning: Nashorn engine is planned to be removed from a future JDK release
+Feb 28, 2022 12:43:25 PM com.orientechnologies.common.log.OLogManager log
+INFO: Detected limit of amount of simultaneously open files is 1048576,  limit of open files for disk cache will be set to 523776
+EDGE SET IN AVG EDGE: 0
+EDGE SET IN AVG EDGE: 0
+EDGE SET IN AVG EDGE: 0
+EDGE SET IN AVG EDGE: 96115
+EDGE SET IN AVG EDGE: 86820
+EDGE SET IN AVG EDGE: 72128
+EDGE SET IN AVG EDGE: 71034
+EDGE SET IN AVG EDGE: 81009
+EDGE SET IN AVG EDGE: 73049
+EDGE SET IN AVG EDGE: 67168
+EDGE SET IN AVG EDGE: 73003
+EDGE SET IN AVG EDGE: 73536
+EDGE SET IN AVG EDGE: 74063
+EDGE SET IN AVG EDGE: 74137
+EDGE SET IN AVG EDGE: 70492
+EDGE SET IN AVG EDGE: 70367
+EDGE SET IN AVG EDGE: 68402
+EDGE SET IN AVG EDGE: 71004
+EDGE SET IN AVG EDGE: 66304
+EDGE SET IN AVG EDGE: 84960
+EDGE SET IN AVG EDGE: 84621
+EDGE SET IN AVG EDGE: 87035
+EDGE SET IN AVG EDGE: 80269
+EDGE SET IN AVG EDGE: 75592
+EDGE SET IN AVG EDGE: 98219
+EDGE SET IN AVG EDGE: 79224
+EDGE SET IN AVG EDGE: 89156
+EDGE SET IN AVG EDGE: 80466
+EDGE SET IN AVG EDGE: 86190
+EDGE SET IN AVG EDGE: 84621
+EDGE SET IN AVG EDGE: 82167
+EDGE SET IN AVG EDGE: 78697
+EDGE SET IN AVG EDGE: 80821
+EDGE SET IN AVG EDGE: 79652
+EDGE SET IN AVG EDGE: 82260
+EDGE SET IN AVG EDGE: 86170
+EDGE SET IN AVG EDGE: 85517
+EDGE SET IN AVG EDGE: 78767
+EDGE SET IN AVG EDGE: 85401
+EDGE SET IN AVG EDGE: 79596
+EDGE SET IN AVG EDGE: 80166
+EDGE SET IN AVG EDGE: 82438
+EDGE SET IN AVG EDGE: 82502
+EDGE SET IN AVG EDGE: 83378
+EDGE SET IN AVG EDGE: 95258
+EDGE SET IN AVG EDGE: 86097
+EDGE SET IN AVG EDGE: 91908
+EDGE SET IN AVG EDGE: 87851
+EDGE SET IN AVG EDGE: 92831
+EDGE SET IN AVG EDGE: 90031
+BEFORE BINARY
+0
+0
+0
+96115
+86820
+72128
+71034
+81009
+73049
+67168
+73003
+73536
+74063
+74137
+70492
+70367
+68402
+71004
+66304
+84960
+84621
+87035
+80269
+75592
+98219
+79224
+89156
+80466
+86190
+84621
+82167
+78697
+80821
+79652
+82260
+86170
+85517
+78767
+85401
+79596
+80166
+82438
+82502
+83378
+95258
+86097
+91908
+87851
+92831
+90031
+96115
+86820
+86820
+72128
+72128
+71034
+71034
+81009
+81009
+73049
+73049
+67168
+67168
+73003
+73003
+73536
+73536
+74063
+74063
+74137
+74137
+70492
+70492
+70367
+70367
+68402
+68402
+71004
+71004
+66304
+66304
+84960
+84960
+84621
+84621
+87035
+87035
+80269
+80269
+75592
+75592
+98219
+98219
+79224
+79224
+89156
+89156
+80466
+80466
+86190
+86190
+84621
+84621
+82167
+82167
+78697
+78697
+80821
+80821
+79652
+79652
+82260
+82260
+86170
+86170
+85517
+85517
+78767
+78767
+85401
+85401
+79596
+79596
+80166
+80166
+82438
+82438
+82502
+82502
+83378
+83378
+95258
+95258
+86097
+86097
+91908
+91908
+87851
+87851
+92831
+92831
+90031
+
+BUILD SUCCESSFUL in 3m 20s
+3 actionable tasks: 2 executed, 1 up-to-date
