@@ -5,30 +5,33 @@ import metrics.UnaryMetric;
 import results.Result;
 import results.unaryResults.TMHResult;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class TMH implements UnaryMetric {
     @Override
     public Result compute(ExtGraph graph) {
         System.out.println("[Unary] Calculating TMH");
+        List<Float> squaredsum = new LinkedList<>();
         long start = System.currentTimeMillis();
         float sum = 0;
-        float sumsquared = 0;
         for(Integer v : graph.getGraph().vertexSet()){
-            int degree = graph.getGraph().degreeOf(v);
+            float degree = graph.getGraph().degreeOf(v);
             if(degree < 0){
                 System.out.println("TMH: Degree < 0 for " + v);
                 continue;
             }
             sum += degree;
-            if(sum < 0){
+            if(degree * degree < 0){
                 System.out.println("Possible Overflow");
             }
-            sumsquared += degree * degree;
-            if(sum < 0){
-                System.out.println("Possible Overflow");
-            }
+            squaredsum.add(degree * degree);
         }
-        System.out.println("[Unary] TMH Values: " + sum + " ; " + sumsquared);
+        float result = 0;
+        for(Float s : squaredsum){
+            result += s / sum;
+        }
         long compTime = System.currentTimeMillis() - start;
-        return new TMHResult(graph.getName(), sumsquared/sum, compTime);
+        return new TMHResult(graph.getName(), result, compTime);
     }
 }
