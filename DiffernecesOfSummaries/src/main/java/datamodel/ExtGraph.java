@@ -78,10 +78,12 @@ public class ExtGraph {
         ExtGraph[] extGraphs = new ExtGraph[sessionList.size()];
         long start = System.currentTimeMillis();
         for(int i = 0; i < extGraphs.length; i++) {
+            logger.info("Creating Graph " + i);
             Graph<Integer, Edge> graph = new DirectedMultigraph<>(Edge.class);
             List<Integer> vertexList = Queries.getVertices(sessionList.get(i)).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
-            for(Integer v : vertexList)
+            for(Integer v : vertexList) {
                 graph.addVertex(v);
+            }
             List<Edge> edgeList = Queries.getEdges(sessionList.get(i)).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Edges"));
             for(Edge e : edgeList) {
                 graph.addEdge(e.getIn(), e.getOut(), e);
