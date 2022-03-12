@@ -1,12 +1,15 @@
 package datamodel;
 
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.util.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.Serializable;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.util.HashMap;
 
 
 
@@ -22,6 +25,10 @@ public class SecondaryIndex implements Serializable {
         this.schemaElementToImprint = schemaElementToImprint;
     }
 
+    public SecondaryIndex(){
+        this.schemaElementToImprint = new HashMap<>();
+    }
+
     public static SecondaryIndex readFromJson(String filePath){
         try{
             File f = new File(filePath);
@@ -33,12 +40,12 @@ public class SecondaryIndex implements Serializable {
             System.out.println("IOException");
 
             e.printStackTrace();
-            return null;
+            return new SecondaryIndex();
         }
         catch(JsonSyntaxException e){
             System.out.println("JSON Syntax Exception");
             e.printStackTrace();
-            return null;
+            return new SecondaryIndex();
         }
 
     }

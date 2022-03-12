@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import numpy as np 
 import pandas
 
-unaryDF   = pandas.read_csv('DiffernecesOfSummaries/Results/unaryResults.csv')
-binaryDF  = pandas.read_csv('DiffernecesOfSummaries/Results/binaryResults.csv')
+unaryDF   = pandas.read_csv('/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Results/AC-2019unaryResults.csv')
+binaryDF  = pandas.read_csv('/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Results/binaryResults.csv')
 
 
 def visualize(dataframe : pandas.DataFrame, skipSecond: bool):
@@ -28,7 +28,7 @@ def visualize(dataframe : pandas.DataFrame, skipSecond: bool):
         plt.title(header[metric])
         plt.xlabel('Timestep')
         plt.ylabel('Value')
-        plt.savefig('DataVisualization/plots/'+ header[metric] + '-AC-2019')
+        plt.savefig('/home/justinmucke/git/TemporalGraphDifferences/DataVisualization/plots'+ header[metric] + '-AC-2019')
         plt.show()
 
 visualize(unaryDF, False)
