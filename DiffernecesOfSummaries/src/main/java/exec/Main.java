@@ -36,7 +36,7 @@ public class Main {
     }
 
     public static void main(String[] args)  {
-        String dbName = "AC-2019";
+        String dbName = "AC-2013";
         List<ODatabaseSession> sessionList;
         ExtGraph[] graphList = null;
         UnaryMetric[] unaryMetricList = createUnaryMetricList();
@@ -57,8 +57,8 @@ public class Main {
         }
 
         try {
-            FileWriter.initializeCSVFile("Results/"+dbName+"unaryResults.csv", false, false);
-            FileWriter.initializeCSVFile("Results/"+dbName+"unaryCompTimes.csv", true, false);
+            FileWriter.initializeCSVFile("Results/"+dbName+"-unaryResults.csv", false, false);
+            FileWriter.initializeCSVFile("Results/"+dbName+"-unaryCompTimes.csv", true, false);
             for (ExtGraph g : graphList) {
                 FileWriter.writeResultToFile(g.getUnaryResults(), g.getName(), "Results/"+dbName+"unaryResults.csv", false);
                 FileWriter.writeCompTimeToFile(g.getUnaryCompTimes(), g.getName(), "Results/"+dbName+"unaryCompTimes.csv", false);
@@ -77,8 +77,8 @@ public class Main {
             graphList[i].computeBinaryMetrics(binaryMetrics, graphList[i-1]);
         }
         try{
-            FileWriter.initializeCSVFile("Results/binaryResults.csv", false, true);
-            FileWriter.initializeCSVFile("Results/binaryCompTimes.csv", true, true);
+            FileWriter.initializeCSVFile("Results/"+dbName+"-binaryResults.csv", false, true);
+            FileWriter.initializeCSVFile("Results/" +dbName +"-binaryCompTimes.csv", true, true);
             for(int i = 1; i < graphList.length; i++){
                 FileWriter.writeResultToFile(graphList[i].getBinaryResults(), graphList[i].getName(), "Results/binaryResults.csv", true);
                 FileWriter.writeCompTimeToFile(graphList[i].getBinaryCompTimes(), graphList[i].getName(), "Results/binaryCompTimes.csv",true);
