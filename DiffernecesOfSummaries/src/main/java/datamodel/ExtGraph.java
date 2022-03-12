@@ -42,7 +42,16 @@ public class ExtGraph {
         unaryCompTimes = new HashMap<>();
         binaryResults = new HashMap<>();
         binaryCompTimes = new HashMap<>();
+    }
 
+    public ExtGraph(){
+        this.name="null";
+        this.graph = new DirectedMultigraph<>(Edge.class);
+        this.secondaryIndex = new HashMap<>();
+        unaryResults = new HashMap<>();
+        unaryCompTimes = new HashMap<>();
+        binaryResults = new HashMap<>();
+        binaryCompTimes = new HashMap<>();
     }
 
     public HashMap<MetricTypes, Float> getUnaryResults() {
@@ -78,7 +87,7 @@ public class ExtGraph {
         long start = System.currentTimeMillis();
         for(int i = 0; i < extGraphs.length; i++) {
             if(i == 4 || i == 5){
-                extGraphs[i] = new ExtGraph("AC-2013" + i, new DirectedMultigraph<Integer, Edge>(Edge.class), "/media/nvme7n1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies/isnotthere.json");
+                extGraphs[i] = new ExtGraph();
                 continue;
             }
             logger.info("Creating Graph " + i);

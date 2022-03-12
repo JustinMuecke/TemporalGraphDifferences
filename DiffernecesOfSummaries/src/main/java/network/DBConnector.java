@@ -20,7 +20,7 @@ public class DBConnector {
         OrientDB databaseServer = new OrientDB(URL, serverUser, serverPassword, OrientDBConfig.defaultConfig());
 
         for(int i = 0; i < 52; i++){
-	    if(i == 5 || i == 28 ||  i == 4) continue;
+	    if(i == 5 ||  i == 4) continue;
             sessionList.add(getSingleSession(databaseServer, database+"-"+i));
         }
 
