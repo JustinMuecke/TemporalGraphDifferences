@@ -98,7 +98,9 @@ public class ExtGraph {
             }
             List<Edge> edgeList = Queries.getEdges(sessionList.get(i)).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Edges"));
             for(Edge e : edgeList) {
-                graph.addEdge(e.getIn(), e.getOut(), e);
+                if(!(e.getIn().equals(null) || e.getOut().equals(null))) {
+                    graph.addEdge(e.getIn(), e.getOut(), e);
+                }
             }
             extGraphs[i] = new ExtGraph(sessionList.get(i).getName(), graph, "/media/nvme7n1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies/" + sessionList.get(i).getName() + ".json");
             extGraphs[i].getUnaryCompTimes().put(MetricTypes.GRPAH_CREATION, System.currentTimeMillis() - start);
