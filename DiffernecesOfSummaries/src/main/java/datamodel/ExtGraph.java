@@ -78,7 +78,7 @@ public class ExtGraph {
         long start = System.currentTimeMillis();
         for(int i = 0; i < extGraphs.length; i++) {
             if(i == 4 || i == 5){
-                extGraphs[i] = new ExtGraph("AC-2013" + i, new DirectedMultigraph<Integer, Edge>(Edge.class), "");
+                extGraphs[i] = new ExtGraph("AC-2013" + i, new DirectedMultigraph<Integer, Edge>(Edge.class), "/media/nvme7n1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies/isnotthere.json");
                 continue;
             }
             logger.info("Creating Graph " + i);
