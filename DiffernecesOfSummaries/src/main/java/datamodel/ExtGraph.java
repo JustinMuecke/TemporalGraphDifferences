@@ -98,7 +98,7 @@ public class ExtGraph {
             }
             List<Edge> edgeList = Queries.getEdges(sessionList.get(i)).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Edges"));
             for(Edge e : edgeList) {
-                if(!(e.getIn().equals(null) || e.getOut().equals(null))) {
+                if(!(vertexList.contains(e.getIn()) || vertexList.contains(e.getOut()))){
                     graph.addEdge(e.getIn(), e.getOut(), e);
                 }
             }
