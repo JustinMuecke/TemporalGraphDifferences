@@ -37,7 +37,6 @@ public class ExtGraph {
         }
         catch(NullPointerException e){
             logger.error("Couldnt read SecondaryIndex for " + name);
-            System.out.println("Couldnt read SecondaryIndex for " + name);
         }
         unaryResults = new HashMap<>();
         unaryCompTimes = new HashMap<>();
@@ -78,6 +77,10 @@ public class ExtGraph {
         ExtGraph[] extGraphs = new ExtGraph[sessionList.size()];
         long start = System.currentTimeMillis();
         for(int i = 0; i < extGraphs.length; i++) {
+            if(i == 4 || i == 5){
+                extGraphs[i] = new ExtGraph("AC-2013" + i, new DirectedMultigraph<Integer, Edge>(Edge.class), "");
+                continue;
+            }
             logger.info("Creating Graph " + i);
             Graph<Integer, Edge> graph = new DirectedMultigraph<>(Edge.class);
             List<Integer> vertexList = Queries.getVertices(sessionList.get(i)).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
