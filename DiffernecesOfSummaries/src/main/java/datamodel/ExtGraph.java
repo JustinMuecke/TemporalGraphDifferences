@@ -86,11 +86,11 @@ public class ExtGraph {
         ExtGraph[] extGraphs = new ExtGraph[sessionList.size()];
         long start = System.currentTimeMillis();
         for(int i = 0; i < extGraphs.length; i++) {
-            if(i == 4 || i ==5 || i == 40){
+            if(i==4 || i==5 || i==40) {
                 extGraphs[i] = new ExtGraph();
                 continue;
             }
-            logger.info("Creating Graph " + i);
+            System.out.println("Creating Graph " + i);
             Graph<Integer, Edge> graph = new DirectedMultigraph<>(Edge.class);
             List<Integer> vertexList = Queries.getVertices(sessionList.get(i)).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
             for(Integer v : vertexList) {
