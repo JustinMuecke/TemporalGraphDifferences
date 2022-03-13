@@ -17,13 +17,14 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 
 public class Main {
 
     private static final Logger logger = LogManager.getLogger(Main.class);
 
-    private static List<ODatabaseSession> getDatabaseSession(String dbName) throws DBConnectionFailedException{
+    private static List<Optional<ODatabaseSession>> getDatabaseSession(String dbName) throws DBConnectionFailedException{
         return DBConnector.getDatabaseSessions(dbName).orElseThrow(() -> new DBConnectionFailedException("List of Sessions Empty"));
     }
 
@@ -37,7 +38,7 @@ public class Main {
 
     public static void main(String[] args)  {
         String dbName = "AC-2013";
-        List<ODatabaseSession> sessionList;
+        List<Optional<ODatabaseSession>> sessionList;
         ExtGraph[] graphList = null;
         UnaryMetric[] unaryMetricList = createUnaryMetricList();
         try {
