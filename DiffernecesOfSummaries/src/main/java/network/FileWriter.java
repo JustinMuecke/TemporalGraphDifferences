@@ -14,10 +14,10 @@ public class FileWriter {
 
     private static final Logger logger = LogManager.getLogger(FileWriter.class);
 
-    public static void writeResultToFile(HashMap<MetricTypes, Float> results, String name, String filepath, boolean binary) throws IOException {
+    public static void writeResultToFile(HashMap<MetricTypes, Float> results, String name, String filepath, boolean binary, String refname) throws IOException {
         String csv = "";
         if(binary){
-            csv = createBinaryCSVString(results, name);
+            csv = createBinaryCSVString(results, name, refname);
         }
         else {
             csv = createUnaryCSVString(results, name);
@@ -32,10 +32,10 @@ public class FileWriter {
         getFileChannel(csv, stream);
     }
 
-    public static void writeCompTimeToFile(HashMap<MetricTypes, Long> compTimes, String name, String filepath, boolean binary) throws IOException{
+    public static void writeCompTimeToFile(HashMap<MetricTypes, Long> compTimes, String name, String filepath, boolean binary, String refname) throws IOException{
         String csv = "";
         if(binary){
-            csv = createBinaryCompTimeString(compTimes, name);
+            csv = createBinaryCompTimeString(compTimes, name, refname);
         }
         else{ csv = createUnaryCompTimeString(compTimes, name);}
         if(csv.equals("")){
@@ -118,10 +118,9 @@ public class FileWriter {
         return csv;
     }
 
-    private static String createBinaryCSVString(HashMap<MetricTypes, Float> results, String name){
-        String referenceDBName = name.substring(0, name.length()-1) + (Integer.parseInt(String.valueOf(name.charAt(name.length() - 1))) - 1);
+    private static String createBinaryCSVString(HashMap<MetricTypes, Float> results, String name, String refname){
         StringBuilder sb = new StringBuilder();
-        sb.append(referenceDBName).append(",")
+        sb.append(refname).append(",")
                 .append(name).append(",")
                 .append(results.get(MetricTypes.JACCARD_VERTEX)).append(",")
                 .append(results.get(MetricTypes.JARCCARD_EDGE)).append(",")
@@ -133,11 +132,10 @@ public class FileWriter {
         return csv;
     }
 
-    private static String createBinaryCompTimeString(HashMap<MetricTypes, Long> compTimes, String name){
-        String referenceDBName = name.substring(0, name.length()-1) + String.valueOf(Integer.parseInt(String.valueOf(name.charAt(name.length()-1)))-1);
+    private static String createBinaryCompTimeString(HashMap<MetricTypes, Long> compTimes, String name, String refname){
         StringBuilder sb = new StringBuilder();
         sb.append(name).append(",")
-                .append(referenceDBName).append(",")
+                .append(refname).append(",")
                 .append(compTimes.get(MetricTypes.JACCARD_VERTEX)).append(",")
                 .append(compTimes.get(MetricTypes.JARCCARD_EDGE)).append(",")
                 .append(compTimes.get(MetricTypes.GED)).append(",")
