@@ -90,7 +90,7 @@ public class ExtGraph {
                 extGraphs[i] = new ExtGraph();
                 continue;
             }
-            System.out.println("Creating Graph " + i);
+            System.out.println("Creating Graph " + sessionList.get(i).getName());
             Graph<Integer, Edge> graph = new DirectedMultigraph<>(Edge.class);
             List<Integer> vertexList = Queries.getVertices(sessionList.get(i)).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
             for(Integer v : vertexList) {
