@@ -60,8 +60,8 @@ public class Main {
             FileWriter.initializeCSVFile("Results/"+dbName+"-unaryResults.csv", false, false);
             FileWriter.initializeCSVFile("Results/"+dbName+"-unaryCompTimes.csv", true, false);
             for (ExtGraph g : graphList) {
-                FileWriter.writeResultToFile(g.getUnaryResults(), g.getName(), "Results/"+dbName+"-unaryResults.csv", false);
-                FileWriter.writeCompTimeToFile(g.getUnaryCompTimes(), g.getName(), "Results/"+dbName+"-unaryCompTimes.csv", false);
+                FileWriter.writeResultToFile(g.getUnaryResults(), g.getName(), "Results/"+dbName+"-unaryResults.csv", false, "");
+                FileWriter.writeCompTimeToFile(g.getUnaryCompTimes(), g.getName(), "Results/"+dbName+"-unaryCompTimes.csv", false, "");
             }
         } catch( IOException e){
             logger.error("Couldnt write to File");
@@ -80,8 +80,8 @@ public class Main {
             FileWriter.initializeCSVFile("Results/"+dbName+"-binaryResults.csv", false, true);
             FileWriter.initializeCSVFile("Results/"+dbName+"-binaryCompTimes.csv", true, true);
             for(int i = 1; i < graphList.length; i++){
-                FileWriter.writeResultToFile(graphList[i].getBinaryResults(), graphList[i].getName(), "Results/"+dbName+"-binaryResults.csv", true);
-                FileWriter.writeCompTimeToFile(graphList[i].getBinaryCompTimes(), graphList[i].getName(), "Results/"+dbName+"-binaryCompTimes.csv",true);
+                FileWriter.writeResultToFile(graphList[i].getBinaryResults(), graphList[i].getName(), "Results/"+dbName+"-binaryResults.csv", true, graphList[i-1].getName());
+                FileWriter.writeCompTimeToFile(graphList[i].getBinaryCompTimes(), graphList[i].getName(), "Results/"+dbName+"-binaryCompTimes.csv",true, graphList[i-1].getName());
             }
         } catch (IOException e){
             logger.error("Couldnt write to fiel");
