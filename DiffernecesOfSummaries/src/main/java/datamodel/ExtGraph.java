@@ -15,6 +15,7 @@ import results.Result;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 
 public class ExtGraph {
@@ -82,27 +83,28 @@ public class ExtGraph {
         return binaryCompTimes;
     }
 
-    public static ExtGraph[] createGraphs(List<ODatabaseSession> sessionList){
+    public static ExtGraph[] createGraphs(List<Optional<ODatabaseSession>> sessionList){
         ExtGraph[] extGraphs = new ExtGraph[sessionList.size()];
         long start = System.currentTimeMillis();
         for(int i = 0; i < extGraphs.length; i++) {
-            if(i==4 || i==5 || i==40) {
+            if(sessionList.get(i).isEmpty()) {
                 extGraphs[i] = new ExtGraph();
                 continue;
             }
-            System.out.println("Creating Graph " + sessionList.get(i).getName());
+            ODatabaseSession session = sessionList.get(i).get();
+            System.out.println("Creating Graph " + session.getName());
             Graph<Integer, Edge> graph = new DirectedMultigraph<>(Edge.class);
-            List<Integer> vertexList = Queries.getVertices(sessionList.get(i)).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
+            List<Integer> vertexList = Queries.getVertices(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
             for(Integer v : vertexList) {
                 graph.addVertex(v);
             }
-            List<Edge> edgeList = Queries.getEdges(sessionList.get(i)).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Edges"));
+            List<Edge> edgeList = Queries.getEdges(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Edges"));
             for(Edge e : edgeList) {
                 if(!(vertexList.contains(e.getIn()) || vertexList.contains(e.getOut()))){
                     graph.addEdge(e.getIn(), e.getOut(), e);
                 }
             }
-            extGraphs[i] = new ExtGraph(sessionList.get(i).getName(), graph, "/media/nvme7n1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies/" + sessionList.get(i).getName() + ".json");
+            extGraphs[i] = new ExtGraph(session.getName(), graph, "/media/nvme7n1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies/" + session.getName() + ".json");
             extGraphs[i].getUnaryCompTimes().put(MetricTypes.GRPAH_CREATION, System.currentTimeMillis() - start);
         }
         return extGraphs;
