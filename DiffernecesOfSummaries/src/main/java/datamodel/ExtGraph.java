@@ -86,7 +86,7 @@ public class ExtGraph {
         ExtGraph[] extGraphs = new ExtGraph[sessionList.size()];
         long start = System.currentTimeMillis();
         for(int i = 0; i < extGraphs.length; i++) {
-            if(i == 4 || i == 5){
+            if(i == 4 || i ==5 || i == 40){
                 extGraphs[i] = new ExtGraph();
                 continue;
             }
