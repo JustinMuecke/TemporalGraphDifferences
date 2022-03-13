@@ -10,6 +10,9 @@ public class EdgeJaccard implements BinaryMetric {
     @Override
     public Result compute(ExtGraph graph1, ExtGraph graph2) {
         System.out.println("[Binary] Calculating " + this.getClass());
+        System.out.println("[Binary][EJ] EdgeSize Graph 1: " + graph1.getGraph().edgeSet().size());
+        System.out.println("[Binary][EJ] EdgeSize Graph 2: " + graph2.getGraph().edgeSet().size());
+
 
         long start = System.currentTimeMillis();
          if(graph1.getGraph().edgeSet().size() == 0 || graph2.getGraph().edgeSet().size() == 0)
