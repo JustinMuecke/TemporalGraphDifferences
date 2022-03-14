@@ -92,14 +92,15 @@ public class ExtGraph {
                 continue;
             }
             ODatabaseSession session = sessionList.get(i).get();
-            System.out.println("Creating Graph " + session.getName());
+            System.out.println("[Graph] Creating Graph " + session.getName());
             Graph<Integer, Edge> graph = new DirectedMultigraph<>(Edge.class);
             List<Integer> vertexList = Queries.getVertices(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
             for(Integer v : vertexList) {
                 graph.addVertex(v);
             }
             List<Edge> edgeList = Queries.getEdges(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Edges"));
-            for(Edge e : edgeList) {
+
+	    for(Edge e : edgeList) {
                     graph.addEdge(e.getIn(), e.getOut(), e);
             }
             extGraphs[i] = new ExtGraph(session.getName(), graph, "/media/nvme7n1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies/" + session.getName() + ".json");
