@@ -13,7 +13,7 @@ public class EdgeJaccard implements BinaryMetric {
         System.out.println("[Binary][EJ] EdgeSize Graph 1: " + graph1.getGraph().edgeSet().size());
         System.out.println("[Binary][EJ] EdgeSize Graph 2: " + graph2.getGraph().edgeSet().size());
 
-
+        try{
         long start = System.currentTimeMillis();
          if(graph1.getGraph().edgeSet().size() == 0 || graph2.getGraph().edgeSet().size() == 0)
              return null;
@@ -34,6 +34,10 @@ public class EdgeJaccard implements BinaryMetric {
 
          long compTime = System.currentTimeMillis() - start;
          return new JaccardEdgeResult(quotient, compTime, graph1.getName(), graph2.getName());
+        } catch (Exception e){
+            System.out.println("[Binary] Couldn't Calculate " + this.getClass());
+            return null;
+        }
     }
 }
  

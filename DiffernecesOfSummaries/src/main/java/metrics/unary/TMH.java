@@ -11,27 +11,32 @@ import java.util.List;
 public class TMH implements UnaryMetric {
     @Override
     public Result compute(ExtGraph graph) {
-        System.out.println("[Unary] Calculating TMH");
-        List<Float> squaredsum = new LinkedList<>();
-        long start = System.currentTimeMillis();
-        float sum = 0;
-        for(Integer v : graph.getGraph().vertexSet()){
-            float degree = graph.getGraph().degreeOf(v);
-            if(degree < 0){
-                System.out.println("TMH: Degree < 0 for " + v);
-                continue;
+        System.out.println("[Unary] Calculating " + this.getClass());
+        try {
+            List<Float> squaredsum = new LinkedList<>();
+            long start = System.currentTimeMillis();
+            float sum = 0;
+            for (Integer v : graph.getGraph().vertexSet()) {
+                float degree = graph.getGraph().degreeOf(v);
+                if (degree < 0) {
+                    System.out.println("TMH: Degree < 0 for " + v);
+                    continue;
+                }
+                sum += degree;
+                if (degree * degree < 0) {
+                    System.out.println("Possible Overflow");
+                }
+                squaredsum.add(degree * degree);
             }
-            sum += degree;
-            if(degree * degree < 0){
-                System.out.println("Possible Overflow");
+            float result = 0;
+            for (Float s : squaredsum) {
+                result += s / sum;
             }
-            squaredsum.add(degree * degree);
+            long compTime = System.currentTimeMillis() - start;
+            return new TMHResult(graph.getName(), result, compTime);
+        } catch (Exception e){
+            System.out.println("[Unary] Couldn't Calculate " + this.getClass());
+            return null;
         }
-        float result = 0;
-        for(Float s : squaredsum){
-            result += s / sum;
-        }
-        long compTime = System.currentTimeMillis() - start;
-        return new TMHResult(graph.getName(), result, compTime);
     }
 }

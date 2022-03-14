@@ -11,6 +11,7 @@ public class AvgSizeOfEQClass implements UnaryMetric {
     @Override
     public AvgSizeOfEQClassResult compute(ExtGraph graph) {
         System.out.println("[Unary] Calculating " + this.getClass());
+        try{
 
         long start = System.currentTimeMillis();
         int sum = 0;
@@ -20,5 +21,9 @@ public class AvgSizeOfEQClass implements UnaryMetric {
         long compTime = System.currentTimeMillis() - start;
         float avg = (float) sum / graph.getUnaryResults().get(MetricTypes.NUMBER_OF_EQC);
         return new AvgSizeOfEQClassResult(graph.getName(), avg, compTime);
+        } catch (Exception e){
+            System.out.println("[Unary] Couldn't Calculate " + this.getClass());
+            return null;
+        }
     }
 }
