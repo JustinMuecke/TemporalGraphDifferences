@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import numpy as np 
 import pandas
 
-unaryDF   = pandas.read_csv('/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Results/AC-2019unaryResults.csv')
-binaryDF  = pandas.read_csv('/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Results/binaryResults.csv')
+unaryDF   = pandas.read_csv('/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Results/AC-2013-unaryResults.csv')
+binaryDF  = pandas.read_csv('/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Results/AC-2013-binaryResults.csv')
 
 
 
