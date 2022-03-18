@@ -96,8 +96,8 @@ public class Main {
                 FileWriter.initializeCSVFile("Results/" + dbName + "-binaryResults.csv", false, true);
                 FileWriter.initializeCSVFile("Results/" + dbName + "-binaryCompTimes.csv", true, true);
                 for (int i = 1; i < graphList.length; i++) {
-                    FileWriter.writeResultToFile(graphList[i].getBinaryResults(), graphList[i].getName(), "Results/" + dbName + "-binaryResults.csv", true, graphList[i - 1].getName());
-                    FileWriter.writeCompTimeToFile(graphList[i].getBinaryCompTimes(), graphList[i].getName(), "Results/" + dbName + "-binaryCompTimes.csv", true, graphList[i - 1].getName());
+                    FileWriter.writeResultToFile(graphList[i].getBinaryResults(), graphList[i].getName(), "Results/" + dbName + "-KLD-binaryResults.csv", true, graphList[i - 1].getName());
+                    FileWriter.writeCompTimeToFile(graphList[i].getBinaryCompTimes(), graphList[i].getName(), "Results/" + dbName + "-KLD-binaryCompTimes.csv", true, graphList[i - 1].getName());
                 }
             } catch (IOException e) {
                 logger.error("Couldnt write to fiel");
