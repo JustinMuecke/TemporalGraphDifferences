@@ -19,8 +19,8 @@ public class DBConnector {
         List<Optional<ODatabaseSession>> sessionList = new LinkedList<>();
         OrientDB databaseServer = new OrientDB(URL, serverUser, serverPassword, OrientDBConfig.defaultConfig());
 
-        for(int i = 0; i < 52; i++){
-	    if(i == 5 ||  i == 4 || i==35||i==23|| i==40) {
+        for(int i = 0; i < 53; i++){
+	    if(i==22) {
             sessionList.add(Optional.empty());
             continue;
         }

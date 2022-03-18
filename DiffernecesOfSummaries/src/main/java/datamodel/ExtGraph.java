@@ -98,8 +98,13 @@ public class ExtGraph {
             for(Integer v : vertexList) {
                 graph.addVertex(v);
             }
-            List<Edge> edgeList = Queries.getEdges(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Edges"));
-
+	    List<Edge> edgeList= null;
+            try{
+                edgeList = Queries.getEdges(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Edges"));
+	    }catch (Exception e){
+		System.out.println("[Graph] Couldn't Queary Edges");
+	    }
+	    if(edgeList == null) continue;
 	    for(Edge e : edgeList) {
                 try {
                     graph.addEdge(e.getIn(), e.getOut(), e);

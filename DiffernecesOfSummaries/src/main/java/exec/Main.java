@@ -37,7 +37,7 @@ public class Main {
     }
 
     public static void main(String[] args)  {
-        String dbName = "AC-2013";
+        String dbName = "SchemEx-2014";
         List<Optional<ODatabaseSession>> sessionList;
         ExtGraph[] graphList = null;
         UnaryMetric[] unaryMetricList = createUnaryMetricList();
