@@ -21,8 +21,8 @@ public class Main {
 
     private static final Logger logger = LogManager.getLogger(Main.class);
 
-    private static String dbName = "SchemEx-2014";
-    private static boolean computeUnaryMetrics = false;
+    private static String dbName = "SchemEx-2015";
+    private static boolean computeUnaryMetrics = true;
     private static boolean computeBinaryMetrics = true;
 
 
@@ -31,8 +31,7 @@ public class Main {
     }
 
     private static UnaryMetric[] createUnaryMetricList(){
-        return new UnaryMetric[]{
-                new NumberOfEQClasses(),
+        return new UnaryMetric[]{new NumberOfEQClasses(),
                 new AvgSizeOfEQClass(),
                 new AvgNumberOfEdges(),
                 new Comp(),
@@ -40,11 +39,7 @@ public class Main {
     }
 
     private static BinaryMetric[] createBinaryMetricList(){
-        return new BinaryMetric[]{
-                //new EdgeJaccard(),
-                //new VertexJaccard(),
-                //new GED(),
-                new KLD()};
+        return new BinaryMetric[]{new EdgeJaccard(), new VertexJaccard(), new GED(), new KLD()};
     }
 
     public static void main(String[] args)  {
@@ -65,7 +60,7 @@ public class Main {
         // Compute Unary Metrics
         if(computeUnaryMetrics) {
             for (int i = 0; i < graphList.length; i++) {
-                System.out.println("[Binary] Calculating Timestep: " + i);
+                System.out.println("[Unary] Calculating Timestep: " + i);
 
                 graphList[i].computeUnaryMetrics(unaryMetricList);
             }
@@ -96,8 +91,8 @@ public class Main {
                 FileWriter.initializeCSVFile("Results/" + dbName + "-binaryResults.csv", false, true);
                 FileWriter.initializeCSVFile("Results/" + dbName + "-binaryCompTimes.csv", true, true);
                 for (int i = 1; i < graphList.length; i++) {
-                    FileWriter.writeResultToFile(graphList[i].getBinaryResults(), graphList[i].getName(), "Results/" + dbName + "-KLD-binaryResults.csv", true, graphList[i - 1].getName());
-                    FileWriter.writeCompTimeToFile(graphList[i].getBinaryCompTimes(), graphList[i].getName(), "Results/" + dbName + "-KLD-binaryCompTimes.csv", true, graphList[i - 1].getName());
+                    FileWriter.writeResultToFile(graphList[i].getBinaryResults(), graphList[i].getName(), "Results/" + dbName + "-binaryResults.csv", true, graphList[i - 1].getName());
+                    FileWriter.writeCompTimeToFile(graphList[i].getBinaryCompTimes(), graphList[i].getName(), "Results/" + dbName + "-binaryCompTimes.csv", true, graphList[i - 1].getName());
                 }
             } catch (IOException e) {
                 logger.error("Couldnt write to fiel");
