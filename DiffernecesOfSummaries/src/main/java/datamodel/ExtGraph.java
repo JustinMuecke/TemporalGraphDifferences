@@ -92,15 +92,20 @@ public class ExtGraph {
                 continue;
             }
             ODatabaseSession session = sessionList.get(i).get();
-            System.out.println("Creating Graph " + session.getName());
+            System.out.println("[Graph] Creating Graph " + session.getName());
             Graph<Integer, Edge> graph = new DirectedMultigraph<>(Edge.class);
             List<Integer> vertexList = Queries.getVertices(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
             for(Integer v : vertexList) {
                 graph.addVertex(v);
             }
-            List<Edge> edgeList = Queries.getEdges(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Edges"));
-
-            for(Edge e : edgeList) {
+	    List<Edge> edgeList= null;
+            try{
+                edgeList = Queries.getEdges(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Edges"));
+	    }catch (Exception e){
+		System.out.println("[Graph] Couldn't Queary Edges");
+	    }
+	    if(edgeList == null) continue;
+	    for(Edge e : edgeList) {
                 try {
                     graph.addEdge(e.getIn(), e.getOut(), e);
                 } catch (Exception exe){

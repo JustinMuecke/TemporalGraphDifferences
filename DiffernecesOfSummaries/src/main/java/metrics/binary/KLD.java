@@ -5,8 +5,6 @@ import metrics.BinaryMetric;
 import results.Result;
 import results.binaryResults.KLDResult;
 
-import java.util.stream.Collectors;
-
 public class KLD implements BinaryMetric {
 
     @Override
@@ -14,33 +12,14 @@ public class KLD implements BinaryMetric {
         System.out.println("[Binary] Calculating " + this.getClass());
         try {
             long compStart = System.currentTimeMillis();
-            float klu = 0;
-            //Compute KL of all EQC which are in both timesteps.
-            for (Integer eqc : graph1.getSecondaryIndex().keySet().stream().filter(eqc -> graph2.getSecondaryIndex().containsKey(eqc)).collect(Collectors.toList())) {
-                float probTimeT1 = computeProbabilityOfContainment(graph1, eqc);
-                float probTimeT2 = computeProbabilityOfContainment(graph2, eqc);
-                klu += probTimeT1 * Math.log(probTimeT1 / probTimeT2);
-            }
-
-            // Add Correction Terms
-            float correctionDelete = 0;
-
-            for (Integer eqc : graph1.getSecondaryIndex().keySet().stream().filter(eqc -> !graph2.getSecondaryIndex().containsKey(eqc)).collect(Collectors.toList())) {
-                float probAtT = computeProbabilityOfContainment(graph1, eqc);
-                correctionDelete -= probAtT * logDual(probAtT);
-            }
-            float correctionAdd = 0;
-            for (Integer eqc : graph2.getSecondaryIndex().keySet().stream().filter(eqc -> !graph1.getSecondaryIndex().containsKey(eqc)).collect(Collectors.toList())) {
-                float probAtT = computeProbabilityOfContainment(graph2, eqc);
-                correctionDelete -= probAtT * logDual(probAtT);
-            }
-
-            //sum it up baby
-            float kld = klu + correctionAdd + correctionDelete;
-            long compTime = System.currentTimeMillis() - compStart;
-            return new KLDResult(kld, compTime, graph1.getName(), graph2.getName());
-        }catch (Exception e){
-            System.out.println("[Binary] Couldn't Calculate " + this.getClass());
+            //Compute D(t,t+1)
+            float d1 = divergence(graph1, graph2);
+            //Compute D(t+1,t)
+            float d2 = divergence(graph2, graph1);
+            return new KLDResult(d1+d2, System.currentTimeMillis()- compStart, graph1.getName(), graph2.getName());
+        } catch (Exception e){
+            System.out.println("couldn't calculate KLD");
+            e.printStackTrace();
             return null;
         }
     }
@@ -51,8 +30,19 @@ public class KLD implements BinaryMetric {
             return sizeAtT/combinedSizeAtT;
     }
 
-    private double logDual(double value){
-        return Math.log(value) / Math.log(2);
+
+    private float divergence(ExtGraph graph1, ExtGraph graph2){
+        float sum = 0;
+        for(Integer eq : graph2.getSecondaryIndex().keySet()){
+            if(!graph1.getSecondaryIndex().containsKey(eq)) continue;
+            float probAtT = computeProbabilityOfContainment(graph1, eq);
+            float probAtT2 = computeProbabilityOfContainment(graph2, eq);
+            sum += probAtT * logDual(probAtT/probAtT2);
+        }
+        return sum;
+    }
+    private float logDual(double value){
+        return (float) (Math.log(value) / Math.log(2));
     }
 }
 
