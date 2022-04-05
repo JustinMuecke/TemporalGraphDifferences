@@ -51,7 +51,7 @@ unaryResults.shape=(0, 6)
 binaryResults : np.ndarray = np.array([[]])
 binaryResults.shape=(0, 6)
 
-shortModel = "AC"
+shortModel = "SchemEx"
 first : int = 2013
 last : int= 2016
 for year in range(first, last +1):
@@ -84,7 +84,7 @@ for metric in range(6):
         ax2.plot(xval, referenceValues, linestyle = 'dotted', color = 'orange')        
         ax2.set_ylabel(unaryHeader[3], color='orange')
     plt.tight_layout()
-    plt.savefig('/home/justinmucke/git/TemporalGraphDifferences/DataVisualization/plots/'+ shortModel + '/' + str(unaryHeader[metric]).strip)
+    plt.savefig('/home/justinmucke/git/TemporalGraphDifferences/DataVisualization/plots/'+ shortModel + '/' + str(unaryHeader[metric]).replace(" ", ""))
     plt.show()
 
 
@@ -100,6 +100,6 @@ for metric in range(6):
     plt.xlabel('Timestep')
     plt.ylabel(binaryHeader[metric])
     plt.tight_layout()
-    plt.savefig('/home/justinmucke/git/TemporalGraphDifferences/DataVisualization/plots/'+ shortModel + '/' + str(binaryHeader[metric]))
+    plt.savefig('/home/justinmucke/git/TemporalGraphDifferences/DataVisualization/plots/'+ shortModel + '/' + str(binaryHeader[metric]).replace(" ", ""))
     plt.show()
 
