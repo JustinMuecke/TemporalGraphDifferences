@@ -51,7 +51,7 @@ unaryResults.shape=(0, 6)
 binaryResults : np.ndarray = np.array([[]])
 binaryResults.shape=(0, 6)
 
-shortModel = "SchemEx"
+shortModel = "AC"
 first : int = 2013
 last : int= 2016
 for year in range(first, last +1):
