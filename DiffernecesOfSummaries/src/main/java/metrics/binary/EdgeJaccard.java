@@ -31,7 +31,7 @@ public class EdgeJaccard implements BinaryMetric {
 	     float quotient =(numberOfEdgesInSection / numberOfEdgesInUnion);
 
          long compTime = System.currentTimeMillis() - start;
-         return new JaccardEdgeResult(quotient, compTime, graph1.getName(), graph2.getName());
+         return new JaccardEdgeResult(1-quotient, compTime, graph1.getName(), graph2.getName());
         } catch (Exception e){
             System.out.println("[Binary] Couldn't Calculate " + this.getClass());
             return null;
