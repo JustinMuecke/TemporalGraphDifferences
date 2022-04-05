@@ -1,5 +1,4 @@
 from ast import List
-from unittest import skip
 import matplotlib.pyplot as plt
 import numpy as np 
 import pandas
@@ -16,7 +15,6 @@ def visualize(dataframe : pandas.DataFrame, skipSecond: bool):
 
     xval = [i for i in range(rows)]
 
-
     for metric in range(columns):
         if(metric == 0):
             continue
@@ -24,28 +22,28 @@ def visualize(dataframe : pandas.DataFrame, skipSecond: bool):
             if(metric==1):
                 continue
 
-
         values = results[:, metric]
-        
 
-        plt.plot(xval, values)
-        plt.title(header[metric])
+        plt.plot(xval, values, color = 'blue')
+        plt.xlabel('Timestep')
+        plt.ylabel(header[metric], color = 'blue')
 
-
-       
         if(not skipSecond):
             if(metric == 2):
-                referenceValues=results[:, 1]/120
-                plt.plot(xval, referenceValues)
+                ax2 = plt.twinx()
+                referenceValues=results[:, 1]
+                ax2.plot(xval, referenceValues, linestyle="dotted", color='orange')
+                ax2.set_ylabel(header[1], color = 'orange')
 
             if(metric == 4):
-                referenceValues=results[:,3]*3000
-                plt.plot(xval, referenceValues)
-
-        plt.xlabel('Timestep')
-        plt.ylabel('Value')
-        plt.savefig('/home/justinmucke/git/TemporalGraphDifferences/DataVisualization/plots/'+shortModel +'/' + str(year) +'/'+ header[metric])
+                ax2 = plt.twinx()
+                referenceValues=results[:,3]
+                ax2.plot(xval, referenceValues, linestyle="dotted", color='orange')
+                ax2.set_ylabel(header[3], color='orange')
+        plt.savefig('/home/justinmucke/git/TemporalGraphDifferences/DataVisualization/plots/'+shortModel +'/' + str(year) +'/'+ header[metric], bbox_inches='tight')
+        plt.tight_layout()
         plt.show()
+       
     return results
 
 unaryResults : np.ndarray = np.array([[]])
@@ -53,9 +51,9 @@ unaryResults.shape=(0, 6)
 binaryResults : np.ndarray = np.array([[]])
 binaryResults.shape=(0, 6)
 
-shortModel = "SchemEx"
+shortModel = "AC"
 first : int = 2013
-last : int= 2014
+last : int= 2016
 for year in range(first, last +1):
     unaryDF   = pandas.read_csv('/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Results/'+shortModel+'-'+str(year)+'-unaryResults.csv')
     unaryResults = np.concatenate((unaryResults, visualize(unaryDF, False)), 0)
@@ -71,11 +69,22 @@ for metric in range(6):
     if(metric == 0): 
         continue
     unaryVals = unaryResults[:, metric]
-    plt.plot(xval, unaryVals)
-    plt.title(unaryHeader[metric])
+    plt.plot(xval, unaryVals, color= 'blue')
     plt.xlabel('Timestep')
-    plt.ylabel('Value')
-    plt.savefig('/home/justinmucke/git/TemporalGraphDifferences/DataVisualization/plots/'+ shortModel + '/' + str(unaryHeader[metric]))
+    plt.ylabel(unaryHeader[metric], color='blue')
+    if(metric == 2):
+        referenceValues=unaryResults[:, 1]
+        ax2 = plt.twinx()
+        ax2.plot(xval, referenceValues, linestyle = 'dotted', color ='orange')
+        ax2.set_ylabel(unaryHeader[1], color='orange')
+
+    if(metric == 4):
+        ax2 = plt.twinx()
+        referenceValues=unaryResults[:,3]*5500
+        ax2.plot(xval, referenceValues, linestyle = 'dotted', color = 'orange')        
+        ax2.set_ylabel(unaryHeader[3], color='orange')
+    plt.tight_layout()
+    plt.savefig('/home/justinmucke/git/TemporalGraphDifferences/DataVisualization/plots/'+ shortModel + '/' + str(unaryHeader[metric]).strip)
     plt.show()
 
 
@@ -87,11 +96,10 @@ for metric in range(6):
     if(metric == 0 or metric == 1): 
         continue
     binaryVals = binaryResults[:, metric]
-    plt.plot(xval, binaryVals)
-    plt.title(binaryHeader[metric])
+    plt.plot(xval, binaryVals, color='blue')
     plt.xlabel('Timestep')
-    plt.ylabel('Value')
-    print(binaryHeader[metric])
+    plt.ylabel(binaryHeader[metric])
+    plt.tight_layout()
     plt.savefig('/home/justinmucke/git/TemporalGraphDifferences/DataVisualization/plots/'+ shortModel + '/' + str(binaryHeader[metric]))
     plt.show()
 
