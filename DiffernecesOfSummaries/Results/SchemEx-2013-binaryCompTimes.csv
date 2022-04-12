@@ -1,0 +1,10 @@
+Name, Name 2nd, Graph Creation, JaccardVertex, JaccardEdge, GED, KLD
+SchemEx-2013-1,SchemEx-2013-0,27,309,225,111
+SchemEx-2013-2,SchemEx-2013-1,18,193,135,29
+SchemEx-2013-3,SchemEx-2013-2,21,232,144,28
+null,SchemEx-2013-3,7,37,46,15
+null,null,0,0,0,0
+SchemEx-2013-6,null,5,22,40,3
+SchemEx-2013-7,SchemEx-2013-6,17,209,123,25
+SchemEx-2013-8,SchemEx-2013-7,19,235,164,33
+SchemEx-2013-9,SchemEx-2013-8,19,301,177,33

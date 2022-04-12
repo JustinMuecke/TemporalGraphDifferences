@@ -1,4 +1,4 @@
-Starting a Gradle Daemon, 1 busy Daemon could not be reused, use --status for details
+Starting a Gradle Daemon, 1 incompatible and 1 stopped Daemons could not be reused, use --status for details
 Exception in thread "DisconnectableInputStream source reader" org.gradle.api.UncheckedIOException: java.io.IOException: Bad file descriptor
 	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:61)
 	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
@@ -17,101 +17,7 @@ Caused by: java.io.IOException: Bad file descriptor
 
 > Task :run
 Warning: Nashorn engine is planned to be removed from a future JDK release
-Apr 12, 2022 11:59:07 PM com.orientechnologies.common.log.OLogManager log
-INFO: Detected limit of amount of simultaneously open files is 1048576,  limit of open files for disk cache will be set to 523776
-[Graph] Creating Graph SchemEx-2013-0
-[Graph] Creating Graph SchemEx-2013-1
-[Graph] Creating Graph SchemEx-2013-2
-[Graph] Creating Graph SchemEx-2013-3
-Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
-WARNING: Received signal: SIGTERM
-Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
-INFO: Orient Engine is shutting down...
-Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
-INFO: - shutdown storage: SchemEx-2013-6...
-Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
-INFO: - shutdown storage: SchemEx-2013-3...
-Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
-INFO: - shutdown storage: SchemEx-2013-9...
-Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
-INFO: - shutdown storage: SchemEx-2013-8...
-Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
-INFO: - shutdown storage: SchemEx-2013-7...
-Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
-INFO: - shutdown storage: SchemEx-2013-2...
-Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
-INFO: - shutdown storage: SchemEx-2013-1...
-Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
-INFO: - shutdown storage: SchemEx-2013-0...
-Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
-INFO: Caught Network I/O errors on 127.0.0.1:2424/SchemEx-2013-3, trying an automatic reconnection... (error: Stream closed)
-[Graph] Couldn't Queary Edges
-[Graph] Creating Graph SchemEx-2013-6
-Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
-INFO: Clearing byte buffer pool
-Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
-WARNING: Error deserializing record with id #73:1 send this data for debugging: GlNjaGVtYUVsZW1lbnQGDHZhbHVlcwsCB1JodHRwOi8vd3d3LnczLm9yZy8yMDAyLzA3L293bCNyZXN0cmljdGlvbghoYXNoAbGCyI0DGmluX1NjaGVtYUxpbmsW/////////////////////wKiweroiwkAgOABvA0A 
-Exception in thread "main" com.orientechnologies.orient.core.exception.ODatabaseException: The database instance is not set in the current thread. Be sure to set it with: ODatabaseRecordThreadLocal.instance().set(db);
-	at com.orientechnologies.orient.core.db.ODatabaseRecordThreadLocal.get(ODatabaseRecordThreadLocal.java:63)
-	at com.orientechnologies.orient.core.storage.ridbag.sbtree.OSBTreeRidBag.<init>(OSBTreeRidBag.java:75)
-	at com.orientechnologies.orient.core.db.record.ridbag.ORidBag.<init>(ORidBag.java:110)
-	at com.orientechnologies.orient.core.serialization.serializer.record.binary.ORecordSerializerNetworkV37.readRidBag(ORecordSerializerNetworkV37.java:420)
-	at com.orientechnologies.orient.core.serialization.serializer.record.binary.ORecordSerializerNetworkV37.deserializeValue(ORecordSerializerNetworkV37.java:309)
-	at com.orientechnologies.orient.core.serialization.serializer.record.binary.ORecordSerializerNetworkV37.deserialize(ORecordSerializerNetworkV37.java:122)
-	at com.orientechnologies.orient.core.serialization.serializer.record.binary.ORecordSerializerNetworkV37.fromStream(ORecordSerializerNetworkV37.java:860)
-	at com.orientechnologies.orient.client.remote.message.OMessageHelper.readRecordFromBytes(OMessageHelper.java:402)
-	at com.orientechnologies.orient.client.remote.message.OMessageHelper.readIdentifiable(OMessageHelper.java:387)
-	at com.orientechnologies.orient.client.remote.message.OMessageHelper.readDocument(OMessageHelper.java:497)
-	at com.orientechnologies.orient.client.remote.message.OMessageHelper.readVertex(OMessageHelper.java:485)
-	at com.orientechnologies.orient.client.remote.message.OMessageHelper.readResult(OMessageHelper.java:465)
-	at com.orientechnologies.orient.client.remote.message.OQueryResponse.read(OQueryResponse.java:73)
-	at com.orientechnologies.orient.client.remote.OStorageRemote.lambda$networkOperationRetryTimeout$5(OStorageRemote.java:245)
-	at com.orientechnologies.orient.client.remote.OStorageRemote.baseNetworkOperation(OStorageRemote.java:303)
-	at com.orientechnologies.orient.client.remote.OStorageRemote.networkOperationRetryTimeout(OStorageRemote.java:227)
-	at com.orientechnologies.orient.client.remote.OStorageRemote.networkOperation(OStorageRemote.java:261)
-	at com.orientechnologies.orient.client.remote.OStorageRemote.query(OStorageRemote.java:907)
-	at com.orientechnologies.orient.core.db.document.ODatabaseDocumentRemote.query(ODatabaseDocumentRemote.java:369)
-	at network.Queries.getVertices(Queries.java:24)
-	at datamodel.ExtGraph.createGraphs(ExtGraph.java:97)
-	at exec.Main.main(Main.java:55)
-Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
-INFO: OrientDB Engine shutdown complete
-
-> Task :run FAILED
-
-FAILURE: Build failed with an exception.
-
-* What went wrong:
-Execution failed for task ':run'.
-> Process 'command '/usr/lib/jvm/java-11-openjdk-amd64/bin/java'' finished with non-zero exit value 1
-
-* Try:
-Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
-
-* Get more help at https://help.gradle.org
-
-BUILD FAILED in 1m 54s
-3 actionable tasks: 2 executed, 1 up-to-date
-Starting a Gradle Daemon, 1 incompatible and 1 stopped Daemons could not be reused, use --status for details
-Exception in thread "DisconnectableInputStream source reader" org.gradle.api.UncheckedIOException: java.io.IOException: Bad file descriptor
-	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:61)
-	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
-	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:127)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: java.io.IOException: Bad file descriptor
-	at java.base/java.io.FileInputStream.readBytes(Native Method)
-	at java.base/java.io.FileInputStream.read(FileInputStream.java:279)
-	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:290)
-	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:351)
-	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:98)
-	... 1 more
-> Task :compileJava UP-TO-DATE
-> Task :processResources UP-TO-DATE
-> Task :classes UP-TO-DATE
-
-> Task :run
-Warning: Nashorn engine is planned to be removed from a future JDK release
-Apr 13, 2022 12:01:45 AM com.orientechnologies.common.log.OLogManager log
+Apr 13, 2022 12:39:49 AM com.orientechnologies.common.log.OLogManager log
 INFO: Detected limit of amount of simultaneously open files is 1048576,  limit of open files for disk cache will be set to 523776
 [Graph] Creating Graph SchemEx-2013-0
 [Graph] Creating Graph SchemEx-2013-1
@@ -188,3 +94,235 @@ INFO: Detected limit of amount of simultaneously open files is 1048576,  limit o
 [Binary] Calculating class metrics.binary.VertexJaccard
 [Binary] Calculating class metrics.binary.GED
 [Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 2
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 712620
+[Binary][EJ] EdgeSize Graph 2: 504209
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 3
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 504209
+[Binary][EJ] EdgeSize Graph 2: 752513
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 4
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 752513
+[Binary][EJ] EdgeSize Graph 2: 0
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 5
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 0
+[Binary][EJ] EdgeSize Graph 2: 0
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Couldn't Calculate class metrics.binary.VertexJaccard
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 6
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 0
+[Binary][EJ] EdgeSize Graph 2: 487544
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 7
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 487544
+[Binary][EJ] EdgeSize Graph 2: 672084
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 8
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 672084
+[Binary][EJ] EdgeSize Graph 2: 699250
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 9
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 699250
+[Binary][EJ] EdgeSize Graph 2: 742723
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+
+BUILD SUCCESSFUL in 4m 6s
+3 actionable tasks: 2 executed, 1 up-to-date
+Exception in thread "DisconnectableInputStream source reader" org.gradle.api.UncheckedIOException: java.io.IOException: Bad file descriptor
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:61)
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:127)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.io.IOException: Bad file descriptor
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+	at java.base/java.io.FileInputStream.read(FileInputStream.java:279)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:290)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:351)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:98)
+	... 1 more
+> Task :compileJava
+> Task :processResources UP-TO-DATE
+> Task :classes
+
+> Task :run
+Warning: Nashorn engine is planned to be removed from a future JDK release
+Apr 13, 2022 12:51:52 AM com.orientechnologies.common.log.OLogManager log
+INFO: Detected limit of amount of simultaneously open files is 1048576,  limit of open files for disk cache will be set to 523776
+[Graph] Creating Graph SchemEx-2013-0
+[Graph] Creating Graph SchemEx-2013-1
+[Graph] Creating Graph SchemEx-2013-2
+[Graph] Creating Graph SchemEx-2013-3
+[Graph] Creating Graph SchemEx-2013-6
+[Graph] Creating Graph SchemEx-2013-7
+[Graph] Creating Graph SchemEx-2013-8
+[Graph] Creating Graph SchemEx-2013-9
+[Unary] Calculating Timestep: 0
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.Comp
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 1
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.Comp
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 2
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.Comp
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 3
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.Comp
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 4
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.Comp
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 5
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.Comp
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 6
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.Comp
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 7
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.Comp
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 8
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.Comp
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 9
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.Comp
+[Unary] Calculating class metrics.unary.TMH
+[Binary] Calculating Timestep: 1
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 754999
+[Binary][EJ] EdgeSize Graph 2: 712620
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 306691
+[Binary] Vertex Set 2: 281780
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 2
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 712620
+[Binary][EJ] EdgeSize Graph 2: 504209
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 281780
+[Binary] Vertex Set 2: 210282
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 3
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 504209
+[Binary][EJ] EdgeSize Graph 2: 752513
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 210282
+[Binary] Vertex Set 2: 299833
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 4
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 752513
+[Binary][EJ] EdgeSize Graph 2: 0
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 299833
+[Binary] Vertex Set 2: 0
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 5
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 0
+[Binary][EJ] EdgeSize Graph 2: 0
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 0
+[Binary] Vertex Set 2: 0
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 6
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 0
+[Binary][EJ] EdgeSize Graph 2: 487544
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 0
+[Binary] Vertex Set 2: 199076
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 7
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 487544
+[Binary][EJ] EdgeSize Graph 2: 672084
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 199076
+[Binary] Vertex Set 2: 270784
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 8
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 672084
+[Binary][EJ] EdgeSize Graph 2: 699250
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 270784
+[Binary] Vertex Set 2: 282819
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 9
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 699250
+[Binary][EJ] EdgeSize Graph 2: 742723
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 282819
+[Binary] Vertex Set 2: 296350
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+
+BUILD SUCCESSFUL in 3m 58s
+3 actionable tasks: 2 executed, 1 up-to-date
