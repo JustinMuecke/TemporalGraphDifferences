@@ -1,4 +1,4 @@
-Starting a Gradle Daemon (subsequent builds will be faster)
+Starting a Gradle Daemon, 1 busy Daemon could not be reused, use --status for details
 Exception in thread "DisconnectableInputStream source reader" org.gradle.api.UncheckedIOException: java.io.IOException: Bad file descriptor
 	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:61)
 	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
@@ -17,62 +17,110 @@ Caused by: java.io.IOException: Bad file descriptor
 
 > Task :run
 Warning: Nashorn engine is planned to be removed from a future JDK release
-Apr 05, 2022 5:57:04 AM com.orientechnologies.common.log.OLogManager log
+Apr 12, 2022 11:59:07 PM com.orientechnologies.common.log.OLogManager log
 INFO: Detected limit of amount of simultaneously open files is 1048576,  limit of open files for disk cache will be set to 523776
-[Graph] Creating Graph AC-2013-0
-[Graph] Creating Graph AC-2013-1
-[Graph] Creating Graph AC-2013-2
-[Graph] Creating Graph AC-2013-3
-[Graph] Creating Graph AC-2013-6
-[Graph] Creating Graph AC-2013-7
-[Graph] Creating Graph AC-2013-8
-[Graph] Creating Graph AC-2013-9
-[Graph] Creating Graph AC-2013-10
-[Graph] Creating Graph AC-2013-11
-[Graph] Creating Graph AC-2013-12
-[Graph] Creating Graph AC-2013-13
-[Graph] Creating Graph AC-2013-14
-[Graph] Creating Graph AC-2013-15
-[Graph] Creating Graph AC-2013-16
-[Graph] Creating Graph AC-2013-17
-[Graph] Creating Graph AC-2013-18
-[Graph] Creating Graph AC-2013-19
-[Graph] Creating Graph AC-2013-20
-[Graph] Creating Graph AC-2013-21
-[Graph] Creating Graph AC-2013-22
-[Graph] Creating Graph AC-2013-23
-[Graph] Coudln't create Edge
-[Graph] Creating Graph AC-2013-24
-[Graph] Creating Graph AC-2013-25
-[Graph] Creating Graph AC-2013-26
-[Graph] Creating Graph AC-2013-27
-[Graph] Creating Graph AC-2013-28
-[Graph] Creating Graph AC-2013-29
-[Graph] Creating Graph AC-2013-30
-[Graph] Creating Graph AC-2013-31
-[Graph] Creating Graph AC-2013-32
-[Graph] Creating Graph AC-2013-33
-[Graph] Creating Graph AC-2013-34
-[Graph] Creating Graph AC-2013-35
-[Graph] Coudln't create Edge
-[Graph] Coudln't create Edge
-[Graph] Coudln't create Edge
-[Graph] Coudln't create Edge
-[Graph] Creating Graph AC-2013-36
-[Graph] Creating Graph AC-2013-37
-[Graph] Creating Graph AC-2013-38
-[Graph] Creating Graph AC-2013-39
-[Graph] Creating Graph AC-2013-41
-[Graph] Creating Graph AC-2013-42
-[Graph] Creating Graph AC-2013-43
-[Graph] Creating Graph AC-2013-44
-[Graph] Creating Graph AC-2013-45
-[Graph] Creating Graph AC-2013-46
-[Graph] Creating Graph AC-2013-47
-[Graph] Creating Graph AC-2013-48
-[Graph] Creating Graph AC-2013-49
-[Graph] Creating Graph AC-2013-50
-[Graph] Creating Graph AC-2013-51
+[Graph] Creating Graph SchemEx-2013-0
+[Graph] Creating Graph SchemEx-2013-1
+[Graph] Creating Graph SchemEx-2013-2
+[Graph] Creating Graph SchemEx-2013-3
+Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
+WARNING: Received signal: SIGTERM
+Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
+INFO: Orient Engine is shutting down...
+Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
+INFO: - shutdown storage: SchemEx-2013-6...
+Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
+INFO: - shutdown storage: SchemEx-2013-3...
+Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
+INFO: - shutdown storage: SchemEx-2013-9...
+Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
+INFO: - shutdown storage: SchemEx-2013-8...
+Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
+INFO: - shutdown storage: SchemEx-2013-7...
+Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
+INFO: - shutdown storage: SchemEx-2013-2...
+Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
+INFO: - shutdown storage: SchemEx-2013-1...
+Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
+INFO: - shutdown storage: SchemEx-2013-0...
+Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
+INFO: Caught Network I/O errors on 127.0.0.1:2424/SchemEx-2013-3, trying an automatic reconnection... (error: Stream closed)
+[Graph] Couldn't Queary Edges
+[Graph] Creating Graph SchemEx-2013-6
+Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
+INFO: Clearing byte buffer pool
+Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
+WARNING: Error deserializing record with id #73:1 send this data for debugging: GlNjaGVtYUVsZW1lbnQGDHZhbHVlcwsCB1JodHRwOi8vd3d3LnczLm9yZy8yMDAyLzA3L293bCNyZXN0cmljdGlvbghoYXNoAbGCyI0DGmluX1NjaGVtYUxpbmsW/////////////////////wKiweroiwkAgOABvA0A 
+Exception in thread "main" com.orientechnologies.orient.core.exception.ODatabaseException: The database instance is not set in the current thread. Be sure to set it with: ODatabaseRecordThreadLocal.instance().set(db);
+	at com.orientechnologies.orient.core.db.ODatabaseRecordThreadLocal.get(ODatabaseRecordThreadLocal.java:63)
+	at com.orientechnologies.orient.core.storage.ridbag.sbtree.OSBTreeRidBag.<init>(OSBTreeRidBag.java:75)
+	at com.orientechnologies.orient.core.db.record.ridbag.ORidBag.<init>(ORidBag.java:110)
+	at com.orientechnologies.orient.core.serialization.serializer.record.binary.ORecordSerializerNetworkV37.readRidBag(ORecordSerializerNetworkV37.java:420)
+	at com.orientechnologies.orient.core.serialization.serializer.record.binary.ORecordSerializerNetworkV37.deserializeValue(ORecordSerializerNetworkV37.java:309)
+	at com.orientechnologies.orient.core.serialization.serializer.record.binary.ORecordSerializerNetworkV37.deserialize(ORecordSerializerNetworkV37.java:122)
+	at com.orientechnologies.orient.core.serialization.serializer.record.binary.ORecordSerializerNetworkV37.fromStream(ORecordSerializerNetworkV37.java:860)
+	at com.orientechnologies.orient.client.remote.message.OMessageHelper.readRecordFromBytes(OMessageHelper.java:402)
+	at com.orientechnologies.orient.client.remote.message.OMessageHelper.readIdentifiable(OMessageHelper.java:387)
+	at com.orientechnologies.orient.client.remote.message.OMessageHelper.readDocument(OMessageHelper.java:497)
+	at com.orientechnologies.orient.client.remote.message.OMessageHelper.readVertex(OMessageHelper.java:485)
+	at com.orientechnologies.orient.client.remote.message.OMessageHelper.readResult(OMessageHelper.java:465)
+	at com.orientechnologies.orient.client.remote.message.OQueryResponse.read(OQueryResponse.java:73)
+	at com.orientechnologies.orient.client.remote.OStorageRemote.lambda$networkOperationRetryTimeout$5(OStorageRemote.java:245)
+	at com.orientechnologies.orient.client.remote.OStorageRemote.baseNetworkOperation(OStorageRemote.java:303)
+	at com.orientechnologies.orient.client.remote.OStorageRemote.networkOperationRetryTimeout(OStorageRemote.java:227)
+	at com.orientechnologies.orient.client.remote.OStorageRemote.networkOperation(OStorageRemote.java:261)
+	at com.orientechnologies.orient.client.remote.OStorageRemote.query(OStorageRemote.java:907)
+	at com.orientechnologies.orient.core.db.document.ODatabaseDocumentRemote.query(ODatabaseDocumentRemote.java:369)
+	at network.Queries.getVertices(Queries.java:24)
+	at datamodel.ExtGraph.createGraphs(ExtGraph.java:97)
+	at exec.Main.main(Main.java:55)
+Apr 13, 2022 12:00:56 AM com.orientechnologies.common.log.OLogManager log
+INFO: OrientDB Engine shutdown complete
+
+> Task :run FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':run'.
+> Process 'command '/usr/lib/jvm/java-11-openjdk-amd64/bin/java'' finished with non-zero exit value 1
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 1m 54s
+3 actionable tasks: 2 executed, 1 up-to-date
+Starting a Gradle Daemon, 1 incompatible and 1 stopped Daemons could not be reused, use --status for details
+Exception in thread "DisconnectableInputStream source reader" org.gradle.api.UncheckedIOException: java.io.IOException: Bad file descriptor
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:61)
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:127)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.io.IOException: Bad file descriptor
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+	at java.base/java.io.FileInputStream.read(FileInputStream.java:279)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:290)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:351)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:98)
+	... 1 more
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :run
+Warning: Nashorn engine is planned to be removed from a future JDK release
+Apr 13, 2022 12:01:45 AM com.orientechnologies.common.log.OLogManager log
+INFO: Detected limit of amount of simultaneously open files is 1048576,  limit of open files for disk cache will be set to 523776
+[Graph] Creating Graph SchemEx-2013-0
+[Graph] Creating Graph SchemEx-2013-1
+[Graph] Creating Graph SchemEx-2013-2
+[Graph] Creating Graph SchemEx-2013-3
+[Graph] Creating Graph SchemEx-2013-6
+[Graph] Creating Graph SchemEx-2013-7
+[Graph] Creating Graph SchemEx-2013-8
+[Graph] Creating Graph SchemEx-2013-9
 [Unary] Calculating Timestep: 0
 [Unary] Calculating class metrics.unary.NumberOfEQClasses
 [Unary] Calculating class metrics.unary.AvgSizeOfEQClass
@@ -133,1049 +181,10 @@ INFO: Detected limit of amount of simultaneously open files is 1048576,  limit o
 [Unary] Calculating class metrics.unary.AvgNumberOfEdges
 [Unary] Calculating class metrics.unary.Comp
 [Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 10
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 11
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 12
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 13
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 14
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 15
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 16
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 17
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 18
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 19
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 20
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 21
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 22
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 23
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 24
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 25
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 26
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 27
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 28
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 29
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 30
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 31
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 32
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 33
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 34
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 35
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 36
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 37
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 38
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 39
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 40
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 41
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 42
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 43
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 44
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 45
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 46
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 47
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 48
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 49
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 50
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
-[Unary] Calculating Timestep: 51
-[Unary] Calculating class metrics.unary.NumberOfEQClasses
-[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
-[Unary] Calculating class metrics.unary.AvgNumberOfEdges
-[Unary] Calculating class metrics.unary.Comp
-[Unary] Calculating class metrics.unary.TMH
 [Binary] Calculating Timestep: 1
 [Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 95066
-[Binary][EJ] EdgeSize Graph 2: 91735
+[Binary][EJ] EdgeSize Graph 1: 754999
+[Binary][EJ] EdgeSize Graph 2: 712620
 [Binary] Calculating class metrics.binary.VertexJaccard
 [Binary] Calculating class metrics.binary.GED
 [Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 2
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 91735
-[Binary][EJ] EdgeSize Graph 2: 75282
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 3
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 75282
-[Binary][EJ] EdgeSize Graph 2: 90801
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 4
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 90801
-[Binary][EJ] EdgeSize Graph 2: 0
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 5
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 0
-[Binary][EJ] EdgeSize Graph 2: 0
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 6
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 0
-[Binary][EJ] EdgeSize Graph 2: 78498
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 7
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 78498
-[Binary][EJ] EdgeSize Graph 2: 88526
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 8
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 88526
-[Binary][EJ] EdgeSize Graph 2: 121875
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 9
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 121875
-[Binary][EJ] EdgeSize Graph 2: 91338
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 10
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 91338
-[Binary][EJ] EdgeSize Graph 2: 95193
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 11
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 95193
-[Binary][EJ] EdgeSize Graph 2: 70805
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 12
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 70805
-[Binary][EJ] EdgeSize Graph 2: 98312
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 13
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 98312
-[Binary][EJ] EdgeSize Graph 2: 93653
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 14
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 93653
-[Binary][EJ] EdgeSize Graph 2: 85978
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 15
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 85978
-[Binary][EJ] EdgeSize Graph 2: 90519
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 16
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 90519
-[Binary][EJ] EdgeSize Graph 2: 88922
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 17
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 88922
-[Binary][EJ] EdgeSize Graph 2: 93485
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 18
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 93485
-[Binary][EJ] EdgeSize Graph 2: 81636
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 19
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 81636
-[Binary][EJ] EdgeSize Graph 2: 80795
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 20
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 80795
-[Binary][EJ] EdgeSize Graph 2: 70464
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 21
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 70464
-[Binary][EJ] EdgeSize Graph 2: 77172
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 22
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 77172
-[Binary][EJ] EdgeSize Graph 2: 111433
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 23
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 111433
-[Binary][EJ] EdgeSize Graph 2: 110314
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 24
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 110314
-[Binary][EJ] EdgeSize Graph 2: 134591
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 25
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 134591
-[Binary][EJ] EdgeSize Graph 2: 99907
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 26
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 99907
-[Binary][EJ] EdgeSize Graph 2: 112350
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 27
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 112350
-[Binary][EJ] EdgeSize Graph 2: 91339
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 28
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 91339
-[Binary][EJ] EdgeSize Graph 2: 101024
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 29
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 101024
-[Binary][EJ] EdgeSize Graph 2: 95128
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 30
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 95128
-[Binary][EJ] EdgeSize Graph 2: 97035
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 31
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 97035
-[Binary][EJ] EdgeSize Graph 2: 100627
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 32
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 100627
-[Binary][EJ] EdgeSize Graph 2: 86204
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 33
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 86204
-[Binary][EJ] EdgeSize Graph 2: 84478
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 34
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 84478
-[Binary][EJ] EdgeSize Graph 2: 77736
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 35
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 77736
-[Binary][EJ] EdgeSize Graph 2: 96321
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 36
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 96321
-[Binary][EJ] EdgeSize Graph 2: 105293
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 37
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 105293
-[Binary][EJ] EdgeSize Graph 2: 99810
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 38
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 99810
-[Binary][EJ] EdgeSize Graph 2: 95389
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 39
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 95389
-[Binary][EJ] EdgeSize Graph 2: 101248
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 40
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 101248
-[Binary][EJ] EdgeSize Graph 2: 0
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 41
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 0
-[Binary][EJ] EdgeSize Graph 2: 82214
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 42
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 82214
-[Binary][EJ] EdgeSize Graph 2: 101434
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 43
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 101434
-[Binary][EJ] EdgeSize Graph 2: 91763
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 44
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 91763
-[Binary][EJ] EdgeSize Graph 2: 94896
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 45
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 94896
-[Binary][EJ] EdgeSize Graph 2: 78228
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 46
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 78228
-[Binary][EJ] EdgeSize Graph 2: 97910
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 47
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 97910
-[Binary][EJ] EdgeSize Graph 2: 92876
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 48
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 92876
-[Binary][EJ] EdgeSize Graph 2: 96170
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 49
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 96170
-[Binary][EJ] EdgeSize Graph 2: 122786
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 50
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 122786
-[Binary][EJ] EdgeSize Graph 2: 120298
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 51
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 120298
-[Binary][EJ] EdgeSize Graph 2: 122375
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-
-BUILD SUCCESSFUL in 57m 48s
-3 actionable tasks: 2 executed, 1 up-to-date
-Exception in thread "DisconnectableInputStream source reader" org.gradle.api.UncheckedIOException: java.io.IOException: Bad file descriptor
-	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:61)
-	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
-	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:127)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: java.io.IOException: Bad file descriptor
-	at java.base/java.io.FileInputStream.readBytes(Native Method)
-	at java.base/java.io.FileInputStream.read(FileInputStream.java:279)
-	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:290)
-	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:351)
-	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:98)
-	... 1 more
-> Task :compileJava
-> Task :processResources UP-TO-DATE
-> Task :classes
-
-> Task :run
-Warning: Nashorn engine is planned to be removed from a future JDK release
-Apr 05, 2022 7:52:50 AM com.orientechnologies.common.log.OLogManager log
-INFO: Detected limit of amount of simultaneously open files is 1048576,  limit of open files for disk cache will be set to 523776
-[Graph] Creating Graph AC-2013-0
-[Graph] Creating Graph AC-2013-1
-[Graph] Creating Graph AC-2013-2
-[Graph] Creating Graph AC-2013-3
-[Graph] Creating Graph AC-2013-6
-[Graph] Creating Graph AC-2013-7
-[Graph] Creating Graph AC-2013-8
-[Graph] Creating Graph AC-2013-9
-[Graph] Creating Graph AC-2013-10
-[Graph] Creating Graph AC-2013-11
-[Graph] Creating Graph AC-2013-12
-[Graph] Creating Graph AC-2013-13
-[Graph] Creating Graph AC-2013-14
-[Graph] Creating Graph AC-2013-15
-[Graph] Creating Graph AC-2013-16
-[Graph] Creating Graph AC-2013-17
-[Graph] Creating Graph AC-2013-18
-[Graph] Creating Graph AC-2013-19
-[Graph] Creating Graph AC-2013-20
-[Graph] Creating Graph AC-2013-21
-[Graph] Creating Graph AC-2013-22
-[Graph] Creating Graph AC-2013-23
-[Graph] Coudln't create Edge
-[Graph] Creating Graph AC-2013-24
-[Graph] Creating Graph AC-2013-25
-[Graph] Creating Graph AC-2013-26
-[Graph] Creating Graph AC-2013-27
-[Graph] Creating Graph AC-2013-28
-[Graph] Creating Graph AC-2013-29
-[Graph] Creating Graph AC-2013-30
-[Graph] Creating Graph AC-2013-31
-[Graph] Creating Graph AC-2013-32
-[Graph] Creating Graph AC-2013-33
-[Graph] Creating Graph AC-2013-34
-[Graph] Creating Graph AC-2013-35
-[Graph] Coudln't create Edge
-[Graph] Coudln't create Edge
-[Graph] Coudln't create Edge
-[Graph] Coudln't create Edge
-[Graph] Creating Graph AC-2013-36
-[Graph] Creating Graph AC-2013-37
-[Graph] Creating Graph AC-2013-38
-[Graph] Creating Graph AC-2013-39
-[Graph] Creating Graph AC-2013-41
-[Graph] Creating Graph AC-2013-42
-[Graph] Creating Graph AC-2013-43
-[Graph] Creating Graph AC-2013-44
-[Graph] Creating Graph AC-2013-45
-[Graph] Creating Graph AC-2013-46
-[Graph] Creating Graph AC-2013-47
-[Graph] Creating Graph AC-2013-48
-[Graph] Creating Graph AC-2013-49
-[Graph] Creating Graph AC-2013-50
-[Graph] Creating Graph AC-2013-51
-[Binary] Calculating Timestep: 1
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 95066
-[Binary][EJ] EdgeSize Graph 2: 91735
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 2
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 91735
-[Binary][EJ] EdgeSize Graph 2: 75282
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 3
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 75282
-[Binary][EJ] EdgeSize Graph 2: 90801
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 4
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 90801
-[Binary][EJ] EdgeSize Graph 2: 0
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 5
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 0
-[Binary][EJ] EdgeSize Graph 2: 0
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 6
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 0
-[Binary][EJ] EdgeSize Graph 2: 78498
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 7
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 78498
-[Binary][EJ] EdgeSize Graph 2: 88526
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 8
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 88526
-[Binary][EJ] EdgeSize Graph 2: 121875
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 9
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 121875
-[Binary][EJ] EdgeSize Graph 2: 91338
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 10
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 91338
-[Binary][EJ] EdgeSize Graph 2: 95193
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 11
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 95193
-[Binary][EJ] EdgeSize Graph 2: 70805
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 12
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 70805
-[Binary][EJ] EdgeSize Graph 2: 98312
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 13
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 98312
-[Binary][EJ] EdgeSize Graph 2: 93653
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 14
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 93653
-[Binary][EJ] EdgeSize Graph 2: 85978
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 15
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 85978
-[Binary][EJ] EdgeSize Graph 2: 90519
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 16
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 90519
-[Binary][EJ] EdgeSize Graph 2: 88922
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 17
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 88922
-[Binary][EJ] EdgeSize Graph 2: 93485
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 18
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 93485
-[Binary][EJ] EdgeSize Graph 2: 81636
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 19
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 81636
-[Binary][EJ] EdgeSize Graph 2: 80795
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 20
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 80795
-[Binary][EJ] EdgeSize Graph 2: 70464
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 21
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 70464
-[Binary][EJ] EdgeSize Graph 2: 77172
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 22
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 77172
-[Binary][EJ] EdgeSize Graph 2: 111433
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 23
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 111433
-[Binary][EJ] EdgeSize Graph 2: 110314
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 24
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 110314
-[Binary][EJ] EdgeSize Graph 2: 134591
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 25
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 134591
-[Binary][EJ] EdgeSize Graph 2: 99907
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 26
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 99907
-[Binary][EJ] EdgeSize Graph 2: 112350
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 27
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 112350
-[Binary][EJ] EdgeSize Graph 2: 91339
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 28
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 91339
-[Binary][EJ] EdgeSize Graph 2: 101024
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 29
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 101024
-[Binary][EJ] EdgeSize Graph 2: 95128
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 30
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 95128
-[Binary][EJ] EdgeSize Graph 2: 97035
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 31
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 97035
-[Binary][EJ] EdgeSize Graph 2: 100627
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 32
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 100627
-[Binary][EJ] EdgeSize Graph 2: 86204
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 33
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 86204
-[Binary][EJ] EdgeSize Graph 2: 84478
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 34
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 84478
-[Binary][EJ] EdgeSize Graph 2: 77736
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 35
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 77736
-[Binary][EJ] EdgeSize Graph 2: 96321
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 36
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 96321
-[Binary][EJ] EdgeSize Graph 2: 105293
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 37
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 105293
-[Binary][EJ] EdgeSize Graph 2: 99810
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 38
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 99810
-[Binary][EJ] EdgeSize Graph 2: 95389
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 39
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 95389
-[Binary][EJ] EdgeSize Graph 2: 101248
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 40
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 101248
-[Binary][EJ] EdgeSize Graph 2: 0
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 41
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 0
-[Binary][EJ] EdgeSize Graph 2: 82214
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 42
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 82214
-[Binary][EJ] EdgeSize Graph 2: 101434
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 43
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 101434
-[Binary][EJ] EdgeSize Graph 2: 91763
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 44
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 91763
-[Binary][EJ] EdgeSize Graph 2: 94896
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 45
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 94896
-[Binary][EJ] EdgeSize Graph 2: 78228
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 46
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 78228
-[Binary][EJ] EdgeSize Graph 2: 97910
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 47
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 97910
-[Binary][EJ] EdgeSize Graph 2: 92876
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 48
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 92876
-[Binary][EJ] EdgeSize Graph 2: 96170
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 49
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 96170
-[Binary][EJ] EdgeSize Graph 2: 122786
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 50
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 122786
-[Binary][EJ] EdgeSize Graph 2: 120298
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-[Binary] Calculating Timestep: 51
-[Binary] Calculating class metrics.binary.EdgeJaccard
-[Binary][EJ] EdgeSize Graph 1: 120298
-[Binary][EJ] EdgeSize Graph 2: 122375
-[Binary] Calculating class metrics.binary.VertexJaccard
-[Binary] Calculating class metrics.binary.GED
-[Binary] Calculating class metrics.binary.KLD
-
-BUILD SUCCESSFUL in 58m 50s
-3 actionable tasks: 2 executed, 1 up-to-date
