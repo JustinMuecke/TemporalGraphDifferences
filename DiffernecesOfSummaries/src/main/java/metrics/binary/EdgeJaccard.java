@@ -1,6 +1,5 @@
 package metrics.binary;
 
-import datamodel.Edge;
 import datamodel.ExtGraph;
 import metrics.BinaryMetric;
 import results.Result;
@@ -15,19 +14,9 @@ public class EdgeJaccard implements BinaryMetric {
 
         try{
         long start = System.currentTimeMillis();
-         float numberOfEdgesInSection = 0;
-         float numberOfEdgesInUnion = graph2.getGraph().edgeSet().size();
-         for(Edge e1 : graph1.getGraph().edgeSet()){
-             for (Edge e2 : graph2.getGraph().edgeSet()){
-                 if(e1.getOut().equals(e2.getOut()) && e1.getIn().equals(e2.getIn())){
-                     numberOfEdgesInSection ++;
-                     break;
-                 }
-             }
-             numberOfEdgesInUnion++;
-         }
-         //float numberOfEdgesInSection = graph1.getGraph().edgeSet().stream().filter(edge -> graph2.getGraph().edgeSet().contains(edge)).count();
-         //float numberOfEdgesInUnion = graph1.getGraph().edgeSet().size() + graph2.getGraph().edgeSet().stream().filter(edge -> !graph1.getGraph().edgeSet().contains(edge)).count();
+
+         float numberOfEdgesInSection = graph1.getGraph().edgeSet().stream().filter(edge -> graph2.getGraph().edgeSet().contains(edge)).count();
+         float numberOfEdgesInUnion = graph1.getGraph().edgeSet().size() + graph2.getGraph().edgeSet().stream().filter(edge -> !graph1.getGraph().edgeSet().contains(edge)).count();
 	     float quotient =(numberOfEdgesInSection / numberOfEdgesInUnion);
 
          long compTime = System.currentTimeMillis() - start;
