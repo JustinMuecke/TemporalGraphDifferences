@@ -1,0 +1,9 @@
+Name, Name 2nd, Graph Creation, JaccardVertex, JaccardEdge, GED, KLD
+AC-2013-1,AC-2013-0,12,34,78,35
+AC-2013-2,AC-2013-1,6,14,44,11
+AC-2013-3,AC-2013-2,5,15,48,8
+null,AC-2013-3,2,3,14,4
+null,null,0,0,0,0
+AC-2013-6,null,2,2,8,1
+AC-2013-7,AC-2013-6,6,15,29,8
+AC-2013-8,AC-2013-7,4,21,32,8
