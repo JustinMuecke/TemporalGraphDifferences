@@ -58,7 +58,7 @@ public class FileWriter {
             header += ", Graph Creation";
         }
         if(binary){
-            header += ", JaccardVertex, JaccardEdge, GED, KLD\n";
+            header += ", JaccardVertex, JaccardEdge, GED, KLD, AvgDegree\n";
         }
         if(!binary) {
             header += ", Number of EQC, Average Size of EQC, Average Number of Edges, TMH, Comp\n";
@@ -92,7 +92,10 @@ public class FileWriter {
                 .append(results.get(MetricTypes.TMH))
                 .append(",")
                 .append(results.get(MetricTypes.COMP))
+                .append(",")
+                .append(results.get(MetricTypes.AVG_DEG))
                 .append("\n");
+
         String csv = sb.toString();
         csv = csv.replace("Null", "0");
         return csv;
