@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jgrapht.Graph;
 import org.jgrapht.graph.DirectedMultigraph;
+import org.jgrapht.graph.builder.GraphTypeBuilder;
 import results.MetricTypes;
 import results.Result;
 
@@ -92,7 +93,13 @@ public class ExtGraph {
             }
             ODatabaseSession session = sessionList.get(i).get();
             System.out.println("[Graph] Creating Graph " + session.getName());
-            Graph<Integer, Edge> graph = new DirectedMultigraph<>(Edge.class);
+            Graph<Integer, Edge> graph = GraphTypeBuilder
+                    .undirected()
+                    .allowingMultipleEdges(true)
+                    .edgeClass(Edge.class)
+                    .vertexClass(Integer.class)
+                    .weighted(false)
+                    .buildGraph();
             List<Integer> vertexList = Queries.getVertices(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
             for (Integer v : vertexList) {
                 graph.addVertex(v);
