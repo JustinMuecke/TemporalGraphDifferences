@@ -58,10 +58,10 @@ public class FileWriter {
             header += ", Graph Creation";
         }
         if(binary){
-            header += ", JaccardVertex, JaccardEdge, GED, KLD, AvgDegree\n";
+            header += ", JaccardVertex, JaccardEdge, GED, KLD\n";
         }
         if(!binary) {
-            header += ", Number of EQC, Average Size of EQC, Average Number of Edges, TMH, Comp\n";
+            header += ", Number of EQC, Average Size of EQC, Average Number of Edges, TMH, Comp, Avg Degree\n";
         }
         RandomAccessFile stream = new RandomAccessFile(filepath, "rw");
         getFileChannel(header, stream);
@@ -97,7 +97,9 @@ public class FileWriter {
                 .append("\n");
 
         String csv = sb.toString();
-        csv = csv.replace("Null", "0");
+        csv = csv.replace("null", "0");
+        csv = csv.replace("NaN", "0");
+
         return csv;
     }
 
