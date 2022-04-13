@@ -31,12 +31,11 @@ public class ExtGraph {
     private final HashMap<MetricTypes, Long> binaryCompTimes;
 
     public ExtGraph(String name, Graph<Integer, Edge> graph, String path2secondaryIndex) {
-    	 this.name = name;
+        this.name = name;
         this.graph = graph;
         try {
             this.secondaryIndex = Objects.requireNonNull(SecondaryIndex.readFromJson(path2secondaryIndex)).getSchemaElementToImprint();
-        }
-        catch(NullPointerException e){
+        } catch (NullPointerException e) {
             logger.error("Couldnt read SecondaryIndex for " + name);
         }
         unaryResults = new HashMap<>();
@@ -45,8 +44,8 @@ public class ExtGraph {
         binaryCompTimes = new HashMap<>();
     }
 
-    public ExtGraph(){
-        this.name="null";
+    public ExtGraph() {
+        this.name = "null";
         this.graph = new DirectedMultigraph<>(Edge.class);
         this.secondaryIndex = new HashMap<>();
         unaryResults = new HashMap<>();
@@ -83,11 +82,11 @@ public class ExtGraph {
         return binaryCompTimes;
     }
 
-    public static ExtGraph[] createGraphs(List<Optional<ODatabaseSession>> sessionList){
+    public static ExtGraph[] createGraphs(List<Optional<ODatabaseSession>> sessionList) {
         ExtGraph[] extGraphs = new ExtGraph[sessionList.size()];
         long start = System.currentTimeMillis();
-        for(int i = 0; i < extGraphs.length; i++) {
-            if(sessionList.get(i).isEmpty()) {
+        for (int i = 0; i < extGraphs.length; i++) {
+            if (sessionList.get(i).isEmpty()) {
                 extGraphs[i] = new ExtGraph();
                 continue;
             }
@@ -95,26 +94,29 @@ public class ExtGraph {
             System.out.println("[Graph] Creating Graph " + session.getName());
             Graph<Integer, Edge> graph = new DirectedMultigraph<>(Edge.class);
             List<Integer> vertexList = Queries.getVertices(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
-            for(Integer v : vertexList) {
+            for (Integer v : vertexList) {
                 graph.addVertex(v);
             }
             System.out.println("[Graph] VertexList Size: " + vertexList.size());
-	    List<Edge> edgeList= null;
-            try{
+            List<Edge> edgeList = null;
+            try {
                 edgeList = Queries.getEdges(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Edges"));
-	    }catch (Exception e){
-		System.out.println("[Graph] Couldn't Queary Edges");
-	    }
-	    if(edgeList == null) continue;
+            } catch (Exception e) {
+                System.out.println("[Graph] Couldn't Queary Edges");
+            }
+            if (edgeList == null) continue;
             System.out.println("[Graph] Edgelist Size: " + edgeList.size());
 
-            for(Edge e : edgeList) {
+            for (Edge e : edgeList) {
                 try {
-                    graph.addEdge(e.getIn(), e.getOut(), e);
-                } catch (Exception exe){
+                    if(!graph.addEdge(e.getIn(), e.getOut(), e)){
+                        System.out.println("[Graph] Multiple Edge");
+                    };
+                } catch (Exception exe) {
                     System.out.println("[Graph] Coudln't create Edge");
                 }
             }
+            System.out.println("[Graph] Edges in Graph: " + graph.edgeSet().size());
 
             extGraphs[i] = new ExtGraph(session.getName(), graph, "/media/nvme7n1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies/" + session.getName() + ".json");
             extGraphs[i].getUnaryCompTimes().put(MetricTypes.GRPAH_CREATION, System.currentTimeMillis() - start);
@@ -122,7 +124,7 @@ public class ExtGraph {
         return extGraphs;
     }
 
-    public void computeUnaryMetrics(UnaryMetric[] metrics){
+    public void computeUnaryMetrics(UnaryMetric[] metrics) {
         for (UnaryMetric metric : metrics) {
             Result result = metric.compute(this);
             if (result != null) {
@@ -132,10 +134,10 @@ public class ExtGraph {
         }
     }
 
-    public void computeBinaryMetrics(BinaryMetric[] metrics, ExtGraph referenceGraph){
-        for(BinaryMetric metric : metrics){
+    public void computeBinaryMetrics(BinaryMetric[] metrics, ExtGraph referenceGraph) {
+        for (BinaryMetric metric : metrics) {
             Result result = metric.compute(referenceGraph, this);
-            if(result != null){
+            if (result != null) {
                 binaryResults.put(result.getMetric(), result.getDifference());
                 binaryCompTimes.put(result.getMetric(), result.getCompTime());
             }
