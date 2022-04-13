@@ -38,7 +38,8 @@ public class Main {
                 new AvgSizeOfEQClass(),
                 new AvgNumberOfEdges(),
                 new Comp(),
-                new TMH()};
+                new TMH(),
+                new AvgDegree()};
     }
 
     private static BinaryMetric[] createBinaryMetricList(){

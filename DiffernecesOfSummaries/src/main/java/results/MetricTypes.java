@@ -10,5 +10,6 @@ public enum MetricTypes {
     JACCARD_VERTEX,
     JARCCARD_EDGE,
     GED,
-    KLD
+    KLD,
+    AvgDegree
 }

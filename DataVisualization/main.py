@@ -53,7 +53,7 @@ binaryResults.shape=(0, 6)
 
 shortModel = "AC"
 first : int = 2013
-last : int= 2016
+last : int= 2013
 for year in range(first, last +1):
     unaryDF   = pandas.read_csv('/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Results/'+shortModel+'-'+str(year)+'-unaryResults.csv')
     unaryResults = np.concatenate((unaryResults, visualize(unaryDF, False)), 0)
