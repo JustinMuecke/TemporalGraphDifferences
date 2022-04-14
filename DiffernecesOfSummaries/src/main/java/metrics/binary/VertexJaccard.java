@@ -16,7 +16,7 @@ public class VertexJaccard implements BinaryMetric {
             System.out.println("[Binary] Vertex Set 1: " + graph1.getSecondaryIndex().keySet().size());
             System.out.println("[Binary] Vertex Set 2: " + graph2.getSecondaryIndex().keySet().size());
             float inSection = graph1.getSecondaryIndex().keySet().stream().distinct().filter(key -> graph2.getSecondaryIndex().containsKey(key)).count();
-            float inUnion =  graph1.getSecondaryIndex().keySet().size() + graph2.getSecondaryIndex().keySet().size() - 2 * inSection;
+            float inUnion =  graph1.getSecondaryIndex().keySet().size() + graph2.getSecondaryIndex().keySet().size() - inSection;
             float diff = inSection/inUnion;
             long compTime = System.currentTimeMillis() - start;
             return new JaccardVertexResult(1 - diff, compTime, graph1.getName(), graph2.getName());
