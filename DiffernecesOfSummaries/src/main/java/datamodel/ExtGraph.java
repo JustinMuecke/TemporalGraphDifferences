@@ -49,6 +49,7 @@ public class ExtGraph {
     public ExtGraph() {
         this.name = "null";
         this.graph = new MultiGraph();
+        this.distinctGraph = new DirectedMultigraph<>(Edge.class);
         this.secondaryIndex = new HashMap<>();
         unaryResults = new HashMap<>();
         unaryCompTimes = new HashMap<>();
