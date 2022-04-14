@@ -76,6 +76,10 @@ public class MultiGraph{
         return this.edgeSet;
     }
 
+    public Set<Edge> distinctEdgeSet(){
+        return this.distinctEdgeSet;
+    }
+
     public int degreeOf(Integer vertex) {
         return (int) edgeSet.stream().filter(e -> e.getIn().equals(vertex) || e.getOut().equals(vertex)).count();
     }
