@@ -38,9 +38,6 @@ public class MultiGraph{
     public boolean addEdge(Object sourceVertex, Object targetVertex, Object o) {
         java.lang.Integer in = (java.lang.Integer) sourceVertex;
         java.lang.Integer out = (java.lang.Integer) targetVertex;
-        if(!vertexSet.contains(in) || !vertexSet.contains(out)){
-            return false;
-        }
         this.edgeSet.add(new Edge(in, out));
         this.degreeMap.replace(in, degreeMap.get(in) + 1);
         this.degreeMap.replace(out, degreeMap.get(out) + 1);

@@ -326,3 +326,109 @@ INFO: Detected limit of amount of simultaneously open files is 1048576,  limit o
 
 BUILD SUCCESSFUL in 3m 58s
 3 actionable tasks: 2 executed, 1 up-to-date
+Exception in thread "DisconnectableInputStream source reader" org.gradle.api.UncheckedIOException: java.io.IOException: Bad file descriptor
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:61)
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:127)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.io.IOException: Bad file descriptor
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+	at java.base/java.io.FileInputStream.read(FileInputStream.java:279)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:290)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:351)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:98)
+	... 1 more
+> Task :compileJava
+> Task :processResources UP-TO-DATE
+> Task :classes
+
+> Task :run
+Warning: Nashorn engine is planned to be removed from a future JDK release
+Apr 14, 2022 3:47:30 AM com.orientechnologies.common.log.OLogManager log
+INFO: Detected limit of amount of simultaneously open files is 1048576,  limit of open files for disk cache will be set to 523776
+[Graph] Creating Graph SchemEx-2013-0
+[Graph] VertexList Size: 316424
+[Graph] Edgelist Size: 1788627
+[Graph] Edges in Graph: 1788627
+[Graph] Creating Graph SchemEx-2013-1
+[Graph] VertexList Size: 289828
+[Graph] Edgelist Size: 1691324
+[Graph] Edges in Graph: 1691324
+[Graph] Creating Graph SchemEx-2013-2
+[Graph] VertexList Size: 220173
+[Graph] Edgelist Size: 1217678
+[Graph] Edges in Graph: 1217678
+[Graph] Creating Graph SchemEx-2013-3
+[Graph] VertexList Size: 309656
+[Graph] Edgelist Size: 1794174
+[Graph] Edges in Graph: 1794174
+[Graph] Creating Graph SchemEx-2013-6
+[Graph] VertexList Size: 207179
+[Graph] Edgelist Size: 1207438
+[Graph] Edges in Graph: 1207438
+[Graph] Creating Graph SchemEx-2013-7
+[Graph] VertexList Size: 280043
+[Graph] Edgelist Size: 1578937
+[Graph] Edges in Graph: 1578937
+[Graph] Creating Graph SchemEx-2013-8
+[Graph] VertexList Size: 292028
+[Graph] Edgelist Size: 1659673
+[Graph] Edges in Graph: 1659673
+[Graph] Creating Graph SchemEx-2013-9
+[Graph] VertexList Size: 305528
+[Graph] Edgelist Size: 1787623
+[Graph] Edges in Graph: 1787623
+[Unary] Calculating Timestep: 0
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 1
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 2
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 3
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 4
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 5
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 6
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 7
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 8
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 9
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Binary] Calculating Timestep: 1
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 1788627
+[Binary][EJ] EdgeSize Graph 2: 1691324

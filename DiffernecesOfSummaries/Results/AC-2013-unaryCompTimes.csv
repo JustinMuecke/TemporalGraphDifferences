@@ -1,10 +1,11 @@
-Name, Graph Creation, Number of EQC, Average Size of EQC, Average Number of Edges, TMH, Comp
-AC-2013-0,19017,0,8,0,26,142
-AC-2013-1,37044,1,3,0,10,88
-AC-2013-2,47143,0,3,0,4,79
-AC-2013-3,58086,0,1,0,6,84
+Name, Graph Creation, Number of EQC, Average Size of EQC, Average Number of Edges, TMH, Comp, Avg Degree
+AC-2013-0,14022,0,9,0,25,136
+AC-2013-1,26388,0,4,0,6,94
+AC-2013-2,36582,0,3,0,9,70
+AC-2013-3,50379,0,3,0,7,91
 null,null,0,0,0,0,0
 null,null,0,0,0,0,0
-AC-2013-6,67251,0,1,0,4,61
-AC-2013-7,76949,0,2,0,6,91
-AC-2013-8,87142,0,0,0,6,84
+AC-2013-6,60818,0,2,0,4,66
+AC-2013-7,73112,0,2,0,4,74
+AC-2013-8,85523,0,1,0,5,84
+AC-2013-9,99800,0,1,0,5,87

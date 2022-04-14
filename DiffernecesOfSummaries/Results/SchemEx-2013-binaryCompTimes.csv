@@ -1,10 +1,19 @@
 Name, Name 2nd, Graph Creation, JaccardVertex, JaccardEdge, GED, KLD
-SchemEx-2013-1,SchemEx-2013-0,27,309,225,111
-SchemEx-2013-2,SchemEx-2013-1,18,193,135,29
-SchemEx-2013-3,SchemEx-2013-2,21,232,144,28
-null,SchemEx-2013-3,7,37,46,15
+SchemEx-2013-1,SchemEx-2013-0,27,337,228,75
+SchemEx-2013-2,SchemEx-2013-1,20,193,163,32
+SchemEx-2013-3,SchemEx-2013-2,19,239,167,30
+null,SchemEx-2013-3,6,37,49,17
+null,null,0,0,0,1
+SchemEx-2013-6,null,5,18,34,3
+SchemEx-2013-7,SchemEx-2013-6,18,210,136,29
+SchemEx-2013-8,SchemEx-2013-7,21,294,188,37
+SchemEx-2013-9,SchemEx-2013-8,20,292,334,36
+SchemEx-2013-1,SchemEx-2013-0,28,337,265,75
+SchemEx-2013-2,SchemEx-2013-1,20,243,144,33
+SchemEx-2013-3,SchemEx-2013-2,19,269,159,30
+null,SchemEx-2013-3,7,24,50,18
 null,null,0,0,0,0
-SchemEx-2013-6,null,5,22,40,3
-SchemEx-2013-7,SchemEx-2013-6,17,209,123,25
-SchemEx-2013-8,SchemEx-2013-7,19,235,164,33
-SchemEx-2013-9,SchemEx-2013-8,19,301,177,33
+SchemEx-2013-6,null,5,20,32,3
+SchemEx-2013-7,SchemEx-2013-6,18,267,127,29
+SchemEx-2013-8,SchemEx-2013-7,21,394,196,39
+SchemEx-2013-9,SchemEx-2013-8,21,416,229,40

@@ -1,3 +1,4 @@
+
 package exec;
 
 import com.orientechnologies.orient.core.db.ODatabaseSession;
@@ -24,7 +25,7 @@ public class Main {
 
     private static final Logger logger = LogManager.getLogger(Main.class);
 
-    private static String dbName = "AC-2013";
+    private static String dbName = "SchemEx-2013";
     private static boolean computeUnaryMetrics = true;
     private static boolean computeBinaryMetrics = true;
 
@@ -36,11 +37,10 @@ public class Main {
     private static UnaryMetric[] createUnaryMetricList(){
         return new UnaryMetric[]{new NumberOfEQClasses(),
                 new AvgSizeOfEQClass(),
-                new AvgNumberOfEdges(),
-                new Comp(),
-                new TMH(),
-                new AvgDegree()};
-    }
+                new AvgNumberOfEdges()
+                ,new TMH()
+                };
+   }
 
     private static BinaryMetric[] createBinaryMetricList(){
         return new BinaryMetric[]{new EdgeJaccard(), new VertexJaccard(), new GED(), new KLD()};
