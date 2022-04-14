@@ -47,7 +47,7 @@ def visualize(dataframe : pandas.DataFrame, skipSecond: bool):
     return results
 
 unaryResults : np.ndarray = np.array([[]])
-unaryResults.shape=(0, 6)
+unaryResults.shape=(0, 7)
 binaryResults : np.ndarray = np.array([[]])
 binaryResults.shape=(0, 6)
 
