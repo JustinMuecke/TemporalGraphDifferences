@@ -7,6 +7,8 @@ import metrics.UnaryMetric;
 import network.Queries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jgrapht.Graph;
+import org.jgrapht.graph.DirectedMultigraph;
 import results.MetricTypes;
 import results.Result;
 
@@ -23,14 +25,16 @@ public class ExtGraph {
     private final String name;
     private final MultiGraph graph;
     private HashMap<Integer, Integer> secondaryIndex;
+    private Graph<Integer, Edge> distinctGraph;
     private final HashMap<MetricTypes, Float> unaryResults;
     private final HashMap<MetricTypes, Long> unaryCompTimes;
     private final HashMap<MetricTypes, Float> binaryResults;
     private final HashMap<MetricTypes, Long> binaryCompTimes;
 
-    public ExtGraph(String name, MultiGraph graph, String path2secondaryIndex) {
+    public ExtGraph(String name, MultiGraph graph, Graph<Integer, Edge> distinctGraph, String path2secondaryIndex) {
         this.name = name;
         this.graph = graph;
+        this.distinctGraph = distinctGraph;
         try {
             this.secondaryIndex = Objects.requireNonNull(SecondaryIndex.readFromJson(path2secondaryIndex)).getSchemaElementToImprint();
         } catch (NullPointerException e) {
@@ -91,9 +95,11 @@ public class ExtGraph {
             ODatabaseSession session = sessionList.get(i).get();
             System.out.println("[Graph] Creating Graph " + session.getName());
             MultiGraph graph = new MultiGraph();
+            DirectedMultigraph<Integer, Edge> distinctGraph = new DirectedMultigraph<>(Edge.class);
             List<Integer> vertexList = Queries.getVertices(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
             for (Integer v : vertexList) {
                 graph.addVertex(v);
+                distinctGraph.addVertex(v);
             }
             System.out.println("[Graph] VertexList Size: " + vertexList.size());
             List<Edge> edgeList = null;
@@ -107,16 +113,15 @@ public class ExtGraph {
 
             for (Edge e : edgeList) {
                 try {
-                    if(!graph.addEdge(e.getIn(), e.getOut(), e)){
-                        System.out.println("[Graph] Multiple Edge");
-                    };
+                    graph.addEdge(e.getIn(), e.getOut(), e);
+                    distinctGraph.addEdge(e.getIn(), e.getOut(), e);
                 } catch (Exception exe) {
                     System.out.println("[Graph] Coudln't create Edge");
                 }
             }
             System.out.println("[Graph] Edges in Graph: " + graph.edgeSet().size());
 
-            extGraphs[i] = new ExtGraph(session.getName(), graph, "/media/nvme7n1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies/" + session.getName() + ".json");
+            extGraphs[i] = new ExtGraph(session.getName(), graph,distinctGraph, "/media/nvme7n1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies/" + session.getName() + ".json");
             extGraphs[i].getUnaryCompTimes().put(MetricTypes.GRPAH_CREATION, System.currentTimeMillis() - start);
         }
         return extGraphs;
@@ -142,4 +147,7 @@ public class ExtGraph {
         }
     }
 
+    public Graph<Integer, Edge> getDistinctGraph() {
+        return distinctGraph;
+    }
 }
