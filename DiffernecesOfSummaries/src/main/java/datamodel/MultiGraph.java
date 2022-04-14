@@ -10,13 +10,15 @@ public class MultiGraph{
 
     List<Integer> vertexSet;
     List<Edge> edgeSet;
-    Map<Integer, Integer> degreeMap;
+    Map<Integer, Integer> inDegreeMap;
+    Map<Integer, Integer> outDegreeMap;
     Set<Edge> distinctEdgeSet;
 
     public MultiGraph() {
         this.vertexSet = new LinkedList<Integer>();
         this.edgeSet = new LinkedList<Edge>();
-        this.degreeMap = new HashMap<>();
+        this.inDegreeMap = new HashMap<>();
+        this.outDegreeMap = new HashMap<>();
         this.distinctEdgeSet = new HashSet<>();
     }
 
@@ -45,8 +47,8 @@ public class MultiGraph{
             return false;
         }
         this.edgeSet.add(new Edge(in, out));
-        this.degreeMap.replace(in, degreeMap.get(in) + 1);
-        this.degreeMap.replace(out, degreeMap.get(out) + 1);
+        this.inDegreeMap.replace(in, inDegreeMap.get(in) + 1);
+        this.outDegreeMap.replace(out, outDegreeMap.get(out) + 1);
         return true;
     }
 
@@ -56,7 +58,8 @@ public class MultiGraph{
 
     public boolean addVertex(Integer o) {
         this.vertexSet.add(o);
-        this.degreeMap.put(o, 0);
+        this.inDegreeMap.put(o, 0);
+        this.outDegreeMap.put(o, 0);
         return true;
     }
 
@@ -102,9 +105,7 @@ public class MultiGraph{
     }
 
     public Set outgoingEdgesOf(Object vertex) {
-
         return edgeSet.stream().filter(e -> e.getOut().equals(vertex)).collect(Collectors.toSet());
-
     }
 
     public boolean removeAllEdges(Collection edges) {
@@ -156,7 +157,11 @@ public class MultiGraph{
 
     }
 
-    public Map<Integer, Integer> getDegreeMap() {
-        return degreeMap;
+    public Map<Integer, Integer> getInDegreeMap() {
+        return inDegreeMap;
+    }
+
+    public Map<Integer, Integer> getOutDegreeMap() {
+        return outDegreeMap;
     }
 }
