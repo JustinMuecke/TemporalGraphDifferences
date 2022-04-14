@@ -10,11 +10,13 @@ public class MultiGraph{
     List<Integer> vertexSet;
     List<Edge> edgeSet;
     Map<Integer, Integer> degreeMap;
+    Set<Edge> distinctEdgeSet;
 
     public MultiGraph() {
         this.vertexSet = new LinkedList<Integer>();
         this.edgeSet = new LinkedList<Edge>();
         this.degreeMap = new HashMap<>();
+        this.distinctEdgeSet = new HashSet<>();
     }
 
     public List<Edge> getAllEdges(Object sourceVertex, Object targetVertex) {
@@ -39,6 +41,7 @@ public class MultiGraph{
         java.lang.Integer in = (java.lang.Integer) sourceVertex;
         java.lang.Integer out = (java.lang.Integer) targetVertex;
         this.edgeSet.add(new Edge(in, out));
+        this.distinctEdgeSet.add(new Edge(in, out));
         this.degreeMap.replace(in, degreeMap.get(in) + 1);
         this.degreeMap.replace(out, degreeMap.get(out) + 1);
         return true;
