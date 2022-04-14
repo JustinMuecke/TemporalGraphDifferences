@@ -3,6 +3,7 @@ package datamodel;
 import org.jgrapht.GraphType;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class MultiGraph{
 
@@ -44,7 +45,6 @@ public class MultiGraph{
             return false;
         }
         this.edgeSet.add(new Edge(in, out));
-        this.distinctEdgeSet.add(new Edge(in, out));
         this.degreeMap.replace(in, degreeMap.get(in) + 1);
         this.degreeMap.replace(out, degreeMap.get(out) + 1);
         return true;
@@ -92,8 +92,9 @@ public class MultiGraph{
         return 0;
     }
 
-    public Set incomingEdgesOf(Object vertex) {
-        return null;
+    public Set incomingEdgesOf(Integer vertex) {
+        return edgeSet.stream().filter(e -> e.getIn().equals(vertex)).collect(Collectors.toSet());
+
     }
 
     public int outDegreeOf(Object vertex) {
@@ -101,7 +102,9 @@ public class MultiGraph{
     }
 
     public Set outgoingEdgesOf(Object vertex) {
-        return null;
+
+        return edgeSet.stream().filter(e -> e.getOut().equals(vertex)).collect(Collectors.toSet());
+
     }
 
     public boolean removeAllEdges(Collection edges) {
