@@ -2,20 +2,19 @@ package datamodel;
 
 import org.jgrapht.GraphType;
 
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class MultiGraph{
 
 
     List<Integer> vertexSet;
     List<Edge> edgeSet;
+    Map<Integer, Integer> degreeMap;
 
     public MultiGraph() {
         this.vertexSet = new LinkedList<Integer>();
         this.edgeSet = new LinkedList<Edge>();
+        this.degreeMap = new HashMap<>();
     }
 
     public List<Edge> getAllEdges(Object sourceVertex, Object targetVertex) {
@@ -39,8 +38,12 @@ public class MultiGraph{
     public boolean addEdge(Object sourceVertex, Object targetVertex, Object o) {
         java.lang.Integer in = (java.lang.Integer) sourceVertex;
         java.lang.Integer out = (java.lang.Integer) targetVertex;
-
+        if(!vertexSet.contains(in) || !vertexSet.contains(out)){
+            return false;
+        }
         this.edgeSet.add(new Edge(in, out));
+        this.degreeMap.replace(in, degreeMap.get(in) + 1);
+        this.degreeMap.replace(out, degreeMap.get(out) + 1);
         return true;
     }
 
@@ -48,8 +51,9 @@ public class MultiGraph{
         return null;
     }
 
-    public boolean addVertex(Object o) {
-        vertexSet.add((Integer) o);
+    public boolean addVertex(Integer o) {
+        this.vertexSet.add(o);
+        this.degreeMap.put(o, 0);
         return true;
     }
 
@@ -140,5 +144,9 @@ public class MultiGraph{
 
     public void setEdgeWeight(Object o, double weight) {
 
+    }
+
+    public Map<Integer, Integer> getDegreeMap() {
+        return degreeMap;
     }
 }

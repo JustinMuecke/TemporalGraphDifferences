@@ -17,7 +17,7 @@ public class TMH implements UnaryMetric {
             long start = System.currentTimeMillis();
             float sum = 0;
             for (Integer v : graph.getGraph().vertexSet()) {
-                float degree = graph.getGraph().degreeOf(v);
+                float degree = graph.getGraph().getDegreeMap().get(v);
                 if (degree < 0) {
                     System.out.println("TMH: Degree < 0 for " + v);
                     continue;
