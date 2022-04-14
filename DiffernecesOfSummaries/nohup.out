@@ -551,3 +551,13 @@ INFO: Detected limit of amount of simultaneously open files is 1048576,  limit o
 [Binary] Calculating class metrics.binary.EdgeJaccard
 [Binary][EJ] EdgeSize Graph 1: 1691324
 [Binary][EJ] EdgeSize Graph 2: 1217678
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 281780
+[Binary] Vertex Set 2: 210282
+[Binary] Calculating class metrics.binary.GED
+[Binary] Couldn't Calculate class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 3
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 1217678
+[Binary][EJ] EdgeSize Graph 2: 1794174
