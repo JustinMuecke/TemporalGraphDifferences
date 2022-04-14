@@ -432,3 +432,42 @@ INFO: Detected limit of amount of simultaneously open files is 1048576,  limit o
 [Binary] Calculating class metrics.binary.EdgeJaccard
 [Binary][EJ] EdgeSize Graph 1: 1788627
 [Binary][EJ] EdgeSize Graph 2: 1691324
+
+The message received from the daemon indicates that the daemon has disappeared.
+Build request sent: Build{id=3777cb75-257a-4c8b-a566-40c8cefd0f2d, currentDir=/media/nvme7n1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries}
+Attempting to read last messages from the daemon log...
+Daemon pid: 777102
+  log file: /home/jmuecke/.gradle/daemon/7.1/daemon-777102.out.log
+----- Last  20 lines from daemon log file - daemon-777102.out.log -----
+[Binary] Calculating class metrics.binary.EdgeJaccard
+[Binary][EJ] EdgeSize Graph 1: 1788627
+[Binary][EJ] EdgeSize Graph 2: 1691324
+Daemon vm is shutting down... The daemon has exited normally or was terminated in response to a user interrupt.
+Remove shutdown hook failed
+java.lang.IllegalStateException: Shutdown in progress
+	at java.base/java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82)
+	at java.base/java.lang.Runtime.removeShutdownHook(Runtime.java:244)
+	at org.gradle.process.internal.shutdown.ShutdownHooks.removeShutdownHook(ShutdownHooks.java:38)
+	at org.gradle.process.internal.DefaultExecHandle.setEndStateInfo(DefaultExecHandle.java:208)
+	at org.gradle.process.internal.DefaultExecHandle.aborted(DefaultExecHandle.java:365)
+	at org.gradle.process.internal.ExecHandleRunner.completed(ExecHandleRunner.java:108)
+	at org.gradle.process.internal.ExecHandleRunner.run(ExecHandleRunner.java:84)
+	at org.gradle.internal.operations.CurrentBuildOperationPreservingRunnable.run(CurrentBuildOperationPreservingRunnable.java:42)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+----- End of the daemon log -----
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Gradle build daemon disappeared unexpectedly (it may have been killed or may have crashed)
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org

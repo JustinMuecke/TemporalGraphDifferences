@@ -15,8 +15,13 @@ public class EdgeJaccard implements BinaryMetric {
         try{
         long start = System.currentTimeMillis();
 
+<<<<<<< HEAD
          float numberOfEdgesInSection = graph1.getGraph().edgeSet().stream().distinct().filter(edge -> graph2.getGraph().edgeSet().contains(edge)).count();
          float numberOfEdgesInUnion = graph1.getGraph().edgeSet().size() + graph2.getGraph().edgeSet().size() - 2 * numberOfEdgesInSection;
+=======
+         float numberOfEdgesInSection = graph1.getGraph().distinctEdgeSet().stream().filter(edge -> graph2.getGraph().edgeSet().contains(edge)).count();
+         float numberOfEdgesInUnion = graph1.getGraph().distinctEdgeSet().size() + graph2.getGraph().distinctEdgeSet().size() - 2 * numberOfEdgesInSection;
+>>>>>>> f4b4c3f9f272e2583517e8cb66aa59730d91fc9a
 	     float quotient =(numberOfEdgesInSection / numberOfEdgesInUnion);
 
          long compTime = System.currentTimeMillis() - start;
