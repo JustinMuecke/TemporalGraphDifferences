@@ -7,9 +7,6 @@ import metrics.UnaryMetric;
 import network.Queries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jgrapht.Graph;
-import org.jgrapht.graph.DirectedMultigraph;
-import org.jgrapht.graph.builder.GraphTypeBuilder;
 import results.MetricTypes;
 import results.Result;
 
@@ -24,14 +21,14 @@ public class ExtGraph {
     private static final Logger logger = LogManager.getLogger(ExtGraph.class);
 
     private final String name;
-    private final Graph<Integer, Edge> graph;
+    private final MultiGraph graph;
     private HashMap<Integer, Integer> secondaryIndex;
     private final HashMap<MetricTypes, Float> unaryResults;
     private final HashMap<MetricTypes, Long> unaryCompTimes;
     private final HashMap<MetricTypes, Float> binaryResults;
     private final HashMap<MetricTypes, Long> binaryCompTimes;
 
-    public ExtGraph(String name, Graph<Integer, Edge> graph, String path2secondaryIndex) {
+    public ExtGraph(String name, MultiGraph graph, String path2secondaryIndex) {
         this.name = name;
         this.graph = graph;
         try {
@@ -47,7 +44,7 @@ public class ExtGraph {
 
     public ExtGraph() {
         this.name = "null";
-        this.graph = new DirectedMultigraph<>(Edge.class);
+        this.graph = new MultiGraph();
         this.secondaryIndex = new HashMap<>();
         unaryResults = new HashMap<>();
         unaryCompTimes = new HashMap<>();
@@ -63,7 +60,7 @@ public class ExtGraph {
         return name;
     }
 
-    public Graph<Integer, Edge> getGraph() {
+    public MultiGraph getGraph() {
         return graph;
     }
 
@@ -93,13 +90,7 @@ public class ExtGraph {
             }
             ODatabaseSession session = sessionList.get(i).get();
             System.out.println("[Graph] Creating Graph " + session.getName());
-            Graph<Integer, Edge> graph = GraphTypeBuilder
-                    .undirected()
-                    .allowingMultipleEdges(true)
-                    .edgeClass(Edge.class)
-                    .vertexClass(Integer.class)
-                    .weighted(false)
-                    .buildGraph();
+            MultiGraph graph = new MultiGraph();
             List<Integer> vertexList = Queries.getVertices(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
             for (Integer v : vertexList) {
                 graph.addVertex(v);
