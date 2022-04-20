@@ -1,0 +1,13 @@
+Name, Name 2nd, JaccardVertex, JaccardEdge, GED, KLD
+SchemEx-2013-0,SchemEx-2013-1,0.48514938,0.508737,null,null
+SchemEx-2013-1,SchemEx-2013-2,0.7638186,0.77355194,null,null
+SchemEx-2013-2,SchemEx-2013-3,0.6829114,0.70022964,null,null
+SchemEx-2013-3,null,1.0,1.0,null,null
+null,null,0,0,null,null
+null,SchemEx-2013-6,1.0,1.0,null,null
+SchemEx-2013-6,SchemEx-2013-7,0.66335917,0.6710338,null,null
+SchemEx-2013-7,SchemEx-2013-8,0.52283114,0.5559281,null,null
+SchemEx-2013-8,SchemEx-2013-9,0.5240229,0.5614723,null,null
+SchemEx-2013-9,SchemEx-2013-10,0.5810063,0.6144737,null,null
+SchemEx-2013-10,SchemEx-2013-11,0.73971593,0.735587,null,null
+SchemEx-2013-11,SchemEx-2013-12,0.74885166,0.74529564,null,null
