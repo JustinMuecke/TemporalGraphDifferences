@@ -7,6 +7,8 @@ import metrics.BinaryMetric;
 import results.Result;
 import results.binaryResults.JaccardEdgeResult;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Logger;
 
 public class EdgeJaccard implements BinaryMetric {
@@ -23,16 +25,16 @@ public class EdgeJaccard implements BinaryMetric {
             long start = System.currentTimeMillis();
 
             Cloner cloner = new Cloner();
-            ExtGraph clone1 = cloner.deepClone(graph1);
-            ExtGraph clone2 = cloner.deepClone(graph2);
+            List<Edge> edgeClone1 = new LinkedList<>(graph1.getGraph().edgeSet());
+            List<Edge> edgeClone2 = new LinkedList<>(graph2.getGraph().edgeSet());
             logger.info("[Binary] [EJ] Created Copies");
 
             float numberOfEdgesInSection = 0;
-            for(Edge e1 : clone1.getGraph().edgeSet()){
-                for(Edge e2: clone2.getGraph().edgeSet()){
+            for(Edge e1 : edgeClone1){
+                for(Edge e2: edgeClone2){
                     if(e1.equals(e2)){
-                        clone1.getGraph().edgeSet().remove(e1);
-                        clone2.getGraph().edgeSet().remove(e2);
+                        edgeClone1.remove(e1);
+                        edgeClone2.remove(e2);
                         numberOfEdgesInSection++;
                         break;
                     }
