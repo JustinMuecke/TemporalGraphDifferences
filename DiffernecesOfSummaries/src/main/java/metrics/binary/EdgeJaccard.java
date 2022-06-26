@@ -1,6 +1,5 @@
 package metrics.binary;
 
-import com.rits.cloning.Cloner;
 import datamodel.Edge;
 import datamodel.ExtGraph;
 import metrics.BinaryMetric;
@@ -24,7 +23,6 @@ public class EdgeJaccard implements BinaryMetric {
 
             long start = System.currentTimeMillis();
 
-            Cloner cloner = new Cloner();
             List<Edge> edgeClone1 = new LinkedList<>(graph1.getGraph().edgeSet());
             List<Edge> edgeClone2 = new LinkedList<>(graph2.getGraph().edgeSet());
             logger.info("[Binary] [EJ] Created Copies");
@@ -51,7 +49,8 @@ public class EdgeJaccard implements BinaryMetric {
          return new JaccardEdgeResult(1-quotient, compTime, graph1.getName(), graph2.getName());
         } catch (Exception e){
             System.out.println("[Binary] Couldn't Calculate " + this.getClass());
-            return null;
+            e.printStackTrace();
+	    return null;
         }
     }
 }
