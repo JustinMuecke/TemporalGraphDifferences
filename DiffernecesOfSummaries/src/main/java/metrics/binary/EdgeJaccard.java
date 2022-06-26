@@ -28,17 +28,18 @@ public class EdgeJaccard implements BinaryMetric {
             List<Edge> edgeClone1 = new LinkedList<>(graph1.getGraph().edgeSet());
             List<Edge> edgeClone2 = new LinkedList<>(graph2.getGraph().edgeSet());
             logger.info("[Binary] [EJ] Created Copies");
+            List<Edge>  hitList = new LinkedList<>();
 
             float numberOfEdgesInSection = 0;
             for(Edge e1 : edgeClone1){
                 for(Edge e2: edgeClone2){
                     if(e1.equals(e2)){
-                        edgeClone1.remove(e1);
-                        edgeClone2.remove(e2);
+                        hitList.add(e1);
                         numberOfEdgesInSection++;
                         break;
                     }
                 }
+                edgeClone2.remove(hitList);
             }
 
 
