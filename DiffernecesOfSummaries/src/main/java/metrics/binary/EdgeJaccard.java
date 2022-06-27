@@ -23,8 +23,13 @@ public class EdgeJaccard implements BinaryMetric {
 
             long start = System.currentTimeMillis();
 
+<<<<<<< HEAD
             List<Edge> edgeClone1 = new LinkedList<>(graph1.getGraph().edgeSet());
             List<Edge> edgeClone2 = new LinkedList<>(graph2.getGraph().edgeSet());
+=======
+            List<Edge> edgeClone1 = new LinkedList<>(graph1.getDistinctGraph().edgeSet());
+            List<Edge> edgeClone2 = new LinkedList<>(graph2.getDistinctGraph().edgeSet());
+>>>>>>> bfb67be8fbc8b306329ab3c33b98275dedfe33fa
             logger.info("[Binary] [EJ] Created Copies");
             List<Edge>  hitList = new LinkedList<>();
 
