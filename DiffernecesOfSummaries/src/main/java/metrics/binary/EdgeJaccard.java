@@ -30,15 +30,13 @@ public class EdgeJaccard implements BinaryMetric {
 
             float numberOfEdgesInSection = 0;
             for(Edge e1 : edgeClone1){
-                for(Edge e2: edgeClone2){
-                    if(e1.equals(e2)){
+                if(edgeClone2.contains(e1)){
                         hitList.add(e1);
                         numberOfEdgesInSection++;
-                        break;
-                    }
+                        edgeClone2.remove(hitList);
                 }
-                edgeClone2.remove(hitList);
             }
+
 
 
          //float numberOfEdgesInSection = graph1.getDistinctGraph().edgeSet().stream().filter(edge -> graph2.getDistinctGraph().edgeSet().contains(edge)).count();
