@@ -25,8 +25,8 @@ public class Main {
 
     private static final Logger logger = LogManager.getLogger(Main.class);
 
-    private static String dbName = "SchemEx-2013";
-    private static boolean computeUnaryMetrics = false;
+    private static String dbName = "SchemEx-2017";
+    private static boolean computeUnaryMetrics = true;
     private static boolean computeBinaryMetrics = true;
 
 
@@ -43,8 +43,10 @@ public class Main {
    }
 
     private static BinaryMetric[] createBinaryMetricList(){
-        return new BinaryMetric[]{new EdgeJaccard(), new VertexJaccard()
-//		 , new GED(), new KLD()
+        return new BinaryMetric[]{
+		//new EdgeJaccard(), 
+		new VertexJaccard()
+		, new GED(), new KLD()
 		};
     }
 
@@ -94,7 +96,7 @@ public class Main {
                 graphList[i].computeBinaryMetrics(binaryMetrics, graphList[i - 1]);
             }
             try {
-                FileWriter.initializeCSVFile("Results/" + dbName + "-binaryGEDResults.csv", false, true);
+                FileWriter.initializeCSVFile("Results/" + dbName + "-binaryResults.csv", false, true);
                 FileWriter.initializeCSVFile("Results/" + dbName + "-binaryCompTimes.csv", true, true);
                 for (int i = 1; i < graphList.length; i++) {
                     FileWriter.writeResultToFile(graphList[i].getBinaryResults(), graphList[i].getName(), "Results/" + dbName + "-binaryResults.csv", true, graphList[i - 1].getName());
