@@ -25,7 +25,7 @@ public class Main {
 
     private static final Logger logger = LogManager.getLogger(Main.class);
 
-    private static String dbName = "SchemEx-2018";
+    private static String dbName = "SchemEx-2019";
     private static boolean computeUnaryMetrics = true;
     private static boolean computeBinaryMetrics = true;
 
