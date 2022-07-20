@@ -4,8 +4,6 @@ import numpy as np
 import pandas
 
 
-
-
 def visualize(dataframe : pandas.DataFrame, skipSecond: bool):
     header = list(dataframe.columns)
     results : np.ndarray = dataframe.values
@@ -15,7 +13,7 @@ def visualize(dataframe : pandas.DataFrame, skipSecond: bool):
 
     xval = [i for i in range(rows)]
 
-    for metric in range(2,4):
+    for metric in range(2,6):
         if(metric == 0):
             continue
         if(skipSecond):
@@ -52,23 +50,50 @@ binaryResults : np.ndarray = np.array([[]])
 binaryResults.shape=(0, 6)
 
 shortModel = "SchemEx"
-first : int = 2013
-last : int= 2013
+first : int = 2016
+last : int= 2019
 for year in range(first, last +1):
-    #unaryDF   = pandas.read_csv('/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Results/'+shortModel+'-'+str(year)+'-unaryResults.csv')
-    #unaryResults = np.concatenate((unaryResults, visualize(unaryDF, False)), 0)
-    binaryDF  = pandas.read_csv('/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Results/'+shortModel+'-'+str(year)+'-binaryGEDResults.csv')
+    unaryDF   = pandas.read_csv('/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Results/'+shortModel+'-'+str(year)+'-unaryResults.csv')
+    unaryResults = np.concatenate((unaryResults, visualize(unaryDF, False)), 0)
+    binaryDF  = pandas.read_csv('/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Results/'+shortModel+'-'+str(year)+'-binaryResults.csv')
     binaryResults = np.concatenate((binaryResults, visualize(binaryDF, True)), 0)
 
 
 
 
+xval = [i for i in range(unaryResults.shape[0])]
+unaryHeader = list(unaryDF.columns)
+
+for metric in range(2,6):
+    if(metric == 0):
+        continue
+    
+    unaryVals = unaryResults[:, metric]
+    print(str(unaryVals))
+    plt.plot(xval, unaryVals, color='blue')
+    plt.xlabel('Timestep')
+    plt.ylabel(unaryHeader[metric], color='blue')
+
+    if(metric == 2):
+        ax2 = plt.twinx()
+        referenceValues=unaryResults[:, 1]
+        ax2.plot(xval, referenceValues, linestyle="dotted", color='orange')
+        ax2.set_ylabel(unaryHeader[1], color = 'orange')
+    if(metric == 4):
+        ax2 = plt.twinx()
+        referenceValues=unaryResults[:,3]
+        ax2.plot(xval, referenceValues, linestyle="dotted", color='orange')
+        ax2.set_ylabel(unaryHeader[3], color='orange')
+
+    plt.tight_layout()
+    plt.savefig('/home/justinmucke/git/TemporalGraphDifferences/DataVisualization/plots/'+ shortModel + '/' + str(unaryHeader[metric]).replace(" ", ""))
+    plt.show()
 
 
 xval = [i for i in range(binaryResults.shape[0])]
 binaryHeader = list(binaryDF.columns)
 
-for metric in range(2,4):
+for metric in range(2,6):
     if(metric == 0 or metric == 1): 
         continue
     binaryVals = binaryResults[:, metric]
