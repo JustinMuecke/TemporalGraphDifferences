@@ -20,13 +20,13 @@ public class DBConnector {
         OrientDB databaseServer = new OrientDB(URL, serverUser, serverPassword, OrientDBConfig.defaultConfig());
 
         for(int i = 0; i < 51; i++){
-	    if(i == 55) {
-            sessionList.add(Optional.empty());
-            continue;
-        }
-            sessionList.add(Optional.of(getSingleSession(databaseServer, database+"-"+i)));
-        }
-
+	    try{
+            	sessionList.add(Optional.of(getSingleSession(databaseServer, database+"-"+i)));
+            }
+ 	    catch(Exception e){
+	        sessionList.add(Optional.empty());
+	    }
+	}
         return Optional.of(sessionList);
     }
 
