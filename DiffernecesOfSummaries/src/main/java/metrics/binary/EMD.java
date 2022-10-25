@@ -14,8 +14,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-public class EMD implements BinaryMetric {
-    @Override
+public class EMD {
+    }/*
     public Result compute(ExtGraph graph1, ExtGraph graph2) {
 
 
@@ -60,15 +60,15 @@ public class EMD implements BinaryMetric {
         else{
             return extGraph.getGraph().getInDegreeMap().get(target) + extGraph.getGraph().getOutDegreeMap().get(target) + 1;
         }
+    return 0;
     }
 
 
     private float successiveShortestPath(Graph<Integer, Edge> graph){
-
+	return 0;
     }
 
 
 
+*/
 
-
-}
