@@ -1,4 +1,3 @@
-from ast import List
 import matplotlib.pyplot as plt
 import numpy as np 
 import pandas
@@ -49,10 +48,13 @@ unaryResults.shape=(0, 7)
 binaryResults : np.ndarray = np.array([[]])
 binaryResults.shape=(0, 6)
 
-shortModel = "SchemEx"
-first : int = 2016
-last : int= 2019
+shortModel = "AC"
+first : int = 2013
+last : int= 2020
 for year in range(first, last +1):
+    if year == 2015: continue
+    print(year)
+
     unaryDF   = pandas.read_csv('/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Results/'+shortModel+'-'+str(year)+'-unaryResults.csv')
     unaryResults = np.concatenate((unaryResults, visualize(unaryDF, False)), 0)
     binaryDF  = pandas.read_csv('/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Results/'+shortModel+'-'+str(year)+'-binaryResults.csv')
