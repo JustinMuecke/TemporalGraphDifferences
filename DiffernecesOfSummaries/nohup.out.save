@@ -1,0 +1,782 @@
+Exceptio in thread "DisconnectableInputStream source reader" org.gradle.api.UncheckedIOException: java.io.IOException: Bad file descriptor
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:61)
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:127)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.io.IOException: Bad file descriptor
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+	at java.base/java.io.FileInputStream.read(FileInputStream.java:279)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:290)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:351)
+	at org.gradle.util.internal.DisconnectableInputStream$1.run(DisconnectableInputStream.java:98)
+	... 1 more
+> Task :compileJava
+> Task :processResources UP-TO-DATE
+> Task :classes
+
+> Task :run
+Warning: Nashorn engine is planned to be removed from a future JDK release
+Nov 02, 2022 11:13:12 AM com.orientechnologies.common.log.OLogManager log
+INFO: Detected limit of amount of simultaneously open files is 1048576,  limit of open files for disk cache will be set to 523776
+[Graph] Creating Graph AC-2015-0
+[Graph] VertexList Size: 69651
+[Graph] Edgelist Size: 888981
+[Graph] Edges in Graph: 888981
+[Graph] Creating Graph AC-2015-1
+[Graph] VertexList Size: 68220
+[Graph] Edgelist Size: 877103
+[Graph] Edges in Graph: 877103
+[Graph] Creating Graph AC-2015-2
+[Graph] VertexList Size: 65720
+[Graph] Edgelist Size: 808226
+[Graph] Edges in Graph: 808226
+[Graph] Creating Graph AC-2015-3
+[Graph] VertexList Size: 67947
+[Graph] Edgelist Size: 812936
+[Graph] Edges in Graph: 812936
+[Graph] Creating Graph AC-2015-4
+[Graph] VertexList Size: 68502
+[Graph] Edgelist Size: 834213
+[Graph] Edges in Graph: 834213
+[Graph] Creating Graph AC-2015-5
+[Graph] VertexList Size: 68706
+[Graph] Edgelist Size: 862367
+[Graph] Edges in Graph: 862367
+[Graph] Creating Graph AC-2015-6
+[Graph] VertexList Size: 70211
+[Graph] Edgelist Size: 851817
+[Graph] Edges in Graph: 851817
+[Graph] Creating Graph AC-2015-7
+[Graph] VertexList Size: 61620
+[Graph] Edgelist Size: 637346
+[Graph] Edges in Graph: 637346
+[Graph] Creating Graph AC-2015-8
+[Graph] VertexList Size: 61886
+[Graph] Edgelist Size: 653184
+[Graph] Edges in Graph: 653184
+[Graph] Creating Graph AC-2015-9
+[Graph] VertexList Size: 63658
+[Graph] Edgelist Size: 667648
+[Graph] Edges in Graph: 667648
+[Graph] Creating Graph AC-2015-10
+[Graph] VertexList Size: 48498
+[Graph] Edgelist Size: 517171
+[Graph] Edges in Graph: 517171
+[Graph] Creating Graph AC-2015-11
+[Graph] VertexList Size: 64357
+[Graph] Edgelist Size: 678827
+[Graph] Edges in Graph: 678827
+[Graph] Creating Graph AC-2015-12
+[Graph] VertexList Size: 63792
+[Graph] Edgelist Size: 656079
+[Graph] Edges in Graph: 656079
+[Graph] Creating Graph AC-2015-13
+[Graph] VertexList Size: 58327
+[Graph] Edgelist Size: 589340
+[Graph] Edges in Graph: 589340
+[Graph] Creating Graph AC-2015-14
+[Graph] VertexList Size: 59506
+[Graph] Edgelist Size: 612905
+[Graph] Edges in Graph: 612905
+[Graph] Creating Graph AC-2015-15
+[Graph] VertexList Size: 64710
+[Graph] Edgelist Size: 654656
+[Graph] Edges in Graph: 654656
+[Graph] Creating Graph AC-2015-16
+[Graph] VertexList Size: 64203
+[Graph] Edgelist Size: 678882
+[Graph] Edges in Graph: 678882
+[Graph] Creating Graph AC-2015-17
+[Graph] VertexList Size: 65995
+[Graph] Edgelist Size: 705626
+[Graph] Edges in Graph: 705626
+[Graph] Creating Graph AC-2015-18
+[Graph] VertexList Size: 62648
+[Graph] Edgelist Size: 640116
+[Graph] Edges in Graph: 640116
+[Graph] Creating Graph AC-2015-19
+[Graph] VertexList Size: 65862
+[Graph] Edgelist Size: 744216
+[Graph] Edges in Graph: 744216
+[Graph] Creating Graph AC-2015-20
+[Graph] VertexList Size: 64601
+[Graph] Edgelist Size: 710047
+[Graph] Edges in Graph: 710047
+[Graph] Creating Graph AC-2015-21
+[Graph] VertexList Size: 60358
+[Graph] Edgelist Size: 615673
+[Graph] Edges in Graph: 615673
+[Graph] Creating Graph AC-2015-22
+[Graph] VertexList Size: 62815
+[Graph] Edgelist Size: 646435
+[Graph] Edges in Graph: 646435
+[Graph] Creating Graph AC-2015-23
+[Graph] VertexList Size: 65616
+[Graph] Edgelist Size: 654562
+[Graph] Edges in Graph: 654562
+[Graph] Creating Graph AC-2015-24
+[Graph] VertexList Size: 62400
+[Graph] Edgelist Size: 624157
+[Graph] Edges in Graph: 624157
+[Graph] Creating Graph AC-2015-25
+[Graph] VertexList Size: 62345
+[Graph] Edgelist Size: 648243
+[Graph] Edges in Graph: 648243
+[Graph] Creating Graph AC-2015-26
+[Graph] VertexList Size: 68109
+[Graph] Edgelist Size: 722061
+[Graph] Edges in Graph: 722061
+[Graph] Creating Graph AC-2015-27
+[Graph] VertexList Size: 47283
+[Graph] Edgelist Size: 527209
+[Graph] Edges in Graph: 527209
+[Graph] Creating Graph AC-2015-28
+[Graph] VertexList Size: 67351
+[Graph] Edgelist Size: 707410
+[Graph] Edges in Graph: 707410
+[Graph] Creating Graph AC-2015-29
+[Graph] VertexList Size: 56811
+[Graph] Edgelist Size: 510023
+[Graph] Edges in Graph: 510023
+[Graph] Creating Graph AC-2015-30
+[Graph] VertexList Size: 59127
+[Graph] Edgelist Size: 536077
+[Graph] Edges in Graph: 536077
+[Graph] Creating Graph AC-2015-31
+[Graph] VertexList Size: 61538
+[Graph] Edgelist Size: 621613
+[Graph] Edges in Graph: 621613
+[Graph] Creating Graph AC-2015-32
+[Graph] VertexList Size: 64083
+[Graph] Edgelist Size: 637992
+[Graph] Edges in Graph: 637992
+[Graph] Creating Graph AC-2015-33
+[Graph] VertexList Size: 63784
+[Graph] Edgelist Size: 637318
+[Graph] Edges in Graph: 637318
+[Graph] Creating Graph AC-2015-34
+[Graph] VertexList Size: 59481
+[Graph] Edgelist Size: 597272
+[Graph] Edges in Graph: 597272
+[Graph] Creating Graph AC-2015-35
+[Graph] VertexList Size: 60846
+[Graph] Edgelist Size: 640466
+[Graph] Edges in Graph: 640466
+[Graph] Creating Graph AC-2015-36
+[Graph] VertexList Size: 60533
+[Graph] Edgelist Size: 647562
+[Graph] Edges in Graph: 647562
+[Graph] Creating Graph AC-2015-37
+[Graph] VertexList Size: 60979
+[Graph] Edgelist Size: 631091
+[Graph] Edges in Graph: 631091
+[Graph] Creating Graph AC-2015-38
+[Graph] VertexList Size: 59222
+[Graph] Edgelist Size: 619277
+[Graph] Edges in Graph: 619277
+[Graph] Creating Graph AC-2015-39
+[Graph] VertexList Size: 63429
+[Graph] Edgelist Size: 672955
+[Graph] Edges in Graph: 672955
+[Graph] Creating Graph AC-2015-40
+[Graph] VertexList Size: 59802
+[Graph] Edgelist Size: 647081
+[Graph] Edges in Graph: 647081
+[Graph] Creating Graph AC-2015-41
+[Graph] VertexList Size: 60351
+[Graph] Edgelist Size: 646747
+[Graph] Edges in Graph: 646747
+[Graph] Creating Graph AC-2015-42
+[Graph] VertexList Size: 62109
+[Graph] Edgelist Size: 676943
+[Graph] Edges in Graph: 676943
+[Graph] Creating Graph AC-2015-43
+[Graph] VertexList Size: 62725
+[Graph] Edgelist Size: 677479
+[Graph] Edges in Graph: 677479
+[Graph] Creating Graph AC-2015-44
+[Graph] VertexList Size: 61504
+[Graph] Edgelist Size: 668836
+[Graph] Edges in Graph: 668836
+[Graph] Creating Graph AC-2015-45
+[Graph] VertexList Size: 61359
+[Graph] Edgelist Size: 660059
+[Graph] Edges in Graph: 660059
+[Graph] Creating Graph AC-2015-46
+[Graph] VertexList Size: 60400
+[Graph] Edgelist Size: 630400
+[Graph] Edges in Graph: 630400
+[Graph] Creating Graph AC-2015-47
+[Graph] VertexList Size: 61391
+[Graph] Edgelist Size: 625886
+[Graph] Edges in Graph: 625886
+[Graph] Creating Graph AC-2015-48
+[Graph] VertexList Size: 62249
+[Graph] Edgelist Size: 664978
+[Graph] Edges in Graph: 664978
+[Graph] Creating Graph AC-2015-49
+[Graph] VertexList Size: 59366
+[Graph] Edgelist Size: 593818
+[Graph] Edges in Graph: 593818
+[Graph] Creating Graph AC-2015-50
+[Graph] VertexList Size: 58294
+[Graph] Edgelist Size: 550978
+[Graph] Edges in Graph: 550978
+[Unary] Calculating Timestep: 0
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 1
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 2
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 3
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 4
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 5
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 6
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 7
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 8
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 9
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 10
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 11
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 12
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 13
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 14
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 15
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 16
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 17
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 18
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 19
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 20
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 21
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 22
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 23
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 24
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 25
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 26
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 27
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 28
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 29
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 30
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 31
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 32
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 33
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 34
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 35
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 36
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 37
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 38
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 39
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 40
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 41
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 42
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 43
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 44
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 45
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 46
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 47
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 48
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 49
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Unary] Calculating Timestep: 50
+[Unary] Calculating class metrics.unary.NumberOfEQClasses
+[Unary] Calculating class metrics.unary.AvgSizeOfEQClass
+[Unary] Calculating class metrics.unary.AvgNumberOfEdges
+[Unary] Calculating class metrics.unary.TMH
+[Binary] Calculating Timestep: 1
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 69650
+[Binary] Vertex Set 2: 68219
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 2
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 68219
+[Binary] Vertex Set 2: 65719
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 3
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 65719
+[Binary] Vertex Set 2: 67946
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 4
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 67946
+[Binary] Vertex Set 2: 68501
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 5
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 68501
+[Binary] Vertex Set 2: 68705
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 6
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 68705
+[Binary] Vertex Set 2: 70210
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 7
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 70210
+[Binary] Vertex Set 2: 61619
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 8
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 61619
+[Binary] Vertex Set 2: 61885
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 9
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 61885
+[Binary] Vertex Set 2: 63657
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 10
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 63657
+[Binary] Vertex Set 2: 48497
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 11
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 48497
+[Binary] Vertex Set 2: 64356
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 12
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 64356
+[Binary] Vertex Set 2: 63791
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 13
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 63791
+[Binary] Vertex Set 2: 58326
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 14
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 58326
+[Binary] Vertex Set 2: 59505
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 15
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 59505
+[Binary] Vertex Set 2: 64709
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 16
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 64709
+[Binary] Vertex Set 2: 64202
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 17
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 64202
+[Binary] Vertex Set 2: 65994
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 18
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 65994
+[Binary] Vertex Set 2: 62647
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 19
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 62647
+[Binary] Vertex Set 2: 65862
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 20
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 65862
+[Binary] Vertex Set 2: 64600
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 21
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 64600
+[Binary] Vertex Set 2: 60357
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 22
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 60357
+[Binary] Vertex Set 2: 62814
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 23
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 62814
+[Binary] Vertex Set 2: 65615
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 24
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 65615
+[Binary] Vertex Set 2: 62399
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 25
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 62399
+[Binary] Vertex Set 2: 62344
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 26
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 62344
+[Binary] Vertex Set 2: 68108
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 27
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 68108
+[Binary] Vertex Set 2: 47282
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 28
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 47282
+[Binary] Vertex Set 2: 67351
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 29
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 67351
+[Binary] Vertex Set 2: 56810
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 30
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 56810
+[Binary] Vertex Set 2: 59126
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 31
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 59126
+[Binary] Vertex Set 2: 61537
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 32
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 61537
+[Binary] Vertex Set 2: 64082
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 33
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 64082
+[Binary] Vertex Set 2: 63783
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 34
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 63783
+[Binary] Vertex Set 2: 59481
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 35
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 59481
+[Binary] Vertex Set 2: 60846
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 36
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 60846
+[Binary] Vertex Set 2: 60532
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 37
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 60532
+[Binary] Vertex Set 2: 60979
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 38
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 60979
+[Binary] Vertex Set 2: 59221
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 39
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 59221
+[Binary] Vertex Set 2: 63428
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 40
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 63428
+[Binary] Vertex Set 2: 59801
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 41
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 59801
+[Binary] Vertex Set 2: 60351
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 42
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 60351
+[Binary] Vertex Set 2: 62108
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 43
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 62108
+[Binary] Vertex Set 2: 62725
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 44
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 62725
+[Binary] Vertex Set 2: 61503
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 45
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 61503
+[Binary] Vertex Set 2: 61358
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 46
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 61358
+[Binary] Vertex Set 2: 60399
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 47
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 60399
+[Binary] Vertex Set 2: 61390
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 48
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 61390
+[Binary] Vertex Set 2: 62248
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 49
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 62248
+[Binary] Vertex Set 2: 59365
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+[Binary] Calculating Timestep: 50
+[Binary] Calculating class metrics.binary.VertexJaccard
+[Binary] Vertex Set 1: 59365
+[Binary] Vertex Set 2: 58293
+[Binary] Calculating class metrics.binary.GED
+[Binary] Calculating class metrics.binary.KLD
+
+BUILD SUCCESSFUL in 45m 4s
+3 actionable tasks: 2 executed, 1 up-to-date

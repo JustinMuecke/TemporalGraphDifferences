@@ -25,9 +25,9 @@ public class Main {
 
     private static final Logger logger = LogManager.getLogger(Main.class);
 
-    private static String dbName = "AC-2015";
+    private static String dbName = "AC-2020";
     private static boolean computeUnaryMetrics = true;
-    private static boolean computeBinaryMetrics = true;
+    private static boolean computeBinaryMetrics = false;
 
 
     private static List<Optional<ODatabaseSession>> getDatabaseSession(String dbName) throws DBConnectionFailedException{
