@@ -49,21 +49,19 @@ binaryResults : np.ndarray = np.array([[]])
 binaryResults.shape=(0, 6)
 
 shortModel = "AC"
+xlabels  = []
+xbinlabels = []
 first : int = 2013
 last : int= 2020
 for year in range(first, last +1):
-    if year == 2015: continue
-    print(year)
-
     unaryDF   = pandas.read_csv('/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Results/'+shortModel+'-'+str(year)+'-unaryResults.csv')
     unaryResults = np.concatenate((unaryResults, visualize(unaryDF, False)), 0)
     binaryDF  = pandas.read_csv('/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Results/'+shortModel+'-'+str(year)+'-binaryResults.csv')
     binaryResults = np.concatenate((binaryResults, visualize(binaryDF, True)), 0)
+    xlabels = xlabels + [year] +  ["" for i in range(unaryDF.shape[0]-1)]
+    xbinlabels = xbinlabels + [year] + ["" for i in range(binaryDF.shape[0]-1)]
 
-
-
-
-xval = [i for i in range(unaryResults.shape[0])]
+xticks = [i for i in range(unaryResults.shape[0])]
 unaryHeader = list(unaryDF.columns)
 
 for metric in range(2,6):
@@ -71,24 +69,25 @@ for metric in range(2,6):
         continue
     
     unaryVals = unaryResults[:, metric]
-    print(str(unaryVals))
-    plt.plot(xval, unaryVals, color='blue')
+    plt.tick_params(axis="x", length=0)
+    plt.xticks(xticks, xlabels)
+    plt.plot(xticks, unaryVals, color='blue')
     plt.xlabel('Timestep')
     plt.ylabel(unaryHeader[metric], color='blue')
 
     if(metric == 2):
         ax2 = plt.twinx()
         referenceValues=unaryResults[:, 1]
-        ax2.plot(xval, referenceValues, linestyle="dotted", color='orange')
+        ax2.plot(xticks, referenceValues, linestyle="dotted", color='orange')
         ax2.set_ylabel(unaryHeader[1], color = 'orange')
     if(metric == 4):
         ax2 = plt.twinx()
         referenceValues=unaryResults[:,3]
-        ax2.plot(xval, referenceValues, linestyle="dotted", color='orange')
+        ax2.plot(xticks, referenceValues, linestyle="dotted", color='orange')
         ax2.set_ylabel(unaryHeader[3], color='orange')
 
     plt.tight_layout()
-    plt.savefig('/home/justinmucke/git/TemporalGraphDifferences/DataVisualization/plots/'+ shortModel + '/' + str(unaryHeader[metric]).replace(" ", ""))
+    plt.savefig('/home/justinmucke/git/TemporalGraphDifferences/DataVisualization/plots/'+ shortModel + '/' + str(unaryHeader[metric]).replace(" ", "")+".pdf")
     plt.show()
 
 
@@ -99,11 +98,14 @@ for metric in range(2,6):
     if(metric == 0 or metric == 1): 
         continue
     binaryVals = binaryResults[:, metric]
+    plt.tick_params(axis="x", length=0)
+
+    plt.xticks(xval, xbinlabels)
     plt.plot(xval, binaryVals, color='blue')
     plt.xlabel('Timestep')
     plt.ylabel(binaryHeader[metric])
     plt.tight_layout()
-    plt.savefig('/home/justinmucke/git/TemporalGraphDifferences/DataVisualization/plots/'+ shortModel + '/' + str(binaryHeader[metric]).replace(" ", ""))
+    plt.savefig('/home/justinmucke/git/TemporalGraphDifferences/DataVisualization/plots/'+ shortModel + '/' + str(binaryHeader[metric]).replace(" ", "")+".pdf")
     plt.show()
 
 
