@@ -37,7 +37,7 @@ def visualize(dataframe : pandas.DataFrame, skipSecond: bool):
                 referenceValues=results[:,3]
                 ax2.plot(xval, referenceValues, linestyle="dotted", color='orange')
                 ax2.set_ylabel(header[3], color='orange')
-        plt.savefig('/home/justinmucke/git/TemporalGraphDifferences/DataVisualization/plots/'+shortModel +'/' + str(year) +'/'+ header[metric], bbox_inches='tight')
+        plt.savefig('/home/justinmucke/git/TemporalGraphDifferences/DataVisualization/plots/'+shortModel +'/' + str(year) +'/'+ header[metric] + ".pdf", bbox_inches='tight')
         plt.tight_layout()
         plt.show()
        
