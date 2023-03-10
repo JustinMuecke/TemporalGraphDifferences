@@ -51,7 +51,7 @@ binaryResults.shape=(0, 6)
 shortModel = "AC"
 xlabels  = []
 xbinlabels = []
-first : int = 2013
+first : int = 2015
 last : int= 2020
 for year in range(first, last +1):
     unaryDF   = pandas.read_csv('/home/justinmucke/git/TemporalGraphDifferences/DiffernecesOfSummaries/Results/'+shortModel+'-'+str(year)+'-unaryResults.csv')
