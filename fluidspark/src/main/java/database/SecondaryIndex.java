@@ -43,7 +43,7 @@ public class SecondaryIndex implements Serializable {
     private SecondaryIndex(boolean trackAllChanges, boolean trackMandatory, boolean trackExecutionTimes, String indexFile) {
         schemaElementToImprint = new HashMap<>();
         storedImprints = new HashMap<>();
-        this.indexFile = "IndexFiles/"+indexFile;
+        this.indexFile = indexFile;
         this.trackAllChanges = trackAllChanges;
         this.trackMandatory = trackMandatory;
         this.trackExecutionTimes = trackExecutionTimes;
@@ -109,12 +109,13 @@ public class SecondaryIndex implements Serializable {
 
     public long persist(String dbname) throws IOException {
         //Saving of object in a file
-        GZIPOutputStream gis = new GZIPOutputStream(new FileOutputStream(indexFile+ ".ser.gz"));
+        GZIPOutputStream gis = new GZIPOutputStream(new FileOutputStream("IndexFiles/" + indexFile+ ".ser.gz"));
         ObjectOutputStream out = new ObjectOutputStream(gis);
         // Method for serialization of object
 
         out.close();
         gis.close();
+
 
 
         RandomAccessFile stream = new RandomAccessFile("/media/nvme7n1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies/" + dbname +".json", "rw");
@@ -694,6 +695,7 @@ public class SecondaryIndex implements Serializable {
         StringBuilder sb = new StringBuilder();
         sb.append("{\"schemaElementToImprint\" : {\n");
         schemaElementToImprint.forEach((k, v) -> sb.append("\"").append(k.toString()).append("\" : ").append(v.size()).append(","));
+
         sb.deleteCharAt(sb.toString().length()-1);
         sb.append("}\n}");
         return sb.toString();
