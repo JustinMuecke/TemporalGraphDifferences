@@ -15,14 +15,18 @@ public class DBConnector {
     private static String serverPassword = "rootpwd";
 
 
-    public static Optional<List<ODatabaseSession>> getDatabaseSessions(String database){
-        List<ODatabaseSession> sessionList = new LinkedList<>();
+    public static Optional<List<Optional<ODatabaseSession>>> getDatabaseSessions(String database){
+        List<Optional<ODatabaseSession>> sessionList = new LinkedList<>();
         OrientDB databaseServer = new OrientDB(URL, serverUser, serverPassword, OrientDBConfig.defaultConfig());
 
-        for(int i = 0; i < databaseServer.list().size(); i++){
-            sessionList.add(getSingleSession(databaseServer, database+"-"+i));
-        }
-
+        for(int i = 0; i < 52; i++){
+	    try{
+            	sessionList.add(Optional.of(getSingleSession(databaseServer, database+"-"+i)));
+            }
+ 	    catch(Exception e){
+	        sessionList.add(Optional.empty());
+	    }
+	}
         return Optional.of(sessionList);
     }
 

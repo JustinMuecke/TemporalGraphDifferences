@@ -2,7 +2,8 @@ package datamodel;
 
 import com.orientechnologies.orient.core.db.ODatabaseSession;
 import com.orientechnologies.orient.core.exception.ODatabaseException;
-import metrics.Metric;
+import metrics.BinaryMetric;
+import metrics.UnaryMetric;
 import network.Queries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,6 +14,8 @@ import results.Result;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 
 public class ExtGraph {
@@ -20,75 +23,132 @@ public class ExtGraph {
     private static final Logger logger = LogManager.getLogger(ExtGraph.class);
 
     private final String name;
-    private final Graph<Integer, Edge> graph;
-    private HashMap<Integer, Integer[]> secondaryIndex;
-    private final HashMap<MetricTypes, Float> results;
-    private final HashMap<MetricTypes, Long> compTimes;
+    private final MultiGraph graph;
+    private HashMap<Integer, Integer> secondaryIndex;
+    private Graph<Integer, Edge> distinctGraph;
+    private final HashMap<MetricTypes, Float> unaryResults;
+    private final HashMap<MetricTypes, Long> unaryCompTimes;
+    private final HashMap<MetricTypes, Float> binaryResults;
+    private final HashMap<MetricTypes, Long> binaryCompTimes;
 
-    public ExtGraph(String name, Graph<Integer, Edge> graph, String path2secondaryIndex) {
+    public ExtGraph(String name, MultiGraph graph, Graph<Integer, Edge> distinctGraph, String path2secondaryIndex) {
         this.name = name;
         this.graph = graph;
+        this.distinctGraph = distinctGraph;
         try {
-            logger.info("PATH TO SECONDADRY: " + path2secondaryIndex);
-            this.secondaryIndex = SecondaryIndex.readFromJson(path2secondaryIndex).getSchemaElementToImprint();
+            this.secondaryIndex = Objects.requireNonNull(SecondaryIndex.readFromJson(path2secondaryIndex)).getSchemaElementToImprint();
+        } catch (NullPointerException e) {
+            logger.error("Couldnt read SecondaryIndex for " + name);
         }
-        catch(NullPointerException e){
-            logger.warn("Failed to read secondaryIndex");
-        }
-        results = new HashMap<>();
-        compTimes = new HashMap<>();
-
+        unaryResults = new HashMap<>();
+        unaryCompTimes = new HashMap<>();
+        binaryResults = new HashMap<>();
+        binaryCompTimes = new HashMap<>();
     }
 
-    public HashMap<MetricTypes, Float> getResults() {
-        return results;
+    public ExtGraph() {
+        this.name = "null";
+        this.graph = new MultiGraph();
+        this.distinctGraph = new DirectedMultigraph<>(Edge.class);
+        this.secondaryIndex = new HashMap<>();
+        unaryResults = new HashMap<>();
+        unaryCompTimes = new HashMap<>();
+        binaryResults = new HashMap<>();
+        binaryCompTimes = new HashMap<>();
+    }
+
+    public HashMap<MetricTypes, Float> getUnaryResults() {
+        return unaryResults;
     }
 
     public String getName() {
         return name;
     }
 
-    public Graph<Integer, Edge> getGraph() {
+    public MultiGraph getGraph() {
         return graph;
     }
 
-    public HashMap<Integer, Integer[]> getSecondaryIndex() {
+    public HashMap<Integer, Integer> getSecondaryIndex() {
         return secondaryIndex;
     }
 
-    public HashMap<MetricTypes, Long> getCompTimes() {
-        return compTimes;
+    public HashMap<MetricTypes, Long> getUnaryCompTimes() {
+        return unaryCompTimes;
     }
 
-    public static ExtGraph[] createGraphs(List<ODatabaseSession> sessionList){
+    public HashMap<MetricTypes, Float> getBinaryResults() {
+        return binaryResults;
+    }
+
+    public HashMap<MetricTypes, Long> getBinaryCompTimes() {
+        return binaryCompTimes;
+    }
+
+    public static ExtGraph[] createGraphs(List<Optional<ODatabaseSession>> sessionList) {
         ExtGraph[] extGraphs = new ExtGraph[sessionList.size()];
         long start = System.currentTimeMillis();
-        for(int i = 0; i < extGraphs.length; i++) {
-            Graph<Integer, Edge> graph = new DirectedMultigraph<>(Edge.class);
-            List<Integer> vertexList = Queries.getVertices(sessionList.get(i)).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
-            for(Integer v : vertexList)
-                graph.addVertex(v);
-            List<Edge> edgeList = Queries.getEdges(sessionList.get(i)).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Edges"));
-            for(Edge e : edgeList) {
-                graph.addEdge(e.getIn(), e.getOut(), e);
+        for (int i = 0; i < extGraphs.length; i++) {
+            if (sessionList.get(i).isEmpty()) {
+                extGraphs[i] = new ExtGraph();
+                continue;
             }
-            extGraphs[i] = new ExtGraph(sessionList.get(i).getName(), graph, "Indicies/" + sessionList.get(i).getName() + ".json");
-            extGraphs[i].getCompTimes().put(MetricTypes.GRPAH_CREATION, System.currentTimeMillis() - start);
+            ODatabaseSession session = sessionList.get(i).get();
+            System.out.println("[Graph] Creating Graph " + session.getName());
+            MultiGraph graph = new MultiGraph();
+            DirectedMultigraph<Integer, Edge> distinctGraph = new DirectedMultigraph<>(Edge.class);
+            List<Integer> vertexList = Queries.getVertices(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Vertices"));
+            for (Integer v : vertexList) {
+                graph.addVertex(v);
+                distinctGraph.addVertex(v);
+            }
+            System.out.println("[Graph] VertexList Size: " + vertexList.size());
+            List<Edge> edgeList = null;
+            try {
+                edgeList = Queries.getEdges(session).orElseThrow(() -> new ODatabaseException("Couldn't Fetch Edges"));
+            } catch (Exception e) {
+                System.out.println("[Graph] Couldn't Queary Edges");
+            }
+            if (edgeList == null) continue;
+            System.out.println("[Graph] Edgelist Size: " + edgeList.size());
+
+            for (Edge e : edgeList) {
+                try {
+                    graph.addEdge(e.getIn(), e.getOut(), e);
+                    distinctGraph.addEdge(e.getIn(), e.getOut(), e);
+                } catch (Exception exe) {
+                    System.out.println("[Graph] Coudln't create Edge");
+                }
+            }
+            System.out.println("[Graph] Edges in Graph: " + graph.edgeSet().size());
+
+            extGraphs[i] = new ExtGraph(session.getName(), graph,distinctGraph, "/media/nvme7n1/jmuecke/TemporalGraphDifferences/DiffernecesOfSummaries/Indicies/" + session.getName() + ".json");
+            extGraphs[i].getUnaryCompTimes().put(MetricTypes.GRPAH_CREATION, System.currentTimeMillis() - start);
         }
         return extGraphs;
     }
 
-    public void computeUnaryMetrics(Metric[] metrics){
-        for (Metric metric : metrics) {
+    public void computeUnaryMetrics(UnaryMetric[] metrics) {
+        for (UnaryMetric metric : metrics) {
             Result result = metric.compute(this);
             if (result != null) {
-                results.put(result.getMetric(), result.getDifference());
-                compTimes.put(result.getMetric(), result.getCompTime());
+                unaryResults.put(result.getMetric(), result.getDifference());
+                unaryCompTimes.put(result.getMetric(), result.getCompTime());
             }
         }
     }
 
+    public void computeBinaryMetrics(BinaryMetric[] metrics, ExtGraph referenceGraph) {
+        for (BinaryMetric metric : metrics) {
+            Result result = metric.compute(referenceGraph, this);
+            if (result != null) {
+                binaryResults.put(result.getMetric(), result.getDifference());
+                binaryCompTimes.put(result.getMetric(), result.getCompTime());
+            }
+        }
+    }
 
-
-
+    public Graph<Integer, Edge> getDistinctGraph() {
+        return distinctGraph;
+    }
 }
